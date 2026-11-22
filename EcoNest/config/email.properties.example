@@ -1,0 +1,11 @@
+# Copy to email.properties, or use Settings > E-mail inside the app (admin only).
+# SIMULATE = e-mails are only recorded in the Notification Centre (safe default)
+# SMTP     = really send e-mails (Gmail: smtp.gmail.com, port 587, STARTTLS, App Password)
+email.mode=SIMULATE
+smtp.host=smtp.gmail.com
+smtp.port=587
+smtp.security=STARTTLS
+smtp.username=
+smtp.password=
+mail.from.address=
+mail.from.name=EcoNest

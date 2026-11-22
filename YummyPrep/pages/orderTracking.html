@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>YummyPrep | Order Tracking</title>
+
+    <!-- Poppins Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- General CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Tracking CSS -->
+    <link rel="stylesheet" href="../css/orderTracking.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVIGATION -->
+
+    <header class="navbar">
+
+        <a href="../index.html" class="logo">
+            Yummy<span>Prep</span>
+        </a>
+
+
+        <nav class="nav-links">
+
+            <a href="../index.html">Home</a>
+
+            <a href="meals.html">Meals</a>
+
+            <a href="customize.html">Customize</a>
+
+            <a href="about.html">About</a>
+
+            <a href="contact.html">Contact</a>
+
+        </nav>
+
+
+        <div class="nav-buttons">
+
+            <a href="login.html" class="login-btn">
+                Login
+            </a>
+
+            <a href="cart.html" class="cart-btn">
+                🛒 Cart
+            </a>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- PAGE HEADER -->
+
+    <section class="tracking-header">
+
+        <p>YOUR ORDER STATUS</p>
+
+        <h1>
+            Track Your <span>Order</span>
+        </h1>
+
+        <p class="tracking-description">
+            Follow your YummyPrep order from preparation
+            to delivery.
+        </p>
+
+    </section>
+
+
+
+    <!-- TRACKING CONTENT -->
+
+    <main class="tracking-container">
+
+
+        <!-- ORDER SUMMARY -->
+
+        <section class="tracking-summary-card">
+
+            <div>
+
+                <span>ORDER NUMBER</span>
+
+                <strong id="trackingOrderId">
+                    #YP000000
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>DELIVERY DAY</span>
+
+                <strong id="trackingDeliveryDay">
+                    Today
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>TOTAL</span>
+
+                <strong id="trackingTotal">
+                    Rs. 0
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>STATUS</span>
+
+                <strong
+                    id="trackingStatus"
+                    class="status-badge preparing"
+                >
+                    Preparing
+                </strong>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- PROGRESS TRACKER -->
+
+        <section class="progress-card">
+
+            <div class="section-heading">
+
+                <p>ORDER PROGRESS</p>
+
+                <h2>
+                    From our kitchen to <span>your door.</span>
+                </h2>
+
+            </div>
+
+
+            <div class="tracking-progress">
+
+
+                <!-- STEP 1 -->
+
+                <div
+                    class="tracking-step"
+                    data-status="Confirmed"
+                >
+
+                    <div class="step-circle">
+                        ✓
+                    </div>
+
+                    <div class="step-text">
+
+                        <h3>
+                            Order Confirmed
+                        </h3>
+
+                        <p>
+                            We received your order.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- LINE -->
+
+                <div class="progress-line"></div>
+
+
+
+                <!-- STEP 2 -->
+
+                <div
+                    class="tracking-step"
+                    data-status="Preparing"
+                >
+
+                    <div class="step-circle">
+                        2
+                    </div>
+
+                    <div class="step-text">
+
+                        <h3>
+                            Preparing
+                        </h3>
+
+                        <p>
+                            Your meal is being freshly prepared.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- LINE -->
+
+                <div class="progress-line"></div>
+
+
+
+                <!-- STEP 3 -->
+
+                <div
+                    class="tracking-step"
+                    data-status="Packed"
+                >
+
+                    <div class="step-circle">
+                        3
+                    </div>
+
+                    <div class="step-text">
+
+                        <h3>
+                            Packed
+                        </h3>
+
+                        <p>
+                            Your meal is packed and ready.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- LINE -->
+
+                <div class="progress-line"></div>
+
+
+
+                <!-- STEP 4 -->
+
+                <div
+                    class="tracking-step"
+                    data-status="Out for Delivery"
+                >
+
+                    <div class="step-circle">
+                        4
+                    </div>
+
+                    <div class="step-text">
+
+                        <h3>
+                            Out for Delivery
+                        </h3>
+
+                        <p>
+                            Your order is on the way.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- LINE -->
+
+                <div class="progress-line"></div>
+
+
+
+                <!-- STEP 5 -->
+
+                <div
+                    class="tracking-step"
+                    data-status="Delivered"
+                >
+
+                    <div class="step-circle">
+                        5
+                    </div>
+
+                    <div class="step-text">
+
+                        <h3>
+                            Delivered
+                        </h3>
+
+                        <p>
+                            Your YummyPrep meal has arrived.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ORDER ITEMS -->
+
+        <section class="tracking-items-card">
+
+            <div class="section-heading">
+
+                <p>YOUR ORDER</p>
+
+                <h2>
+                    Order <span>Items</span>
+                </h2>
+
+            </div>
+
+
+            <div id="trackingItems">
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ACTION BUTTONS -->
+
+        <div class="tracking-actions">
+
+            <a
+                href="orderHistory.html"
+                class="secondary-btn"
+            >
+                ← Order History
+            </a>
+
+
+            <a
+                href="profile.html"
+                class="primary-btn"
+            >
+                Back to Profile
+            </a>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="footer-brand">
+
+            <h2>
+                Yummy<span>Prep</span>
+            </h2>
+
+            <p>
+                Fresh meals. Your choices.
+                Your way.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>Explore</h4>
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="meals.html">
+                Meals
+            </a>
+
+            <a href="customize.html">
+                Customize
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>Company</h4>
+
+            <a href="about.html">
+                About Us
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>Account</h4>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+            <a href="orderHistory.html">
+                Order History
+            </a>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- Tracking JavaScript -->
+
+    <script src="../js/script.js"></script>
+<script src="../js/orderTracking.js"></script>
+
+
+</body>
+
+</html>

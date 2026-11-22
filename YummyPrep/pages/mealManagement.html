@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>YummyPrep | Meal Management</title>
+
+    <!-- Poppins Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Meal Management CSS -->
+    <link
+        rel="stylesheet"
+        href="../css/mealManagement.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="admin-layout">
+
+
+    <!-- SIDEBAR -->
+
+    <aside class="admin-sidebar">
+
+
+        <div class="sidebar-logo">
+
+            <a href="adminDashboard.html">
+                Yummy<span>Prep</span>
+            </a>
+
+            <p>
+                ADMIN PANEL
+            </p>
+
+        </div>
+
+
+
+        <nav class="admin-nav">
+
+
+            <a
+                href="adminDashboard.html"
+                class="admin-nav-link"
+            >
+                <span>▦</span>
+                Dashboard
+            </a>
+
+
+            <a
+                href="userManagement.html"
+                class="admin-nav-link"
+            >
+                <span>♙</span>
+                Users
+            </a>
+
+
+            <a
+                href="mealManagement.html"
+                class="admin-nav-link active"
+            >
+                <span>◉</span>
+                Meals
+            </a>
+
+
+            <a
+                href="orderManagement.html"
+                class="admin-nav-link"
+            >
+                <span>□</span>
+                Orders
+            </a>
+
+
+            <a
+                href="promotionManagement.html"
+                class="admin-nav-link"
+            >
+                <span>%</span>
+                Promotions
+            </a>
+
+
+            <a
+                href="faqManagement.html"
+                class="admin-nav-link"
+            >
+                <span>?</span>
+                FAQs
+            </a>
+
+
+        </nav>
+
+
+
+        <div class="sidebar-bottom">
+
+
+            <a
+                href="meals.html"
+                class="view-site-link"
+            >
+                View Meals →
+            </a>
+
+
+            <button
+                type="button"
+                id="logoutBtn"
+                class="logout-btn"
+            >
+                Logout
+            </button>
+
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="admin-main">
+
+
+        <!-- PAGE HEADER -->
+
+        <header class="page-header">
+
+
+            <div>
+
+                <p>
+                    MENU MANAGEMENT
+                </p>
+
+                <h1>
+                    Meal Management
+                </h1>
+
+                <span>
+                    Add, edit, remove and manage YummyPrep meals.
+                </span>
+
+            </div>
+
+
+
+            <button
+                type="button"
+                id="addMealBtn"
+                class="add-meal-btn"
+            >
+                + Add New Meal
+            </button>
+
+
+        </header>
+
+
+
+        <!-- MEAL STATISTICS -->
+
+        <section class="meal-stats">
+
+
+            <!-- TOTAL -->
+
+            <div class="meal-stat-card">
+
+                <span>
+                    TOTAL MEALS
+                </span>
+
+                <strong id="totalMeals">
+                    0
+                </strong>
+
+                <p>
+                    Menu items
+                </p>
+
+            </div>
+
+
+
+            <!-- AVAILABLE -->
+
+            <div class="meal-stat-card">
+
+                <span>
+                    AVAILABLE
+                </span>
+
+                <strong id="availableMeals">
+                    0
+                </strong>
+
+                <p>
+                    Currently available
+                </p>
+
+            </div>
+
+
+
+            <!-- UNAVAILABLE -->
+
+            <div class="meal-stat-card">
+
+                <span>
+                    UNAVAILABLE
+                </span>
+
+                <strong id="unavailableMeals">
+                    0
+                </strong>
+
+                <p>
+                    Hidden from customers
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- SEARCH AND FILTERS -->
+
+        <section class="meal-controls">
+
+
+            <!-- SEARCH -->
+
+            <input
+                type="text"
+                id="mealSearch"
+                placeholder="Search meals..."
+            >
+
+
+
+            <!-- CATEGORY -->
+
+            <select id="categoryFilter">
+
+                <option value="all">
+                    All Categories
+                </option>
+
+                <option value="Rice Bowl">
+                    Rice Bowls
+                </option>
+
+                <option value="Salad">
+                    Salads
+                </option>
+
+                <option value="Grain Bowl">
+                    Grain Bowls
+                </option>
+
+                <option value="Bread-Based">
+                    Bread-Based
+                </option>
+
+                <option value="Beverage">
+                    Beverages
+                </option>
+
+            </select>
+
+
+            <!-- AVAILABILITY -->
+
+            <select id="availabilityFilter">
+
+                <option value="all">
+                    All Availability
+                </option>
+
+                <option value="Available">
+                    Available
+                </option>
+
+                <option value="Unavailable">
+                    Unavailable
+                </option>
+
+            </select>
+
+        </section>
+
+
+        <!-- MEAL GRID (filled by mealManagement.js) -->
+
+        <section
+            id="mealGrid"
+            class="meal-grid">
+        </section>
+
+    </main>
+
+</div>
+
+
+
+<!-- ADD / EDIT MEAL MODAL -->
+
+<div
+    class="meal-modal"
+    id="mealModal">
+
+    <div class="modal-box">
+
+        <div class="modal-heading">
+
+            <div>
+                <p>
+                    MEAL ITEM
+                </p>
+
+                <h2 id="modalTitle">
+                    Add New Meal
+                </h2>
+            </div>
+
+            <button
+                type="button"
+                id="closeModalBtn"
+                class="close-modal-btn">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <form id="mealForm">
+
+            <input
+                type="hidden"
+                id="mealId">
+
+
+            <div class="form-group">
+
+                <label for="mealName">
+                    Meal Name
+                </label>
+
+                <input
+                    type="text"
+                    id="mealName"
+                    placeholder="Enter meal name"
+                    maxlength="100"
+                    required>
+
+            </div>
+
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label for="mealPrice">
+                        Price (Rs.)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="mealPrice"
+                        placeholder="e.g. 1450"
+                        min="1"
+                        step="0.01"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="mealCategory">
+                        Category
+                    </label>
+
+                    <select
+                        id="mealCategory"
+                        required>
+
+                        <option value="Rice Bowl">
+                            Rice Bowl
+                        </option>
+
+                        <option value="Salad">
+                            Salad
+                        </option>
+
+                        <option value="Grain Bowl">
+                            Grain Bowl
+                        </option>
+
+                        <option value="Bread-Based">
+                            Bread-Based
+                        </option>
+
+                        <option value="Beverage">
+                            Beverage
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label for="mealStatus">
+                        Availability
+                    </label>
+
+                    <select id="mealStatus">
+
+                        <option value="Available">
+                            Available
+                        </option>
+
+                        <option value="Unavailable">
+                            Unavailable
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="mealImage">
+                        Image Path
+                    </label>
+
+                    <input
+                        type="text"
+                        id="mealImage"
+                        placeholder="../images/riceBowl1.jpeg">
+
+                    <small>
+                        Use a file from the images folder, e.g. ../images/salad1.jpeg
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="mealDescription">
+                    Description
+                </label>
+
+                <textarea
+                    id="mealDescription"
+                    rows="4"
+                    placeholder="Describe the meal"
+                    maxlength="1000"></textarea>
+
+            </div>
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    id="cancelMealBtn"
+                    class="cancel-btn">
+
+                    Cancel
+
+                </button>
+
+                <button
+                    type="submit"
+                    class="save-meal-btn">
+
+                    Save Meal
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script src="../js/mealManagement.js"></script>
+
+</body>
+</html>

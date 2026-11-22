@@ -1,0 +1,456 @@
+/* =========================================
+   YUMMYPREP - PRIVACY POLICY
+   ========================================= */
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.privacy-header {
+
+    padding: 90px 7% 65px;
+
+    text-align: center;
+
+    background: #f8f7f2;
+}
+
+
+.privacy-header > p:first-child {
+
+    color: #7c955c;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
+}
+
+
+.privacy-header h1 {
+
+    color: #242424;
+
+    font-size: 52px;
+
+    margin-bottom: 18px;
+}
+
+
+.privacy-header h1 span {
+
+    color: #7c955c;
+}
+
+
+.privacy-description {
+
+    max-width: 680px;
+
+    margin: 0 auto;
+
+    color: #777;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+
+/* =========================================
+   MAIN CONTAINER
+   ========================================= */
+
+.privacy-container {
+
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    padding: 75px 7% 100px;
+}
+
+
+
+/* =========================================
+   POLICY CARD
+   ========================================= */
+
+.policy-card {
+
+    display: grid;
+
+    grid-template-columns:
+        70px 1fr;
+
+    gap: 25px;
+
+    padding: 35px;
+
+    margin-bottom: 20px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    border: 1px solid #eeeeea;
+
+    box-shadow:
+        0 7px 25px rgba(0,0,0,0.045);
+
+    transition: 0.3s;
+}
+
+
+.policy-card:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,0.07);
+}
+
+
+
+/* =========================================
+   NUMBER
+   ========================================= */
+
+.policy-number {
+
+    width: 54px;
+
+    height: 54px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: #eef2e7;
+
+    color: #638044;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+
+
+/* =========================================
+   POLICY CONTENT
+   ========================================= */
+
+.policy-content h2 {
+
+    color: #242424;
+
+    font-size: 21px;
+
+    margin-bottom: 13px;
+}
+
+
+.policy-content p {
+
+    color: #777;
+
+    font-size: 13px;
+
+    line-height: 1.9;
+
+    margin-bottom: 12px;
+}
+
+
+.policy-content p:last-child {
+
+    margin-bottom: 0;
+}
+
+
+.policy-content ul {
+
+    margin-top: 16px;
+
+    padding-left: 0;
+
+    list-style: none;
+}
+
+
+.policy-content li {
+
+    position: relative;
+
+    padding-left: 23px;
+
+    margin-bottom: 10px;
+
+    color: #666;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+.policy-content li::before {
+
+    content: "✓";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    color: #738c52;
+
+    font-weight: 700;
+}
+
+
+
+/* =========================================
+   CONTACT SECTION
+   ========================================= */
+
+.privacy-contact {
+
+    margin-top: 55px;
+
+    padding: 60px 40px;
+
+    border-radius: 22px;
+
+    text-align: center;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            rgba(46,61,35,0.92),
+            rgba(46,61,35,0.92)
+        ),
+        url("../images/bigimage.jpeg");
+
+    background-size: cover;
+
+    background-position: center;
+}
+
+
+.privacy-contact > p:first-child {
+
+    color: #bdd399;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 12px;
+}
+
+
+.privacy-contact h2 {
+
+    font-size: 35px;
+
+    margin-bottom: 14px;
+}
+
+
+.privacy-contact > p:nth-of-type(2) {
+
+    max-width: 600px;
+
+    margin: 0 auto 18px;
+
+    color: #e3e3e3;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+
+/* =========================================
+   CONTACT DETAILS
+   ========================================= */
+
+.privacy-contact-details {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+}
+
+
+.privacy-contact-details a {
+
+    color: #bdd399;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+.privacy-contact-details a:hover {
+
+    color: white;
+}
+
+
+.privacy-contact-details span {
+
+    color: #aaa;
+}
+
+
+
+/* =========================================
+   CONTACT BUTTON
+   ========================================= */
+
+.contact-btn {
+
+    display: inline-block;
+
+    padding: 13px 25px;
+
+    border-radius: 30px;
+
+    background: white;
+
+    color: #526b3b;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+
+.contact-btn:hover {
+
+    background: #bdd399;
+
+    transform: translateY(-2px);
+}
+
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 800px) {
+
+    .privacy-header h1 {
+
+        font-size: 44px;
+    }
+
+
+    .policy-card {
+
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+}
+
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .privacy-header {
+
+        padding: 70px 6% 50px;
+    }
+
+
+    .privacy-header h1 {
+
+        font-size: 37px;
+    }
+
+
+    .privacy-container {
+
+        padding: 55px 6% 75px;
+    }
+
+
+    .policy-card {
+
+        padding: 25px;
+
+        border-radius: 15px;
+    }
+
+
+    .policy-content h2 {
+
+        font-size: 19px;
+    }
+
+
+    .privacy-contact {
+
+        padding: 50px 25px;
+    }
+
+
+    .privacy-contact h2 {
+
+        font-size: 29px;
+    }
+
+
+    .privacy-contact-details {
+
+        flex-direction: column;
+    }
+
+
+    .privacy-contact-details span {
+
+        display: none;
+    }
+
+}

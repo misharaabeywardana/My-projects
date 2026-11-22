@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>YummyPrep | Admin Login</title>
+
+
+    <!-- Poppins Font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Admin Login CSS -->
+
+    <link rel="stylesheet" href="../css/adminLogin.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ADMIN LOGIN PAGE-->
+
+    <main class="admin-login-page">
+
+
+        <div class="admin-login-container">
+
+
+            <!-- LEFT SIDE -->
+
+            <section class="admin-brand-section">
+
+
+                <a href="../index.html" class="admin-logo">
+
+                    Yummy<span>Prep</span>
+
+                </a>
+
+
+                <div class="brand-content">
+
+                    <p class="admin-label">
+                        MANAGEMENT PORTAL
+                    </p>
+
+
+                    <h1>
+
+                        Manage YummyPrep
+
+                        <span>
+                            With Ease.
+                        </span>
+
+                    </h1>
+
+
+                    <p class="brand-description">
+
+                        Access the YummyPrep administration system
+                        to manage customers, meals, orders,
+                        promotions and frequently asked questions.
+
+                    </p>
+
+
+
+                    <div class="admin-features">
+
+
+                        <div class="feature-item">
+
+                            <span>✓</span>
+
+                            <p>
+                                Manage customer accounts
+                            </p>
+
+                        </div>
+
+
+                        <div class="feature-item">
+
+                            <span>✓</span>
+
+                            <p>
+                                Update meals and orders
+                            </p>
+
+                        </div>
+
+
+                        <div class="feature-item">
+
+                            <span>✓</span>
+
+                            <p>
+                                Manage promotions and FAQs
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <p class="portal-note">
+
+                    Authorized personnel only
+
+                </p>
+
+
+            </section>
+
+
+
+            <!-- RIGHT SIDE -->
+
+            <section class="admin-form-section">
+
+
+                <div class="admin-form-wrapper">
+
+
+                    <div class="form-heading">
+
+                        <p>
+                            ADMINISTRATOR ACCESS
+                        </p>
+
+                        <h2>
+                            Welcome Back
+                        </h2>
+
+                        <span>
+                            Enter your administrator credentials
+                            to continue.
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- ERROR MESSAGE -->
+
+                    <div
+                        id="loginMessage"
+                        class="login-message"
+                    >
+                    </div>
+
+
+
+                    <!-- LOGIN FORM -->
+
+                    <form id="adminLoginForm">
+
+
+                        <!-- EMAIL -->
+
+                        <div class="form-group">
+
+                            <label for="adminEmail">
+                                Admin Email
+                            </label>
+
+                            <input
+                                type="email"
+                                id="adminEmail"
+                                placeholder="Enter admin email"
+                                required
+                            >
+
+                        </div>
+
+
+
+                        <!-- PASSWORD -->
+
+                        <div class="form-group">
+
+                            <label for="adminPassword">
+                                Password
+                            </label>
+
+
+                            <div class="password-field">
+
+                                <input
+                                    type="password"
+                                    id="adminPassword"
+                                    placeholder="Enter password"
+                                    required
+                                >
+
+
+                                <button
+                                    type="button"
+                                    id="togglePassword"
+                                    class="password-toggle"
+                                >
+                                    Show
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- OPTIONS -->
+
+                        <div class="admin-options">
+
+                            <label class="remember-admin">
+
+                                <input
+                                    type="checkbox"
+                                    id="rememberAdmin"
+                                >
+
+                                <span>
+                                    Remember me
+                                </span>
+
+                            </label>
+
+
+                            <a href="contact.html">
+                                Need Help?
+                            </a>
+
+                        </div>
+
+
+
+                        <!-- LOGIN BUTTON -->
+
+                        <button
+                            type="submit"
+                            class="admin-login-btn"
+                        >
+
+                            Access Dashboard →
+
+                        </button>
+
+
+                    </form>
+
+
+
+                    <!-- CUSTOMER WEBSITE -->
+
+                    <div class="customer-site-link">
+
+                        <span>
+                            Not an administrator?
+                        </span>
+
+                        <a href="../index.html">
+                            Return to YummyPrep
+                        </a>
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="../js/adminLogin.js"></script>
+
+
+</body>
+
+</html>

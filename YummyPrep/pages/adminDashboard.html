@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>YummyPrep | Admin Dashboard</title>
+
+
+    <!-- Poppins Font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Dashboard CSS -->
+
+    <link rel="stylesheet" href="../css/adminDashboard.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- ADMIN LAYOUT-->
+
+    <div class="admin-layout">
+
+
+        <!-- SIDEBAR-->
+
+        <aside class="admin-sidebar">
+
+
+            <!-- LOGO -->
+
+            <div class="sidebar-logo">
+
+                <a href="adminDashboard.html">
+
+                    Yummy<span>Prep</span>
+
+                </a>
+
+                <p>
+                    ADMIN PANEL
+                </p>
+
+            </div>
+
+
+
+            <!-- NAVIGATION -->
+
+            <nav class="admin-nav">
+
+
+                <a
+                    href="adminDashboard.html"
+                    class="admin-nav-link active"
+                >
+
+                    <span class="nav-icon">
+                        ▦
+                    </span>
+
+                    Dashboard
+
+                </a>
+
+
+
+                <a
+                    href="userManagement.html"
+                    class="admin-nav-link"
+                >
+
+                    <span class="nav-icon">
+                        ♙
+                    </span>
+
+                    Users
+
+                </a>
+
+
+
+                <a
+                    href="mealManagement.html"
+                    class="admin-nav-link"
+                >
+
+                    <span class="nav-icon">
+                        ◉
+                    </span>
+
+                    Meals
+
+                </a>
+
+
+
+                <a
+                    href="orderManagement.html"
+                    class="admin-nav-link"
+                >
+
+                    <span class="nav-icon">
+                        □
+                    </span>
+
+                    Orders
+
+                </a>
+
+
+
+                <a
+                    href="promotionManagement.html"
+                    class="admin-nav-link"
+                >
+
+                    <span class="nav-icon">
+                        %
+                    </span>
+
+                    Promotions
+
+                </a>
+
+
+
+                <a
+                    href="faqManagement.html"
+                    class="admin-nav-link"
+                >
+
+                    <span class="nav-icon">
+                        ?
+                    </span>
+
+                    FAQs
+
+                </a>
+
+
+            </nav>
+
+
+
+            <!-- SIDEBAR BOTTOM -->
+
+            <div class="sidebar-bottom">
+
+
+                <a
+                    href="../index.html"
+                    class="view-site-link"
+                >
+                    View Website →
+                </a>
+
+
+                <button
+                    type="button"
+                    id="logoutBtn"
+                    class="logout-btn"
+                >
+
+                    Logout
+
+                </button>
+
+
+            </div>
+
+
+        </aside>
+
+
+
+        <!--MAIN CONTENT-->
+
+        <main class="admin-main">
+
+
+            <!-- TOP BAR-->
+
+            <header class="admin-topbar">
+
+
+                <div>
+
+                    <p class="topbar-label">
+                        ADMINISTRATION
+                    </p>
+
+                    <h1>
+                        Dashboard
+                    </h1>
+
+                </div>
+
+
+                <div class="admin-profile">
+
+                    <div class="admin-avatar">
+                        A
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Administrator
+                        </strong>
+
+                        <span>
+                            YummyPrep Admin
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </header>
+
+
+
+            <!--WELCOME BANNER-->
+
+            <section class="dashboard-welcome">
+
+                <div>
+
+                    <p>
+                        WELCOME BACK
+                    </p>
+
+                    <h2>
+                        Here's what's happening with
+                        <span>YummyPrep today.</span>
+                    </h2>
+
+                </div>
+
+
+                <a
+                    href="orderManagement.html"
+                    class="welcome-button"
+                >
+                    Manage Orders →
+                </a>
+
+            </section>
+
+
+
+            <!-- STATISTICS-->
+
+            <section class="stats-grid">
+
+
+                <!-- USERS -->
+
+                <div class="stat-card">
+
+                    <div class="stat-top">
+
+                        <span>
+                            TOTAL USERS
+                        </span>
+
+                        <div class="stat-icon">
+                            ♙
+                        </div>
+
+                    </div>
+
+                    <strong id="totalUsers">
+                        124
+                    </strong>
+
+                    <p>
+                        Registered customers
+                    </p>
+
+                </div>
+
+
+
+                <!-- MEALS -->
+
+                <div class="stat-card">
+
+                    <div class="stat-top">
+
+                        <span>
+                            MEALS
+                        </span>
+
+                        <div class="stat-icon">
+                            ◉
+                        </div>
+
+                    </div>
+
+                    <strong id="totalMeals">
+                        14
+                    </strong>
+
+                    <p>
+                        Available menu items
+                    </p>
+
+                </div>
+
+
+
+                <!-- ORDERS -->
+
+                <div class="stat-card">
+
+                    <div class="stat-top">
+
+                        <span>
+                            TOTAL ORDERS
+                        </span>
+
+                        <div class="stat-icon">
+                            □
+                        </div>
+
+                    </div>
+
+                    <strong id="totalOrders">
+                        0
+                    </strong>
+
+                    <p>
+                        Customer orders
+                    </p>
+
+                </div>
+
+
+
+                <!-- REVENUE -->
+
+                <div class="stat-card">
+
+                    <div class="stat-top">
+
+                        <span>
+                            REVENUE
+                        </span>
+
+                        <div class="stat-icon">
+                            Rs
+                        </div>
+
+                    </div>
+
+                    <strong id="totalRevenue">
+                        Rs. 0
+                    </strong>
+
+                    <p>
+                        Total order value
+                    </p>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!--DASHBOARD GRID-->
+
+            <section class="dashboard-grid">
+
+
+                <!--RECENT ORDERS-->
+
+                <div class="dashboard-card recent-orders-card">
+
+
+                    <div class="dashboard-card-heading">
+
+                        <div>
+
+                            <p>
+                                LIVE ACTIVITY
+                            </p>
+
+                            <h2>
+                                Recent Orders
+                            </h2>
+
+                        </div>
+
+
+                        <a href="orderManagement.html">
+                            View All →
+                        </a>
+
+                    </div>
+
+
+
+                    <div
+                        id="recentOrders"
+                        class="recent-orders"
+                    >
+
+                        <!-- JavaScript inserts orders here -->
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- QUICK ACTIONS-->
+
+                <div class="dashboard-card quick-actions-card">
+
+
+                    <div class="dashboard-card-heading">
+
+                        <div>
+
+                            <p>
+                                SHORTCUTS
+                            </p>
+
+                            <h2>
+                                Quick Actions
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="admin-quick-actions">
+
+
+                        <a
+                            href="mealManagement.html"
+                            class="quick-action"
+                        >
+
+                            <div class="quick-action-icon">
+                                +
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Add Meal
+                                </h3>
+
+                                <p>
+                                    Create a new menu item
+                                </p>
+
+                            </div>
+
+                            <span>
+                                →
+                            </span>
+
+                        </a>
+
+
+
+                        <a
+                            href="orderManagement.html"
+                            class="quick-action"
+                        >
+
+                            <div class="quick-action-icon">
+                                □
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Manage Orders
+                                </h3>
+
+                                <p>
+                                    Update customer orders
+                                </p>
+
+                            </div>
+
+                            <span>
+                                →
+                            </span>
+
+                        </a>
+
+
+
+                        <a
+                            href="promotionManagement.html"
+                            class="quick-action"
+                        >
+
+                            <div class="quick-action-icon">
+                                %
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Add Promotion
+                                </h3>
+
+                                <p>
+                                    Create offers and discounts
+                                </p>
+
+                            </div>
+
+                            <span>
+                                →
+                            </span>
+
+                        </a>
+
+
+
+                        <a
+                            href="faqManagement.html"
+                            class="quick-action"
+                        >
+
+                            <div class="quick-action-icon">
+                                ?
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Manage FAQs
+                                </h3>
+
+                                <p>
+                                    Update help content
+                                </p>
+
+                            </div>
+
+                            <span>
+                                →
+                            </span>
+
+                        </a>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- ORDER STATUS OVERVIEW-->
+
+            <section class="dashboard-card status-overview-card">
+
+
+                <div class="dashboard-card-heading">
+
+                    <div>
+
+                        <p>
+                            ORDER OVERVIEW
+                        </p>
+
+                        <h2>
+                            Current Order Status
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="status-grid">
+
+
+                    <div class="status-card">
+
+                        <span class="status-dot preparing"></span>
+
+                        <div>
+
+                            <strong id="preparingCount">
+                                0
+                            </strong>
+
+                            <p>
+                                Preparing
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="status-card">
+
+                        <span class="status-dot packed"></span>
+
+                        <div>
+
+                            <strong id="packedCount">
+                                0
+                            </strong>
+
+                            <p>
+                                Packed
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="status-card">
+
+                        <span class="status-dot delivery"></span>
+
+                        <div>
+
+                            <strong id="deliveryCount">
+                                0
+                            </strong>
+
+                            <p>
+                                Out for Delivery
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="status-card">
+
+                        <span class="status-dot delivered"></span>
+
+                        <div>
+
+                            <strong id="deliveredCount">
+                                0
+                            </strong>
+
+                            <p>
+                                Delivered
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+        </main>
+
+
+    </div>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="../js/adminDashboard.js"></script>
+
+
+</body>
+
+</html>

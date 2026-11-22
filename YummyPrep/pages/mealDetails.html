@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>YummyPrep | Meal Details</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Main Website CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Meal Details CSS -->
+    <link rel="stylesheet" href="../css/mealDetails.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVIGATION BAR  -->
+
+    <header class="navbar">
+
+        <a href="../index.html" class="logo">
+            Yummy<span>Prep</span>
+        </a>
+
+
+        <nav class="nav-links">
+
+            <a href="../index.html">Home</a>
+
+            <a href="meals.html">Meals</a>
+
+            <a href="customize.html">Customize</a>
+
+            <a href="about.html">About</a>
+
+            <a href="contact.html">Contact</a>
+
+        </nav>
+
+
+        <div class="nav-buttons">
+
+            <a href="login.html" class="login-btn">
+                Login
+            </a>
+
+            <a href="cart.html" class="cart-btn">
+                🛒 Cart
+            </a>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- MEAL DETAILS -->
+
+    <main class="meal-details-page">
+
+
+        <!-- LEFT SIDE - IMAGE -->
+
+        <div class="meal-details-image">
+
+            <img id="mealImage"
+                 src="../images/chickenBowl1.jpeg"
+                 alt="Meal">
+
+        </div>
+
+
+
+        <!-- RIGHT SIDE - INFORMATION -->
+
+        <div class="meal-details-content">
+
+
+            <p class="meal-label">
+                YUMMYPREP MEAL
+            </p>
+
+
+            <h1 id="mealName">
+                Grilled Chicken Rice Bowl
+            </h1>
+
+
+            <p id="mealDescription" class="meal-description">
+                Tender grilled chicken served with wholesome rice,
+                fresh vegetables and a delicious sauce.
+            </p>
+
+
+            <div class="meal-price" id="mealPrice">
+                Rs. 1250
+            </div>
+
+
+
+            <!-- INGREDIENTS -->
+
+            <div class="details-box">
+
+                <h2>What's Inside?</h2>
+
+                <ul id="mealIngredients">
+
+                    <li>Grilled chicken</li>
+                    <li>Wholesome rice</li>
+                    <li>Fresh vegetables</li>
+                    <li>Fresh herbs</li>
+                    <li>House sauce</li>
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- NUTRITION -->
+
+            <div class="details-box">
+
+                <h2>Nutrition</h2>
+
+
+                <div class="nutrition-grid">
+
+                    <div class="nutrition-item">
+
+                        <strong id="calories">
+                            520
+                        </strong>
+
+                        <span>
+                            Calories
+                        </span>
+
+                    </div>
+
+
+                    <div class="nutrition-item">
+
+                        <strong id="protein">
+                            38g
+                        </strong>
+
+                        <span>
+                            Protein
+                        </span>
+
+                    </div>
+
+
+                    <div class="nutrition-item">
+
+                        <strong id="carbs">
+                            55g
+                        </strong>
+
+                        <span>
+                            Carbs
+                        </span>
+
+                    </div>
+
+
+                    <div class="nutrition-item">
+
+                        <strong id="fat">
+                            15g
+                        </strong>
+
+                        <span>
+                            Fat
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- QUANTITY -->
+
+            <div class="quantity-section">
+
+                <h3>
+                    Quantity
+                </h3>
+
+
+                <div class="quantity-control">
+
+                    <button onclick="decreaseQuantity()">
+                        −
+                    </button>
+
+                    <span id="quantity">
+                        1
+                    </span>
+
+                    <button onclick="increaseQuantity()">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- BUTTONS -->
+
+            <div class="meal-actions">
+
+                <button class="add-cart-btn" onclick="addToCart()">
+                    Add to Cart
+                </button>
+
+
+                <a href="customize.html" class="customize-btn">
+                    Customize This Meal
+                </a>
+
+            </div>
+
+
+            <a href="meals.html" class="back-meals">
+                ← Back to Meals
+            </a>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+
+        <div class="footer-brand">
+
+            <h2>
+                Yummy<span>Prep</span>
+            </h2>
+
+            <p>
+                Fresh meals. Your choices.
+                Your way.
+            </p>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h4>Explore</h4>
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="meals.html">
+                Meals
+            </a>
+
+            <a href="customize.html">
+                Customize
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h4>Company</h4>
+
+            <a href="about.html">
+                About Us
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h4>Account</h4>
+
+            <a href="login.html">
+                Login
+            </a>
+
+            <a href="cart.html">
+                Cart
+            </a>
+
+        </div>
+
+
+    </footer>
+
+
+
+    <!-- IMPORTANT: JavaScript -->
+    <script src="../js/script.js"></script>
+<script src="../js/mealDetails.js"></script>
+
+
+</body>
+
+</html>

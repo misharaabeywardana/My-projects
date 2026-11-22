@@ -1,0 +1,341 @@
+body{
+    font-family: "Poppins", sans-serif;
+}
+
+.login-page {
+
+    min-height: 720px;
+
+    padding: 80px 7%;
+
+    background: #f8f7f2;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* =========================================
+   LOGIN CONTAINER
+   ========================================= */
+
+.login-container {
+
+    width: 100%;
+
+    max-width: 1100px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    background: white;
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,0.08);
+}
+
+
+/* =========================================
+   LEFT SIDE
+   ========================================= */
+
+.login-info {
+
+    padding: 70px;
+
+    background:
+        linear-gradient(
+            rgba(50,65,38,0.88),
+            rgba(50,65,38,0.88)
+        ),
+        url("../images/healthyFood7.jpeg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    color: white;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+
+/* =========================================
+   LABEL
+   ========================================= */
+
+.login-label {
+
+    color: #bdd399;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   HEADING
+   ========================================= */
+
+.login-info h1 {
+
+    font-size: 48px;
+
+    line-height: 1.15;
+
+    margin-bottom: 25px;
+}
+
+
+.login-info h1 span {
+
+    color: #bdd399;
+}
+
+
+/* =========================================
+   DESCRIPTION
+   ========================================= */
+
+.login-info > p:not(.login-label) {
+
+    color: #e5e5e5;
+
+    line-height: 1.8;
+
+    max-width: 430px;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================================
+   HIGHLIGHT
+   ========================================= */
+
+.login-highlight {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.login-highlight span {
+
+    width: 30px;
+
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #8ba663;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+
+.login-highlight p {
+
+    color: #f0f0f0;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   LOGIN CARD
+   ========================================= */
+
+.login-card {
+
+    padding: 70px 65px;
+
+    background: white;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+/* =========================================
+   LOGIN BUTTON
+   ========================================= */
+
+.login-submit {
+
+    width: 100%;
+
+    display: block;
+
+    padding: 14px 20px;
+
+    margin-top: 5px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: #738c52;
+
+    color: white;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+    appearance: none;
+
+    -webkit-appearance: none;
+}
+
+
+.login-submit:hover {
+
+    background: #638044;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(99,128,68,0.20);
+}
+
+
+.login-submit:active {
+
+    transform: translateY(0);
+
+    box-shadow: none;
+}
+
+/* =========================================
+   FORM HEADING
+   ========================================= */
+
+.form-heading {
+
+    margin-bottom: 35px;
+}
+
+
+.form-heading h2 {
+
+    font-size: 30px;
+
+    color: #242424;
+
+    margin-bottom: 8px;
+}
+
+
+.form-heading p {
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   FORM GROUP
+   ========================================= */
+
+.form-group {
+
+    margin-bottom: 22px;
+}
+
+
+.form-group label {
+
+    display: block;
+
+    color: #333;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    margin-bottom: 8px;
+}
+
+
+.form-group input {
+
+    width: 100%;
+
+    padding: 14px 15px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: #fafafa;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 13px;
+
+    transition: 0.3s;
+}
+
+
+.form-group input:focus {
+
+    border-color: #8ba663;
+
+    background: white;
+
+    box-shadow:
+        0 0 0 3px rgba(139,166,99,0.12);
+}
+
+
+.form-group input::placeholder {
+
+    color: #aaa;
+}
+
+
+/*

@@ -1,0 +1,5 @@
+# Copy to db.properties (the app also creates it automatically on first run).
+# XAMPP default: user root, empty password.
+db.url=jdbc:mysql://localhost:3306/econest_db
+db.user=root
+db.password=

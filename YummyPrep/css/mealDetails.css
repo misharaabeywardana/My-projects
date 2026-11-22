@@ -1,0 +1,545 @@
+/* =========================================
+   YUMMYPREP - MEAL DETAILS PAGE
+   ========================================= */
+
+
+/* =========================================
+   PAGE
+   ========================================= */
+
+.meal-details-page {
+
+    min-height: 750px;
+
+    padding: 90px 7%;
+
+    background: #f8f7f2;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 70px;
+
+    align-items: center;
+
+}
+
+
+/* =========================================
+   IMAGE
+   ========================================= */
+
+.meal-details-image {
+
+    width: 100%;
+
+    height: 560px;
+
+    border-radius: 28px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.12);
+
+}
+
+
+.meal-details-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: 0.5s;
+
+}
+
+
+.meal-details-image:hover img {
+
+    transform: scale(1.03);
+
+}
+
+
+/* =========================================
+   CONTENT
+   ========================================= */
+
+.meal-details-content {
+
+    max-width: 600px;
+
+}
+
+
+.meal-label {
+
+    color: #7c955c;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 14px;
+
+}
+
+
+.meal-details-content h1 {
+
+    font-size: 48px;
+
+    line-height: 1.2;
+
+    color: #242424;
+
+    margin-bottom: 20px;
+
+}
+
+
+.meal-description {
+
+    color: #777;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+
+}
+
+
+.meal-price {
+
+    color: #638044;
+
+    font-size: 27px;
+
+    font-weight: 700;
+
+    margin-bottom: 30px;
+
+}
+
+
+/* =========================================
+   DETAILS BOX
+   ========================================= */
+
+.details-box {
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 24px;
+
+    margin-bottom: 22px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.05);
+
+}
+
+
+.details-box h2 {
+
+    font-size: 20px;
+
+    color: #242424;
+
+    margin-bottom: 15px;
+
+}
+
+
+/* =========================================
+   INGREDIENTS
+   ========================================= */
+
+.details-box ul {
+
+    list-style: none;
+
+    padding: 0;
+
+    margin: 0;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+
+}
+
+
+.details-box li {
+
+    color: #666;
+
+    font-size: 14px;
+
+    padding-left: 20px;
+
+    position: relative;
+
+}
+
+
+.details-box li::before {
+
+    content: "✓";
+
+    position: absolute;
+
+    left: 0;
+
+    color: #7c955c;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================
+   NUTRITION
+   ========================================= */
+
+.nutrition-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 10px;
+
+}
+
+
+.nutrition-item {
+
+    text-align: center;
+
+    padding: 12px 5px;
+
+    background: #f8f7f2;
+
+    border-radius: 12px;
+
+}
+
+
+.nutrition-item strong {
+
+    display: block;
+
+    color: #638044;
+
+    font-size: 18px;
+
+    margin-bottom: 4px;
+
+}
+
+
+.nutrition-item span {
+
+    color: #777;
+
+    font-size: 11px;
+
+}
+
+
+/* =========================================
+   QUANTITY
+   ========================================= */
+
+.quantity-section {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin: 25px 0;
+
+}
+
+
+.quantity-section h3 {
+
+    font-size: 15px;
+
+    color: #333;
+
+}
+
+
+.quantity-control {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+}
+
+
+.quantity-control button {
+
+    width: 35px;
+
+    height: 35px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #738c52;
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+.quantity-control button:hover {
+
+    background: #526b3b;
+
+    transform: scale(1.08);
+
+}
+
+
+.quantity-control span {
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    min-width: 20px;
+
+    text-align: center;
+
+}
+
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+
+.meal-actions {
+
+    display: flex;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.add-cart-btn {
+
+    border: none;
+
+    padding: 15px 28px;
+
+    border-radius: 30px;
+
+    background: #638044;
+
+    color: white;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+.add-cart-btn:hover {
+
+    background: #526b3b;
+
+    transform: translateY(-3px);
+
+}
+
+
+.customize-btn {
+
+    padding: 14px 25px;
+
+    border-radius: 30px;
+
+    border: 1px solid #738c52;
+
+    color: #638044;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+
+}
+
+
+.customize-btn:hover {
+
+    background: #738c52;
+
+    color: white;
+
+    transform: translateY(-3px);
+
+}
+
+
+/* =========================================
+   BACK BUTTON
+   ========================================= */
+
+.back-meals {
+
+    color: #555;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    transition: 0.3s;
+
+}
+
+
+.back-meals:hover {
+
+    color: #738c52;
+
+}
+
+
+/* =========================================
+   RESPONSIVE - TABLET
+   ========================================= */
+
+@media (max-width: 1000px) {
+
+    .meal-details-page {
+
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+
+        padding: 70px 7%;
+
+    }
+
+
+    .meal-details-image {
+
+        height: 500px;
+
+    }
+
+
+    .meal-details-content {
+
+        max-width: 100%;
+
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE - MOBILE
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .meal-details-page {
+
+        padding: 50px 6%;
+
+    }
+
+
+    .meal-details-image {
+
+        height: 350px;
+
+        border-radius: 20px;
+
+    }
+
+
+    .meal-details-content h1 {
+
+        font-size: 34px;
+
+    }
+
+
+    .details-box ul {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .nutrition-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .meal-actions {
+
+        flex-direction: column;
+
+    }
+
+
+    .add-cart-btn,
+    .customize-btn {
+
+        width: 100%;
+
+        text-align: center;
+
+    }
+
+}

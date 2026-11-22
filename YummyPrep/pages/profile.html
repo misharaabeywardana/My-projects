@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YummyPrep | Profile</title>
+
+    <!-- Poppins Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- General CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Profile CSS -->
+    <link rel="stylesheet" href="../css/profile.css">
+
+    <!-- FIXED CSS FOR EDIT MODE -->
+    <style>
+        .information-box .edit-input {
+            display: none !important;
+        }
+        body.edit-mode .information-box .edit-input {
+            display: block !important;
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+        body.edit-mode .information-box span,
+        body.edit-mode .information-box strong {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <header class="navbar">
+        <a href="../index.html" class="logo">
+            Yummy<span>Prep</span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="meals.html">Meals</a>
+            <a href="customize.html">Customize</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="login.html" class="login-btn" id="navAuthBtn">Login</a>
+            <a href="cart.html" class="cart-btn">🛒 Cart</a>
+        </div>
+    </header>
+
+
+    <!-- PROFILE HEADER -->
+    <section class="profile-header">
+        <p>WELCOME BACK</p>
+        <h1>My <span>Profile</span></h1>
+        <p class="profile-header-description">
+            Manage your account, view your orders and keep
+            your YummyPrep information up to date.
+        </p>
+    </section>
+
+
+    <!-- PROFILE CONTENT -->
+    <main class="profile-container">
+
+        <!-- PROFILE CARD WITH AVATAR UPLOAD -->
+        <section class="profile-card">
+            <div class="profile-avatar-wrapper" style="position: relative; display: inline-block;">
+                <div class="profile-avatar" id="avatarContainer" onclick="document.getElementById('avatarInput').click();" style="cursor: pointer; position: relative;" title="Click to upload profile photo">
+                    <img id="profileImage" src="" alt="Profile Photo" style="width: 85px; height: 85px; border-radius: 50%; object-fit: cover; border: 3px solid #4CAF50; display: none;">
+                    <span id="defaultAvatarIcon" style="font-size: 40px;">👤</span>
+                    <span style="position: absolute; bottom: 0; right: 0; background: #4CAF50; color: white; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-size: 14px; border: 2px solid white;">📷</span>
+                </div>
+                <input type="file" id="avatarInput" accept="image/*" style="display: none;">
+            </div>
+
+            <div class="profile-info">
+                <p class="profile-label">CUSTOMER</p>
+                <h2 id="cardProfileName">Loading...</h2>
+                <p id="cardProfileEmail">Loading...</p>
+                <p id="cardProfilePhone">Loading...</p>
+            </div>
+
+            <button type="button" id="editProfileBtn" class="edit-profile-btn">
+                Edit Profile
+            </button>
+        </section>
+
+
+        <!-- PERSONAL INFORMATION -->
+        <section class="profile-section">
+            <div class="section-title">
+                <p>ACCOUNT INFORMATION</p>
+                <h2>Personal <span>Information</span></h2>
+            </div>
+
+            <!-- Input Fields Box -->
+            <div class="information-grid" id="infoGridContainer">
+
+                <div class="information-box">
+                    <span>Full Name</span>
+                    <strong id="nameText">Loading...</strong>
+                    <input type="text" id="nameInput" class="edit-input" placeholder="Enter your full name">
+                </div>
+
+                <div class="information-box">
+                    <span>Email Address</span>
+                    <strong id="emailText">Loading...</strong>
+                    <input type="email" id="emailInput" class="edit-input" readonly>
+                </div>
+
+                <div class="information-box">
+                    <span>Phone Number</span>
+                    <strong id="phoneText">Loading...</strong>
+                    <input type="text" id="phoneInput" class="edit-input" placeholder="Enter phone number">
+                </div>
+
+                <div class="information-box">
+                    <span>Delivery Address</span>
+                    <strong id="addressText">Not provided</strong>
+                    <input type="text" id="addressInput" class="edit-input" placeholder="Enter delivery address">
+                </div>
+
+            </div>
+            <!-- (Buttons will be dynamically generated right here by JS) -->
+        </section>
+
+
+        <!-- ORDER SUMMARY -->
+        <section class="profile-section">
+            <div class="section-title">
+                <p>YOUR ACTIVITY</p>
+                <h2>Order <span>Summary</span></h2>
+            </div>
+
+            <div class="order-summary-grid">
+                <div class="summary-card">
+                    <div class="summary-icon">📦</div>
+                    <div>
+                        <span>Total Orders</span>
+                        <strong id="totalOrdersCount">0</strong>
+                    </div>
+                </div>
+
+                <div class="summary-card">
+                    <div class="summary-icon">✓</div>
+                    <div>
+                        <span>Completed</span>
+                        <strong id="completedOrdersCount">0</strong>
+                    </div>
+                </div>
+
+                <div class="summary-card">
+                    <div class="summary-icon">🕐</div>
+                    <div>
+                        <span>Pending</span>
+                        <strong id="pendingOrdersCount">0</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- QUICK ACTIONS -->
+        <section class="profile-section">
+            <div class="section-title">
+                <p>QUICK ACCESS</p>
+                <h2>Manage Your <span>Account</span></h2>
+            </div>
+
+            <div class="quick-actions">
+                <a href="orderHistory.html" class="action-card">
+                    <div class="action-icon">📋</div>
+                    <div>
+                        <h3>Order History</h3>
+                        <p>View your previous orders.</p>
+                    </div>
+                    <span class="action-arrow">→</span>
+                </a>
+
+                <a href="orderTracking.html" class="action-card">
+                    <div class="action-icon">🚚</div>
+                    <div>
+                        <h3>Track Order</h3>
+                        <p>Check your current order status.</p>
+                    </div>
+                    <span class="action-arrow">→</span>
+                </a>
+
+                <a href="cart.html" class="action-card">
+                    <div class="action-icon">🛒</div>
+                    <div>
+                        <h3>Shopping Cart</h3>
+                        <p>View items in your cart.</p>
+                    </div>
+                    <span class="action-arrow">→</span>
+                </a>
+            </div>
+        </section>
+
+
+        <!-- LOGOUT -->
+        <div class="logout-container">
+            <button type="button" id="logoutBtn" class="logout-btn">
+                Log Out
+            </button>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-brand">
+            <h2>Yummy<span>Prep</span></h2>
+            <p>Fresh meals. Your choices. Your way.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="../js/script.js"></script>
+    <script src="../js/profile.js"></script>
+
+</body>
+</html>

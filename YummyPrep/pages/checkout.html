@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>YummyPrep | Checkout</title>
+
+    <link rel="stylesheet" href="../css/checkout.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+<!-- NAVIGATION -->
+
+<nav class="navbar">
+
+    <a href="../index.html" class="logo">
+        Yummy<span>Prep</span>
+    </a>
+
+
+    <div class="nav-links">
+
+        <a href="../index.html">Home</a>
+
+        <a href="meals.html">Meals</a>
+
+        <a href="customize.html">Customize</a>
+
+        <a href="cart.html">Cart</a>
+
+    </div>
+
+
+    <div class="nav-buttons">
+
+        <a href="#" class="login-btn">Login</a>
+
+        <a href="cart.html" class="cart-btn">Cart</a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- CHECKOUT HEADER -->
+
+<section class="checkout-header">
+
+    <div>
+
+        <p>ALMOST THERE</p>
+
+        <h1>
+            Complete Your <span>Order</span>
+        </h1>
+
+        <p class="header-description">
+            Review your order, enter your details and enjoy
+            freshly prepared meals made just for you.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- CHECKOUT CONTENT -->
+
+<section class="checkout-section">
+
+
+    <!-- LEFT SIDE -->
+
+    <div class="checkout-left">
+
+
+        <!-- CUSTOMER DETAILS -->
+
+        <div class="checkout-card">
+
+            <div class="card-heading">
+
+                <span>01</span>
+
+                <div>
+
+                    <h2>Customer Details</h2>
+
+                    <p>Where should we deliver your meal?</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-grid">
+
+
+                <div class="form-group">
+
+                    <label for="firstName">First Name</label>
+                    <input
+                        type="text"
+                        id="firstName"
+                        name="firstName"
+                        placeholder="Enter your first name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="lastName">Last Name</label>
+                    <input
+                        type="text"
+                        id="lastName"
+                        name="lastName"
+                        placeholder="Enter your last name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="email">Email Address</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="phone">Phone Number</label>
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="Enter your phone number"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <label for="address">Delivery Address</label>
+                    <textarea
+                        id="address"
+                        name="address"
+                        placeholder="Enter your delivery address"
+                        required
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- DELIVERY -->
+
+        <div class="checkout-card">
+
+            <div class="card-heading">
+
+                <span>02</span>
+
+                <div>
+
+                    <h2>Delivery Details</h2>
+
+                    <p>Choose when you would like your order.</p>
+
+                </div>
+
+            </div>
+
+
+           <div class="delivery-options">
+
+    <!-- TODAY -->
+
+    <label class="delivery-option">
+
+        <input
+            type="radio"
+            name="deliveryDay"
+            value="today"
+            checked
+        >
+
+        <div>
+
+            <strong>Deliver Today</strong>
+
+            <p>
+                Receive your order within the day
+            </p>
+
+        </div>
+
+        <span>Rs. 250</span>
+
+    </label>
+
+
+    <!-- TOMORROW -->
+
+    <label class="delivery-option">
+
+        <input
+            type="radio"
+            name="deliveryDay"
+            value="tomorrow"
+        >
+
+        <div>
+
+            <strong>Deliver Tomorrow</strong>
+
+            <p>
+                Receive your order the next day
+            </p>
+
+        </div>
+
+        <span>Rs. 250</span>
+
+    </label>
+
+</div>
+
+        </div>
+        <!-- end delivery card -->
+
+
+        <!-- PAYMENT -->
+
+        <div class="checkout-card">
+
+            <div class="card-heading">
+
+                <span>03</span>
+
+                <div>
+
+                    <h2>Payment Method</h2>
+
+                    <p>Select your preferred payment method.</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="payment-options">
+
+
+                <label class="payment-option">
+
+                    <input
+                        type="radio"
+                        name="paymentMethod" value="Credit / Debit Card"
+                        checked
+                    >
+
+                    <div>
+
+                        <strong>Credit / Debit Card</strong>
+
+                        <p>Visa, Mastercard and other cards</p>
+
+                    </div>
+
+                </label>
+
+
+                <label class="payment-option">
+
+                    <input
+                        type="radio"
+                        name="paymentMethod" value="Cash on Delivery"
+                    >
+
+                    <div>
+
+                        <strong>Cash on Delivery</strong>
+
+                        <p>Pay when your order arrives</p>
+
+                    </div>
+
+                </label>
+
+
+            </div>
+
+
+            <div class="card-fields" id="cardFields">
+
+                <div class="form-group">
+
+                    <label for="cardNumber">Card Number</label>
+
+                    <input
+                        type="text"
+                        id="cardNumber"
+                        name="cardNumber"
+                        inputmode="numeric"
+                        autocomplete="cc-number"
+                        maxlength="19"
+                        placeholder="1234 5678 9012 3456"
+                    >
+
+                </div>
+
+
+                <div class="small-fields">
+
+                    <div class="form-group">
+
+                        <label for="cardExpiry">Expiry Date</label>
+
+                        <input
+                            type="text"
+                            id="cardExpiry"
+                            name="cardExpiry"
+                            inputmode="numeric"
+                            autocomplete="cc-exp"
+                            maxlength="7"
+                            placeholder="MM / YY"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="cardCvv">CVV</label>
+
+                        <input
+                            type="password"
+                            id="cardCvv"
+                            name="cardCvv"
+                            inputmode="numeric"
+                            autocomplete="cc-csc"
+                            maxlength="4"
+                            placeholder="***"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <p class="cash-note" id="cashNote" hidden>
+                💵 No card needed. Please keep the exact amount ready
+                and pay in cash when your order arrives.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- RIGHT SIDE -->
+
+    <aside class="order-summary">
+
+    <div class="summary-image">
+
+        <img
+            src="../images/healthyFood8.jpeg"
+            alt="Fresh healthy salad bowls"
+        >
+
+    </div>
+
+
+    <div class="summary-content">
+
+        <p class="summary-label">
+            YOUR ORDER
+        </p>
+
+        <h2>
+            Order Summary
+        </h2>
+
+
+        <!-- Dynamic cart items appear here -->
+
+        <div id="checkoutItems">
+
+        </div>
+
+
+        <!-- TOTALS -->
+
+        <div class="summary-lines">
+
+            <div>
+
+                <span>
+                    Subtotal
+                </span>
+
+                <strong id="checkoutSubtotal">
+                    Rs. 0
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Delivery
+                </span>
+
+                <strong id="checkoutDelivery">
+                    Rs. 250.00
+                </strong>
+
+            </div>
+
+            <div>
+                <span>
+                    Discount
+                </span>
+                <strong id="checkoutDiscount">
+                    - Rs. 0.00
+                </strong>
+            </div>
+
+        </div>
+
+
+        <div class="total">
+
+            <span>
+                Total
+            </span>
+
+            <strong id="checkoutTotal">
+                Rs. 0
+            </strong>
+
+        </div>
+
+
+        <a
+            href="confirm.html"
+            class="place-order"
+            id="placeOrderBtn"
+        >
+            Place Order →
+        </a>
+
+
+        <p class="secure-text">
+            🔒 Your payment information is secure.
+        </p>
+
+    </div>
+
+</aside>
+
+
+</section>
+
+
+
+<!-- BOTTOM IMAGE -->
+
+<section class="checkout-banner">
+
+    <div class="banner-image">
+
+        <img
+            src="../images/healthyFood4.jpeg"
+            alt="Fresh ingredients"
+        >
+
+    </div>
+
+
+    <div class="banner-content">
+
+        <p>FRESH • HEALTHY • MADE FOR YOU</p>
+
+        <h2>
+            Good food is
+            <span>always worth it.</span>
+        </h2>
+
+        <p>
+            Your meal is prepared with fresh ingredients
+            and packed with care.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <div class="footer-brand">
+
+        <h2>
+            Yummy<span>Prep</span>
+        </h2>
+
+        <p>
+            Fresh meals. Better choices.
+            Made just for you.
+        </p>
+
+    </div>
+
+
+    <div class="footer-column">
+
+        <h4>Explore</h4>
+
+        <a href="../index.html">Home</a>
+
+        <a href="meals.html">Meals</a>
+
+        <a href="customize.html">Customize</a>
+
+    </div>
+
+
+    <div class="footer-column">
+
+        <h4>Support</h4>
+
+        <a href="#">Contact Us</a>
+
+        <a href="#">FAQs</a>
+
+        <a href="#">Delivery</a>
+
+    </div>
+
+
+    <div class="footer-column">
+
+        <h4>Account</h4>
+
+        <a href="#">Login</a>
+
+        <a href="cart.html">Cart</a>
+
+        <a href="checkout.html">Checkout</a>
+
+    </div>
+
+</footer>
+
+<script src="../js/script.js"></script>
+<script src="../js/checkout.js"></script>
+
+</body>
+
+</html>

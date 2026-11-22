@@ -1,0 +1,617 @@
+/* =========================================
+   YUMMYPREP - ORDER TRACKING
+   ========================================= */
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.tracking-header {
+
+    padding: 90px 7% 60px;
+
+    text-align: center;
+
+    background: #f8f7f2;
+}
+
+
+.tracking-header > p:first-child {
+
+    color: #7c955c;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
+}
+
+
+.tracking-header h1 {
+
+    font-size: 52px;
+
+    color: #242424;
+
+    margin-bottom: 18px;
+}
+
+
+.tracking-header h1 span {
+
+    color: #7c955c;
+}
+
+
+.tracking-description {
+
+    color: #777;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    max-width: 600px;
+
+    margin: 0 auto;
+}
+
+
+
+/* =========================================
+   CONTAINER
+   ========================================= */
+
+.tracking-container {
+
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    padding: 70px 7% 100px;
+}
+
+
+
+/* =========================================
+   SUMMARY
+   ========================================= */
+
+.tracking-summary-card {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    background: white;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.07);
+
+    border: 1px solid #eeeeea;
+
+    margin-bottom: 35px;
+}
+
+
+.tracking-summary-card > div {
+
+    padding: 25px;
+
+    text-align: center;
+
+    border-right:
+        1px solid #eeeeea;
+}
+
+
+.tracking-summary-card > div:last-child {
+
+    border-right: none;
+}
+
+
+.tracking-summary-card span {
+
+    display: block;
+
+    color: #999;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 7px;
+}
+
+
+.tracking-summary-card strong {
+
+    color: #333;
+
+    font-size: 15px;
+}
+
+
+.status-text {
+
+    color: #333;
+}
+
+
+
+/* =========================================
+   CARDS
+   ========================================= */
+
+.progress-card,
+.tracking-items-card {
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+    margin-bottom: 35px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.07);
+
+    border: 1px solid #eeeeea;
+}
+
+
+
+/* =========================================
+   SECTION HEADING
+   ========================================= */
+
+.section-heading {
+
+    margin-bottom: 35px;
+}
+
+
+.section-heading p {
+
+    color: #7c955c;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 8px;
+}
+
+
+.section-heading h2 {
+
+    font-size: 30px;
+
+    color: #242424;
+}
+
+
+.section-heading h2 span {
+
+    color: #7c955c;
+}
+
+
+
+/* =========================================
+   TRACKING PROGRESS
+   ========================================= */
+
+.tracking-progress {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+}
+
+
+.tracking-step {
+
+    width: 150px;
+
+    text-align: center;
+
+    opacity: 0.6;
+
+    transition: 0.3s;
+}
+
+
+.step-circle {
+
+    width: 48px;
+
+    height: 48px;
+
+    margin: 0 auto 13px;
+
+    border-radius: 50%;
+
+    background: #e5e5df;
+
+    color: #888;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+
+.step-text h3 {
+
+    font-size: 14px;
+
+    color: #242424;
+
+    margin-bottom: 5px;
+}
+
+
+.step-text p {
+
+    color: #666;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+.progress-line {
+
+    flex: 1;
+
+    height: 2px;
+
+    background: #ddd;
+
+    margin-top: 24px;
+
+    transition: 0.3s;
+}
+
+
+
+/* =========================================
+   ACTIVE STEPS
+   ========================================= */
+
+.tracking-step.active {
+
+    opacity: 1;
+}
+
+
+.tracking-step.active .step-circle {
+
+    background: #738c52;
+
+    color: white;
+}
+
+
+.progress-line.active {
+
+    background: #738c52;
+}
+
+
+
+/* =========================================
+   ORDER ITEMS
+   ========================================= */
+
+.tracking-order-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 18px 0;
+
+    border-bottom:
+        1px solid #eeeeea;
+}
+
+
+.tracking-order-item:last-child {
+
+    border-bottom: none;
+}
+
+
+.tracking-item-image {
+
+    width: 80px;
+
+    height: 80px;
+
+    object-fit: cover;
+
+    border-radius: 13px;
+
+    flex-shrink: 0;
+}
+
+
+.tracking-item-info {
+
+    flex: 1;
+}
+
+
+.tracking-item-info h3 {
+
+    color: #333;
+
+    font-size: 15px;
+
+    margin-bottom: 5px;
+}
+
+
+.tracking-item-info p {
+
+    color: #999;
+
+    font-size: 12px;
+}
+
+
+.tracking-order-item > strong {
+
+    color: #638044;
+
+    font-size: 15px;
+}
+
+
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+
+.tracking-actions {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 40px;
+}
+
+
+.primary-btn,
+.secondary-btn {
+
+    padding: 13px 24px;
+
+    border-radius: 30px;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+
+.primary-btn {
+
+    background: #738c52;
+
+    color: white;
+}
+
+
+.primary-btn:hover {
+
+    background: #638044;
+
+    transform: translateY(-2px);
+}
+
+
+.secondary-btn {
+
+    background: white;
+
+    color: #638044;
+
+    border: 1px solid #738c52;
+}
+
+
+.secondary-btn:hover {
+
+    background: #738c52;
+
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .tracking-summary-card {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .tracking-summary-card > div:nth-child(2) {
+
+        border-right: none;
+    }
+
+
+    .tracking-summary-card > div:nth-child(-n+2) {
+
+        border-bottom:
+            1px solid #eeeeea;
+    }
+
+
+    .tracking-progress {
+
+        flex-direction: column;
+
+        gap: 0;
+    }
+
+
+    .tracking-step {
+
+        width: 100%;
+
+        text-align: left;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 15px;
+    }
+
+
+    .step-circle {
+
+        margin: 0;
+
+        flex-shrink: 0;
+    }
+
+
+    .progress-line {
+
+        width: 2px;
+
+        height: 35px;
+
+        flex: none;
+
+        margin:
+            0 0 0 23px;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .tracking-header {
+
+        padding:
+            70px 6% 50px;
+    }
+
+
+    .tracking-header h1 {
+
+        font-size: 38px;
+    }
+
+
+    .tracking-container {
+
+        padding:
+            50px 6% 80px;
+    }
+
+
+    .tracking-summary-card {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .tracking-summary-card > div {
+
+        border-right: none;
+
+        border-bottom:
+            1px solid #eeeeea;
+    }
+
+
+    .tracking-summary-card > div:last-child {
+
+        border-bottom: none;
+    }
+
+
+    .progress-card,
+    .tracking-items-card {
+
+        padding: 25px;
+    }
+
+
+    .tracking-order-item {
+
+        flex-wrap: wrap;
+    }
+
+
+    .tracking-order-item > strong {
+
+        margin-left: 98px;
+    }
+
+
+    .tracking-actions {
+
+        flex-direction: column;
+    }
+
+
+    .primary-btn,
+    .secondary-btn {
+
+        width: 100%;
+
+        text-align: center;
+    }
+
+}

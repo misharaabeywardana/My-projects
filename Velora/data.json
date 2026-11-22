@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "Seaside Haven Hotel & Resort",
+        "destination": "Bentota",
+        "roomType": "Deluxe Sea View",
+        "price": 9500,
+        "guests": 2,
+        "amenities": "Free WiFi, Sea View, Breakfast",
+        "rating": 4.8
+    },
+    {
+        "id": 2,
+        "name": "Sunset Cove Retreat",
+        "destination": "Dickwella",
+        "roomType": "Ocean View Room",
+        "price": 13500,
+        "guests": 2,
+        "amenities": "Free WiFi, Sea View, Sunset View",
+        "rating": 4.7
+    },
+    {
+        "id": 3,
+        "name": "Royal Bay Hotel",
+        "destination": "Galle",
+        "roomType": "Premium Suite",
+        "price": 15000,
+        "guests": 3,
+        "amenities": "Free WiFi, Sea View, Private Balcony",
+        "rating": 4.9
+    }
+]

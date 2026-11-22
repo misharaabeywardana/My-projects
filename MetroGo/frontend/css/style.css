@@ -1,0 +1,466 @@
+:root {
+  --red:#d91e36;
+  --dark:#172238;
+  --soft:#fff1f2;
+}
+
+body {
+  font-family:Inter,system-ui,Arial,sans-serif;
+  color:var(--dark);
+  background:#f7f8fb;
+}
+
+.navbar {
+  background:#fff;
+  box-shadow:0 4px 20px #1823390b;
+}
+
+.brand {
+  font-weight:900;
+  font-size:1.65rem;
+  letter-spacing:-1px;
+  color:var(--red)!important;
+}
+
+.nav-link.active,.nav-link:hover {
+  color:var(--red)!important;
+}
+
+.btn-primary,.btn-danger {
+  background:var(--red);
+  border-color:var(--red);
+}
+
+.btn-primary:hover,.btn-danger:hover {
+  background:#b8152b;
+  border-color:#b8152b;
+}
+
+.text-primary {
+  color:var(--red)!important;
+}
+
+.hero {
+  background-image: url('/images/MetroGo.jpeg');
+  background-position: center;
+  background-size: 99% 125%;
+  background-repeat: no-repeat;
+  height: 490px;
+  width: 100%;
+  background-color: #fff;
+  color: var(--dark);
+  min-height: 360px;
+  padding: 72px 0 88px;
+  position: relative;
+}
+
+.hero .container {
+  position:relative;
+  z-index:1;
+}
+
+.hero h1 {
+  font-size:clamp(2.1rem,5vw,3.8rem);
+  font-weight:850;
+  letter-spacing:-1.7px;
+}
+
+.search-panel {
+  margin-top:8px;
+  position:relative;
+}
+
+.panel,.bus-card {
+  background:white;
+  border:1px solid #e9eaf0;
+  border-radius:20px;
+  box-shadow:0 12px 35px #1823390b;
+}
+
+.panel {
+  padding:27px;
+}
+
+.bus-card {
+  padding:23px;
+  margin-bottom:18px;
+  transition:transform .2s;
+}
+
+.bus-card:hover {
+  transform:translateY(-3px);
+}
+
+.badge-soft {
+  background:var(--soft);
+  color:var(--red);
+  padding:7px 12px;
+  border-radius:30px;
+  font-weight:650;
+}
+
+.form-control:focus,.form-select:focus {
+  border-color:#f68b9b;
+  box-shadow:0 0 0 .2rem #d91e3620;
+}
+
+.section-title {
+  font-weight:800;
+  letter-spacing:-.6px;
+}
+
+.stat {
+  border-radius:18px;
+  background:white;
+  padding:20px;
+  border:1px solid #eee;
+}
+
+.stat strong {
+  font-size:1.7rem;
+  color:var(--red);
+}
+
+.site-footer {
+  background:#182136;
+  color:#d5d9e3;
+  margin-top:65px;
+  padding:35px 0;
+}
+
+.seat {
+  width:43px;
+  height:40px;
+  border:1px solid #e1e3e9;
+  border-radius:9px;
+  background:white;
+  margin:4px;
+}
+
+.seat.selected {
+  background:var(--red);
+  color:white;
+}
+
+.seat:disabled {
+  background:#d2d5dd;
+  color:#777;
+}
+
+.mini-label {
+  font-size:.78rem;
+  color:#778196;
+  text-transform:uppercase;
+  font-weight:700;
+  letter-spacing:.06em;
+}
+
+.muted {
+  color:#687286;
+}
+
+.pointer {
+  cursor:pointer;
+}
+
+.modal-content {
+  border-radius:18px;
+  border:0;
+}
+
+.table-responsive {
+  border-radius:14px;
+}
+
+a {
+  text-decoration:none;
+}
+
+.hero {
+  padding:52px 0 110px;
+}
+
+.panel {
+  padding:18px;
+}
+
+.hero h1,
+.hero p,
+.hero .badge {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+}
+
+
+/* Unified MetroGo group-project navigation and page polish */
+.navbar { padding: .85rem 0; }
+.navbar .nav-link { font-size: .91rem; font-weight: 650; white-space: nowrap; padding-inline: .65rem; }
+.navbar-toggler { border-color: #ead7da; }
+.page { min-height: 62vh; }
+.page > .container { padding-top: 3rem; padding-bottom: 3rem; }
+.section-title { font-weight: 800; letter-spacing: -.5px; }
+.site-footer { margin-top: 4rem; padding: 2rem 0; background: var(--dark); color: #fff; }
+.site-footer small { color: #d5dbea; }
+.seat { border-radius: 9px; }
+@media (max-width: 1199px) {
+  .navbar .nav-link { font-size: .84rem; padding-inline: .4rem; }
+}
+@media (max-width: 991px) {
+  .navbar-nav { padding: .8rem 0; }
+  .navbar .nav-link { padding: .55rem .25rem; }
+  .hero { min-height: 280px; padding: 48px 0 55px; }
+}
+
+/* Reservation Popup Background */
+
+.reservation-popup {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Popup Box */
+
+.reservation-popup-content {
+    background: #ffffff;
+    width: 100%;
+    max-width: 480px;
+
+    max-height: 90vh;
+    overflow-y: auto;
+
+    padding: 30px;
+    border-radius: 18px;
+
+    text-align: center;
+
+    position: relative;
+
+    box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+
+    animation: popupAnimation 0.3s ease;
+}
+
+/* Animation */
+
+@keyframes popupAnimation {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Success Icon */
+
+.success-icon {
+    width: 65px;
+    height: 65px;
+
+    background: #e6f7ed;
+    color: #16a34a;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 35px;
+    font-weight: bold;
+
+    margin: 0 auto 15px;
+}
+
+/* Heading */
+
+.reservation-popup-content h2 {
+    color: #d91e36;
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.popup-subtitle {
+    color: #666;
+    font-size: 14px;
+}
+
+/* Bus Image */
+
+.popup-bus-image {
+    width: 100%;
+    height: 160px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+    margin: 15px 0;
+}
+
+/* Reservation Details */
+
+.reservation-details {
+    background: #fff1f2;
+
+    padding: 15px;
+    border-radius: 12px;
+
+    text-align: left;
+}
+
+.reservation-details h3 {
+    color: #d91e36;
+    margin-top: 0;
+}
+
+.reserved-status {
+    color: #16a34a;
+    font-weight: bold;
+}
+
+/* Close Button */
+
+.popup-close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+
+    border: none;
+    background: none;
+
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Reserve Button */
+
+.reserve-seat-btn {
+    background: #d91e36;
+    color: white;
+
+    padding: 12px 25px;
+
+    border: none;
+    border-radius: 8px;
+
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.reserve-seat-btn:hover {
+    background: #b9152b;
+}
+
+/* OK Button */
+
+.popup-ok-btn {
+    background: #d91e36;
+    color: white;
+
+    width: 100%;
+    padding: 13px;
+
+    border: none;
+    border-radius: 8px;
+
+    margin-top: 18px;
+
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/* ======================================
+   MY BOOKINGS EDIT / CANCEL POPUPS
+====================================== */
+
+.metro-modal {
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.18);
+}
+
+.metro-modal .modal-header {
+    background: #fff1f2;
+    border-bottom: 1px solid #f5d5da;
+}
+
+.metro-modal .modal-title {
+    color: #d91e36;
+    font-weight: 700;
+}
+
+.metro-modal .form-control {
+    border-radius: 10px;
+    padding: 11px;
+}
+
+.metro-modal .form-control:focus {
+    border-color: #d91e36;
+    box-shadow: 0 0 0 0.2rem rgba(217, 30, 54, 0.12);
+}
+
+.metro-popup-icon {
+    width: 65px;
+    height: 65px;
+    margin: 5px auto 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.success-icon {
+    background: #e6f8ed;
+    color: #198754;
+}
+
+.cancel-icon {
+    background: #fff1f2;
+    color: #d91e36;
+}
+
+.metro-popup-image {
+    width: 100%;
+    max-height: 170px;
+    object-fit: contain;
+    border-radius: 12px;
+    margin-top: 10px;
+}
+
+#bookingMessageTitle {
+    font-weight: 800;
+    color: #172238;
+}
+
+#bookingMessageText {
+    line-height: 1.6;
+}
+
+#bookingMessageModal .btn-primary,
+#bookingEditForm .btn-primary {
+    background: #d91e36;
+    border-color: #d91e36;
+    border-radius: 10px;
+    padding: 11px;
+    font-weight: 600;
+}

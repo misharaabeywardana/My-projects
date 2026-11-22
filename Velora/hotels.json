@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Private Ocean Sanctuary",
+        "destination": "Nuwara Eliya",
+        "type": "Standard",
+        "price": 7500,
+        "image": "images\/stays3.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Emerald Garden Family Room",
+        "destination": "Bentota",
+        "type": "Family",
+        "price": 6500,
+        "image": "images\/stays4.jpg"
+    },
+    {
+        "id": 3,
+        "name": "The Horizon Executive Suite",
+        "destination": "Colombo",
+        "type": "Suite",
+        "price": 15000,
+        "image": "images\/stays17.jpg"
+    }
+]

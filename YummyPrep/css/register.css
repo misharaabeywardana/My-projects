@@ -1,0 +1,468 @@
+/* =========================================
+   YUMMYPREP - REGISTER PAGE
+   ========================================= */
+
+
+/* =========================================
+   REGISTER PAGE
+   ========================================= */
+
+.register-page {
+
+    min-height: 720px;
+
+    padding: 80px 7%;
+
+    background: #f8f7f2;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* =========================================
+   REGISTER CONTAINER
+   ========================================= */
+
+.register-container {
+
+    width: 100%;
+
+    max-width: 1150px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    background: white;
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,0.08);
+}
+
+
+/* =========================================
+   LEFT INFORMATION
+   ========================================= */
+
+.register-info {
+
+    padding: 70px;
+
+    background:
+        linear-gradient(
+            rgba(50,65,38,0.88),
+            rgba(50,65,38,0.88)
+        ),
+        url("../images/healthyFood.jpeg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    color: white;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+
+.register-label {
+
+    color: #bdd399;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 20px;
+}
+
+
+.register-info h1 {
+
+    font-size: 48px;
+
+    line-height: 1.15;
+
+    margin-bottom: 25px;
+}
+
+
+.register-info h1 span {
+
+    color: #bdd399;
+}
+
+
+.register-info > p:not(.register-label) {
+
+    color: #e5e5e5;
+
+    line-height: 1.8;
+
+    max-width: 430px;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================================
+   BENEFITS
+   ========================================= */
+
+.register-benefits {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+
+.register-benefit {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.register-benefit span {
+
+    width: 28px;
+
+    height: 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #8ba663;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+
+.register-benefit p {
+
+    color: #f0f0f0;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   REGISTER CARD
+   ========================================= */
+
+.register-card {
+
+    padding: 60px 65px;
+
+    background: white;
+}
+
+
+/* =========================================
+   FORM HEADING
+   ========================================= */
+
+.form-heading {
+
+    margin-bottom: 30px;
+}
+
+
+.form-heading h2 {
+
+    font-size: 30px;
+
+    color: #242424;
+
+    margin-bottom: 8px;
+}
+
+
+.form-heading p {
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   FORM
+   ========================================= */
+
+.form-group {
+
+    margin-bottom: 18px;
+}
+
+
+.form-group label {
+
+    display: block;
+
+    color: #333;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    margin-bottom: 8px;
+}
+
+
+.form-group input {
+
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 13px;
+
+    transition: 0.3s;
+
+    background: #fafafa;
+}
+
+
+.form-group input:focus {
+
+    border-color: #8ba663;
+
+    background: white;
+
+    box-shadow:
+        0 0 0 3px rgba(139,166,99,0.12);
+}
+
+
+.form-group input::placeholder {
+
+    color: #aaa;
+}
+
+
+/* =========================================
+   TERMS
+   ========================================= */
+
+.terms {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 9px;
+
+    margin: 20px 0;
+}
+
+
+.terms input {
+
+    margin-top: 4px;
+
+    accent-color: #738c52;
+}
+
+
+.terms label {
+
+    color: #777;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+
+.terms a {
+
+    color: #638044;
+
+    text-decoration: none;
+
+    font-weight: 600;
+}
+
+
+.terms a:hover {
+
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   REGISTER BUTTON
+   ========================================= */
+
+.register-btn {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: #738c52;
+
+    color: white;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.register-btn:hover {
+
+    background: #638044;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(99,128,68,0.2);
+}
+
+
+/* =========================================
+   LOGIN LINK
+   ========================================= */
+
+.login-link {
+
+    text-align: center;
+
+    margin-top: 25px;
+}
+
+
+.login-link p {
+
+    color: #777;
+
+    font-size: 13px;
+}
+
+
+.login-link a {
+
+    color: #638044;
+
+    text-decoration: none;
+
+    font-weight: 600;
+}
+
+
+.login-link a:hover {
+
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 1000px) {
+
+    .register-container {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .register-info {
+
+        padding: 55px;
+    }
+
+
+    .register-card {
+
+        padding: 50px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .register-page {
+
+        padding: 50px 6%;
+    }
+
+
+    .register-info {
+
+        padding: 45px 35px;
+    }
+
+
+    .register-info h1 {
+
+        font-size: 38px;
+    }
+
+
+    .register-card {
+
+        padding: 40px 30px;
+    }
+
+
+    .form-heading h2 {
+
+        font-size: 26px;
+    }
+
+}

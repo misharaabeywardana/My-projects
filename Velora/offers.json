@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "Weekend Escape",
+        "discount": "20% OFF",
+        "price": 9500,
+        "duration": "2 nights",
+        "breakfast": "Included",
+        "wifi": "Included",
+        "late_checkout": "Included"
+    },
+    {
+        "id": 2,
+        "name": "Family Holiday",
+        "discount": "25% OFF",
+        "price": 18500,
+        "duration": "2+ nights",
+        "breakfast": "Included",
+        "wifi": "Included",
+        "late_checkout": "Not included"
+    },
+    {
+        "id": 3,
+        "name": "Business Saver",
+        "discount": "30% OFF",
+        "price": 35000,
+        "duration": "1+ nights",
+        "breakfast": "Included",
+        "wifi": "Included",
+        "late_checkout": "Included"
+    },
+    {
+        "id": 4,
+        "name": "edrthfvgh",
+        "discount": "5%",
+        "price": 8845,
+        "duration": "5",
+        "breakfast": "rttfvgh",
+        "wifi": "ujnk",
+        "late_checkout": "6t7yuhj"
+    }
+]

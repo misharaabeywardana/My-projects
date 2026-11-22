@@ -1,0 +1,601 @@
+/* =========================================
+   YUMMYPREP - ORDER HISTORY
+   ========================================= */
+
+
+/* =========================================
+   PAGE HEADER
+   ========================================= */
+
+.history-header {
+
+    padding: 90px 7% 65px;
+
+    text-align: center;
+
+    background: #f8f7f2;
+}
+
+
+.history-header > p:first-child {
+
+    color: #7c955c;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
+}
+
+
+.history-header h1 {
+
+    font-size: 52px;
+
+    color: #242424;
+
+    margin-bottom: 18px;
+}
+
+
+.history-header h1 span {
+
+    color: #7c955c;
+}
+
+
+.history-description {
+
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    color: #777;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+
+/* =========================================
+   ORDER HISTORY CONTAINER
+   ========================================= */
+
+.order-history-container {
+
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    padding: 70px 7%;
+}
+
+
+
+/* =========================================
+   ORDER CARD
+   ========================================= */
+
+.order-card {
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    margin-bottom: 30px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.07);
+
+    border: 1px solid #eeeeea;
+
+    transition: 0.3s;
+}
+
+
+.order-card:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.10);
+}
+
+
+
+/* =========================================
+   ORDER TOP
+   ========================================= */
+
+.order-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid #eeeeea;
+}
+
+
+.order-label {
+
+    color: #999;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 5px;
+}
+
+
+.order-top h3 {
+
+    color: #242424;
+
+    font-size: 20px;
+}
+
+
+
+/* =========================================
+   ORDER STATUS
+   ========================================= */
+
+.order-status {
+
+    padding: 8px 16px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+
+
+
+
+/* =========================================
+   ORDER DATE
+   ========================================= */
+
+.order-date {
+
+    padding: 18px 0;
+
+    color: #888;
+
+    font-size: 13px;
+}
+
+
+.order-date strong {
+
+    color: #444;
+
+    margin-left: 5px;
+}
+
+
+
+/* =========================================
+   ORDER ITEMS
+   ========================================= */
+
+.order-items {
+
+    border-top: 1px solid #f0f0ec;
+
+    border-bottom: 1px solid #f0f0ec;
+}
+
+
+.order-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 18px 0;
+}
+
+
+.order-item + .order-item {
+
+    border-top: 1px solid #f0f0ec;
+}
+
+
+
+/* =========================================
+   FOOD IMAGE
+   ========================================= */
+
+.order-item-image {
+
+    width: 75px;
+
+    height: 75px;
+
+    object-fit: cover;
+
+    border-radius: 14px;
+
+    flex-shrink: 0;
+
+    display: block;
+}
+
+
+
+/* =========================================
+   ITEM INFORMATION
+   ========================================= */
+
+.item-info {
+
+    flex: 1;
+}
+
+
+.item-info h4 {
+
+    color: #333;
+
+    font-size: 15px;
+
+    margin-bottom: 5px;
+}
+
+
+.item-info p {
+
+    color: #999;
+
+    font-size: 12px;
+}
+
+
+.order-item > strong {
+
+    color: #638044;
+
+    font-size: 15px;
+}
+
+
+
+/* =========================================
+   ORDER BOTTOM
+   ========================================= */
+
+.order-bottom {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding-top: 22px;
+}
+
+
+.order-bottom > div:first-child {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.order-bottom span {
+
+    color: #999;
+
+    font-size: 12px;
+}
+
+
+.order-bottom > div:first-child strong {
+
+    color: #242424;
+
+    font-size: 22px;
+}
+
+
+
+/* =========================================
+   ACTION BUTTONS
+   ========================================= */
+
+.order-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.details-btn,
+.reorder-btn {
+
+    padding: 11px 18px;
+
+    border-radius: 25px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+
+.details-btn {
+
+    color: #555;
+
+    border: 1px solid #ddd;
+
+    background: white;
+}
+
+
+.details-btn:hover {
+
+    border-color: #7c955c;
+
+    color: #638044;
+}
+
+
+.reorder-btn {
+
+    background: #738c52;
+
+    color: white;
+}
+
+
+.reorder-btn:hover {
+
+    background: #5f7544;
+
+    transform: translateY(-2px);
+}
+
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .history-header {
+
+        padding: 70px 6% 50px;
+    }
+
+
+    .history-header h1 {
+
+        font-size: 38px;
+    }
+
+
+    .order-history-container {
+
+        padding: 50px 6%;
+    }
+
+
+    .order-card {
+
+        padding: 22px;
+    }
+
+
+    .order-top {
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+
+    .order-item {
+
+        flex-wrap: wrap;
+    }
+
+
+    .order-item > strong {
+
+        margin-left: 93px;
+    }
+
+
+    .order-bottom {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    .order-actions {
+
+        width: 100%;
+
+        flex-direction: column;
+    }
+
+
+    .details-btn,
+    .reorder-btn {
+
+        width: 100%;
+
+        text-align: center;
+    }
+
+
+    .order-item-image {
+
+        width: 65px;
+
+        height: 65px;
+    }
+
+}
+
+/* =========================================
+   DYNAMIC ORDER HISTORY
+   ========================================= */
+
+.empty-history {
+
+    background: white;
+
+    padding: 70px 30px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.07);
+}
+
+
+.empty-history h2 {
+
+    color: #242424;
+
+    font-size: 28px;
+
+    margin-bottom: 10px;
+}
+
+
+.empty-history p {
+
+    color: #777;
+
+    font-size: 14px;
+
+    margin-bottom: 25px;
+}
+
+
+.empty-history a {
+
+    display: inline-block;
+
+    padding: 12px 24px;
+
+    border-radius: 25px;
+
+    background: #738c52;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: 600;
+}
+
+
+.delivery-history {
+
+    color: #888;
+
+    font-size: 13px;
+
+    padding-bottom: 18px;
+}
+
+
+.delivery-history strong {
+
+    color: #638044;
+
+    margin-left: 5px;
+}
+
+
+
+
+/* =========================================
+   STATUS BADGES (shared by Order History + Order Tracking)
+   ========================================= */
+
+.order-status,
+.status-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    background: #eeeeea;
+    color: #444;
+}
+
+.order-status.confirmed,
+.status-badge.confirmed {
+    background: #e3eefb;
+    color: #1f5a99;
+}
+
+.order-status.preparing,
+.status-badge.preparing {
+    background: #fff4d6;
+    color: #8a6510;
+}
+
+.order-status.packed,
+.status-badge.packed {
+    background: #efe6fa;
+    color: #5b3a8c;
+}
+
+.order-status.out-for-delivery,
+.status-badge.out-for-delivery {
+    background: #ffe9d6;
+    color: #9a4a10;
+}
+
+.order-status.delivered,
+.order-status.completed,
+.status-badge.delivered,
+.status-badge.completed {
+    background: #e8f0df;
+    color: #4f6637;
+}

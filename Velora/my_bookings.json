@@ -1,0 +1,32 @@
+[
+    {
+        "id": "VLR1001",
+        "hotel": "Shangri-La Colombo",
+        "room": "Deluxe Ocean View",
+        "checkIn": "2026-10-10",
+        "checkOut": "2026-10-12",
+        "guests": 2,
+        "destination": "Colombo",
+        "status": "Confirmed"
+    },
+    {
+        "id": "VLR1002",
+        "hotel": "Cinnamon Grand Colombo",
+        "room": "Premium Room",
+        "checkIn": "2026-10-18",
+        "checkOut": "2026-10-20",
+        "guests": 2,
+        "destination": "Colombo",
+        "status": "Pending"
+    },
+    {
+        "id": "VLR1003",
+        "hotel": "Jetwing Blue",
+        "room": "Super Deluxe Room",
+        "checkIn": "2026-11-02",
+        "checkOut": "2026-11-05",
+        "guests": 3,
+        "destination": "Negombo",
+        "status": "Confirmed"
+    }
+]

@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hotels &amp; Rooms | Velora</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <!-- Bootstrap Icons -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+  />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link href="style.css" rel="stylesheet" />
+
+  <!-- JSON + AJAX -->
+  <style>
+  .ajax-hotel-section {
+    background: #f8f9fa;
+    border-radius: 18px;
+    padding: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .ajax-hotel-section h2 {
+    color: #18392b;
+    font-weight: 600;
+  }
+
+  .ajax-control-card {
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 14px;
+    padding: 20px;
+    height: 100%;
+  }
+
+  .ajax-result-box {
+    background: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 12px;
+    padding: 15px;
+    min-height: 80px;
+    margin-top: 15px;
+  }
+
+  .ajax-hotel-item {
+    border-left: 4px solid #18392b;
+    background: #f8f9fa;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+  }
+
+  .ajax-status {
+    display: none;
+    margin-top: 15px;
+  }
+  .ajax-management-layout { align-items: stretch; }
+  .ajax-controls-column { display: flex; flex-direction: column; gap: 16px; }
+  .ajax-controls-column .ajax-control-card { height: auto; }
+  .ajax-results-column .ajax-result-box { margin-top: 0; min-height: 100%; }
+  .ajax-hotel-image { width: 100%; max-width: 260px; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 12px; }
+</style>
+
+</head>
+<body>
+
+  <!-- NAVBAR -->
+      <nav class="navbar navbar-expand-lg bg-white shadow-sm">
+        <div class="container">
+
+            <a class="navbar-brand fw-bold" href="index.html">
+                VELORA
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="hotels.html">
+                            Hotels &amp; Rooms
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="offers.html">
+                            Offers &amp; Deals
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="my_bookings.html">
+                            My Bookings
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">
+                            About &amp; Contact
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="account.html">
+                            Account / Login
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+
+  <!-- HERO + SEARCH -->
+  <header class="hero-rooms">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-6">
+          <h1 class="fw-semibold mb-3"><center>Wake up somewhere Worth the trip</center></h1>
+          <p class="lead">
+            Experience Unmatched Elegance & Comfort, handpicked suites, and extraordinary stays crafted for your ultimate relaxation.
+          </p>
+        </div>
+        <div class="col-lg-6">
+          <form id="roomSearchForm" class="search-card row g-3 needs-validation" novalidate>
+            <div class="col-12">
+              <span class="fw-semibold" style="color: var(--color-primary);">
+                <i class="bi bi-search"></i> Check room availability
+              </span>
+            </div>
+            <div class="col-12">
+              <label for="hotelDestination" class="form-label mb-1">Where are you going?</label>
+              <input type="text" class="form-control" id="hotelDestination" list="hotelDestinationSuggestions" placeholder="Enter a destination" />
+              <datalist id="hotelDestinationSuggestions">
+                <option value="Galle">
+                <option value="Bentota">
+                <option value="Dickwella">
+                <option value="Nuwara Eliya">
+                <option value="Colombo">
+                <option value="Trincomalee">
+                <option value="Pasikuda">
+                <option value="Ella">
+              </datalist>
+            </div>
+            <div class="col-sm-6">
+              <label for="checkIn" class="form-label mb-1">Check-in</label>
+              <input type="date" class="form-control" id="checkIn" required />
+              <div class="invalid-feedback">Please choose a check-in date.</div>
+            </div>
+            <div class="col-sm-6">
+              <label for="checkOut" class="form-label mb-1">Check-out</label>
+              <input type="date" class="form-control" id="checkOut" required />
+              <div class="invalid-feedback">Please choose a check-out date.</div>
+            </div>
+            <div class="col-sm-8">
+              <label for="guestCount" class="form-label mb-1">Guests</label>
+              <input type="number" class="form-control" id="guestCount" min="1" max="20" value="2" list="hotelGuestSuggestions" required placeholder="Number of guests" />
+              <datalist id="hotelGuestSuggestions">
+                <option value="1">
+                <option value="2">
+                <option value="3">
+                <option value="4">
+                <option value="5">
+                <option value="6">
+                <option value="8">
+              </datalist>
+              <div class="invalid-feedback">Please select the number of guests.</div>
+            </div>
+            <div class="col-sm-4 d-flex align-items-end">
+              <button type="submit" class="btn btn-search w-100">Search</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- JSON + AJAX -->
+  <div class="container mt-4" id="bookingAlertZone"></div>
+
+<!-- JSON + AJAX Hotel Record Management -->
+<section class="container ajax-hotel-section" id="ajaxHotelSection">
+
+  <div class="text-center mb-4">
+    <span class="badge bg-success mb-2">VELORA</span>
+    <h2>Hotel Records</h2>
+    <p class="text-muted mb-0">
+      View, Find, and Add hotel records into the Website VELORA
+    </p>
+  </div>
+
+  <div class="row g-4 ajax-management-layout">
+    <div class="col-12 col-lg-5 ajax-controls-column">
+      <div class="ajax-control-card">
+        <h5><i class="bi bi-list-ul"></i>View All Hotels</h5>
+        <p class="text-muted small">Read all hotel records stored in website</p> <!--stored in the JSON file-->
+        <button type="button" class="btn btn-success w-100" id="loadAllHotels">Load All Hotels</button>
+      </div>
+
+      <div class="ajax-control-card">
+        <h5><i class="bi bi-search"></i> Find One Hotel</h5>
+        <p class="text-muted small">Enter a hotel ID to retrieve one record.</p>
+        <label for="searchHotelId" class="form-label">Hotel ID</label>
+        <input type="number" class="form-control mb-3" id="searchHotelId" placeholder="Example: 1" min="1">
+        <button type="button" class="btn btn-primary w-100" id="findHotel">Find Hotel</button>
+      </div>
+
+      <div class="ajax-control-card">
+        <h5><i class="bi bi-plus-circle"></i> Add New Hotel</h5>
+        <p class="text-muted small">Send a new hotel record to the server</p> <!--using AJAX-->
+        <input type="text" class="form-control mb-2" id="newHotelName" placeholder="Hotel name">
+        <input type="text" class="form-control mb-2" id="newHotelDestination" placeholder="Destination">
+
+        <select class="form-select mb-2" id="newHotelType">
+          <option value="">Select room type</option>
+          <option value="Standard">Standard</option>
+          <option value="Family">Family</option>
+          <option value="Suite">Suite</option>
+        </select>
+
+        <input type="number" class="form-control mb-2" id="newHotelPrice" placeholder="Price (LKR)">
+        <input type="text" class="form-control mb-3" id="newHotelImage" placeholder="Image path - Example: images/stays3.jpg">
+        <button type="button" class="btn btn-dark w-100" id="addHotel">Add Hotel</button>
+      </div>
+
+    </div>
+
+    <div class="col-12 col-lg-7 ajax-results-column">
+      <div id="ajaxStatus" class="alert ajax-status" role="alert"></div>
+      <div id="hotelAjaxResults" class="ajax-result-box">
+        <p class="text-muted text-center mb-0">Results will appear here</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+  <!-- ROOM FILTERS + GRID -->
+  <section class="container py-5" id="roomsSection">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4 gap-3">
+      <div>
+        <h2 class="section-heading">Our Rooms &amp; Suites</h2>
+        <p class="section-subtext mb-0">
+          For Luxury Stays, There are best choices for you. Tap
+          <strong>View Details</strong> on any room to see the full description.
+        </p>
+      </div>
+      <div class="room-filters btn-group flex-wrap" role="group" aria-label="Filter rooms by type">
+        <button type="button" class="btn btn-outline-primary active" data-filter="all">All Rooms</button>
+        <button type="button" class="btn btn-outline-primary" data-filter="standard">Standard</button>
+        <button type="button" class="btn btn-outline-primary" data-filter="family">Family</button>
+        <button type="button" class="btn btn-outline-primary" data-filter="suite">Suites</button>
+      </div>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- ROOM 1 -->
+      <div class="col-md-6 col-lg-4 room-col" data-category="standard" data-destination="Nuwara Eliya">
+        <div class="card room-card h-100">
+          <div class="img-wrap">
+            <img src="images/stays3.jpg" alt="Private Ocean Sanctuary" loading="lazy" />
+            <span class="badge bg-warning text-dark badge-tag">Popular</span>
+            <span class="price-tag">LKR 7500 / day / night </span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title mb-1">Private Ocean Sanctuary</h3>
+            <p class="text-muted">Nuwara Eliya, Sri Lanka</p>
+            <p class="card-text small">Private pool, stunning sunsets, and endless ocean views. Rediscover relaxation in your dream tropical getaway.</p>
+            <div class="mb-3">
+              <span class="amenity-chip">Free WiFi</span>
+              <span class="amenity-chip">Sea View</span>
+              <span class="amenity-chip">Breakfast Included</span>
+            </div>
+            <button type="button" class="btn btn-view-details w-100" data-bs-toggle="modal" data-bs-target="#room1Modal">
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROOM 2 -->
+      <div class="col-md-6 col-lg-4 room-col" data-category="family" data-destination="Bentota">
+        <div class="card room-card h-100">
+          <div class="img-wrap">
+            <img src="images/stays4.jpg" alt="Emerald Garden Family Room" loading="lazy" />
+            <span class="price-tag">LKR 6500 / day / night</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title mb-1">Emerald Garden Family Room</h3>
+            <p class="text-muted">Bentota, Sri Lanka</p>
+            <p class="card-text small">Luxury private pool villa with wooden deck and gazebo in lush tropical setting</p>
+            <div class="mb-3">
+              <span class="amenity-chip">Free WiFi</span>
+              <span class="amenity-chip">Garden View</span>
+              <span class="amenity-chip">Mini bar</span>
+            </div>
+            <button type="button" class="btn btn-view-details w-100" data-bs-toggle="modal" data-bs-target="#room2Modal">
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROOM 3 -->
+      <div class="col-md-6 col-lg-4 room-col" data-category="suite" data-destination="Colombo">
+        <div class="card room-card h-100">
+          <div class="img-wrap">
+            <img src="images/stays17.jpg" alt="The Horizon Executive Suite" loading="lazy" />
+            <span class="badge bg-danger badge-tag">Best Seller</span>
+            <span class="price-tag">LKR 15 000 / day / night</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title mb-1">The Horizon Executive Suite</h3>
+            <p class="text-muted">Colombo, Sri Lanka</p>
+            <p class="card-text small">Modern luxury hotel resort pool at twilight with illuminated palm trees and ambient lighting.</p>
+            <div class="mb-3">
+              <span class="amenity-chip">Free WiFi</span>
+              <span class="amenity-chip">Private Balcony</span>
+              <span class="amenity-chip">Mini Bar</span>
+            </div>
+            <button type="button" class="btn btn-view-details w-100" data-bs-toggle="modal" data-bs-target="#room3Modal">
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROOM 4 -->
+      <div class="col-md-6 col-lg-4 room-col" data-category="standard" data-destination="Trincomalee">
+        <div class="card room-card h-100">
+          <div class="img-wrap">
+            <img src="images/stays7.jpg" alt="Beachfront Luxury & Relaxation" loading="lazy" />
+            <span class="price-tag">LKR 9500 / day / night</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title mb-1">Beachfront Luxury & Relaxation</h3>
+            <p class="text-muted">Trincomalee, Sri Lanka</p>
+            <p class="card-text small">Luxury beachfront lounge with outdoor wooden pavilion and turquoise ocean view.</p>
+            <div class="mb-3">
+              <span class="amenity-chip">Free WiFi</span>
+              <span class="amenity-chip">Sea View</span>
+              <span class="amenity-chip">Mini bar</span>
+            </div>
+            <button type="button" class="btn btn-view-details w-100" data-bs-toggle="modal" data-bs-target="#room4Modal">
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROOM 5 -->
+      <div class="col-md-6 col-lg-4 room-col" data-category="suite" data-destination="Pasikuda">
+        <div class="card room-card h-100">
+          <div class="img-wrap">
+            <img src="images/stays1.jpg" alt="Paradise Under the Palms" loading="lazy" />
+            <span class="badge bg-dark badge-tag">Luxury</span>
+            <span class="price-tag">LKR 13 500 / day / night</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title mb-1">Paradise Under the Palms</h3>
+            <p class="text-muted">Pasikuda, Sri Lanka</p>
+            <p class="card-text small">White luxury beachfront hotel resort with palm trees and oceanfront loungers</p>
+            <div class="mb-3">
+              <span class="amenity-chip">Free WiFi</span>
+              <span class="amenity-chip">Sea View</span>
+              <span class="amenity-chip">Butler Service</span>
+            </div>
+            <button type="button" class="btn btn-view-details w-100" data-bs-toggle="modal" data-bs-target="#room5Modal">
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROOM 6 -->
+      <div class="col-md-6 col-lg-4 room-col" data-category="standard" data-destination="Ella">
+        <div class="card room-card h-100">
+          <div class="img-wrap">
+            <img src="images/stays20.jpg" alt="Secluded Mountain Cabins" loading="lazy" />
+            <span class="price-tag">LKR 5500 / day / night</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title mb-1">Secluded Mountain Cabins</h3>
+            <p class="text-muted">Ella, Sri Lanka</p>
+            <p class="card-text small">A rustic escape featuring cozy wooden cabins, breathtaking mountain vistas, and surrounded by lush green nature. Your ideal retreat for comfort and serenity.</p>
+            <div class="mb-3">
+              <span class="amenity-chip">Free WiFi</span>
+              <span class="amenity-chip">Nature View</span>
+              <span class="amenity-chip">Air Conditioning</span>
+            </div>
+            <button type="button" class="btn btn-view-details w-100" data-bs-toggle="modal" data-bs-target="#room6Modal">
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROOM 7 -->
+      <div class="col-md-6 col-lg-4 room-col" data-category="family" data-destination="Bentota">
+        <div class="card room-card h-100">
+          <div class="img-wrap">
+            <img src="images/hotel5.jpg" alt="Seaside Haven Hotel & Resort" loading="lazy" />
+            <span class="price-tag">LKR 9500 / day / night</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title mb-1">Seaside Haven Hotel & Resort</h3>
+            <p class="text-muted">Bentota, Sri Lanka</p>
+            <p class="card-text small">Elegant beachfront resort with a serene infinity pool overlooking the golden sands. Unwind in tropical luxury where the ocean meets endless relaxation.</p>
+            <div class="mb-3">
+              <span class="amenity-chip">Free WiFi</span>
+              <span class="amenity-chip">Sea View</span>
+              <span class="amenity-chip">Breakfast Included</span>
+            </div>
+            <button type="button" class="btn btn-view-details w-100" data-bs-toggle="modal" data-bs-target="#room7Modal">
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROOM 8 -->
+      <div class="col-md-6 col-lg-4 room-col" data-category="suite" data-destination="Dickwella">
+        <div class="card room-card h-100">
+          <div class="img-wrap">
+            <img src="images/hotel6.jpg" alt="Sunset Cove Retreat" loading="lazy" />
+            <span class="price-tag">LKR 13500 / day / night</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title mb-1">Sunset Cove Retreat</h3>
+            <p class="text-muted">Dickwella, Sri Lanka</p>
+            <p class="card-text small">Cliffside infinity pool with breathtaking sunset views over the ocean. A peaceful escape wrapped in warm tropical evenings and gentle sea breezes.</p>
+            <div class="mb-3">
+              <span class="amenity-chip">Free WiFi</span>
+              <span class="amenity-chip">Sea View</span>
+              <span class="amenity-chip">Sunset view</span>
+            </div>
+            <button type="button" class="btn btn-view-details w-100" data-bs-toggle="modal" data-bs-target="#room8Modal">
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
+
+       <!-- ROOM 9 -->
+      <div class="col-md-6 col-lg-4 room-col" data-category="suite" data-destination="Galle">
+        <div class="card room-card h-100">
+          <div class="img-wrap">
+            <img src="images/hotel4.jpg" alt="Royal Bay Hotel" loading="lazy" />
+            <span class="price-tag">LKR 15000 / day / night</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title mb-1">Royal Bay Hotel</h3>
+            <p class="text-muted">Galle, Sri Lanka</p>
+            <p class="card-text small">Grand luxury resort curved along the bay, framed by swaying palms and shimmering pools. Indulge in refined comfort with sweeping coastal views.</p>
+            <div class="mb-3">
+              <span class="amenity-chip">Free WiFi</span>
+              <span class="amenity-chip">Sea View</span>
+              <span class="amenity-chip">Private Balcony</span>
+            </div>
+            <button type="button" class="btn btn-view-details w-100" data-bs-toggle="modal" data-bs-target="#room9Modal">
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMPARISON TABLE -->
+  <section class="container pb-5">
+    <h2 class="section-heading mb-3">Compare Room Types</h2>
+    <div class="table-responsive">
+      <table class="table table-rooms table-striped table-hover align-middle">
+        <thead>
+          <tr>
+            <th scope="col">Room Type</th>
+            <th scope="col">Capacity</th>
+            <th scope="col">View Type</th>
+            <th scope="col">Size</th>
+            <th scope="col">Price / Night</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Private Ocean Sanctuary</td>
+            <td>10 person</td>
+            <td>Sea View</td>
+            <td>28 m²</td>
+            <td>LKR 7500</td>
+          </tr>
+          <tr>
+            <td>Emerald Garden Family Room</td>
+            <td>8 person</td>
+            <td>Garden View</td>
+            <td>25 m²</td>
+            <td>LKR 6500</td>
+          </tr>
+          <tr>
+            <td>The Horizon Executive Suite</td>
+            <td>Unlimited</td>
+            <td>Luxury View</td>
+            <td>1200 m²</td>
+            <td>LKR 15 000</td>
+          </tr>
+          <tr>
+            <td>Beachfront Luxury & Relaxation</td>
+            <td>Unlimited</td>
+            <td>Sea View</td>
+            <td>100 m²</td>
+            <td>LKR 9500</td>
+          </tr>
+          <tr>
+            <td>Paradise Under the Palms</td>
+            <td>Unlimited</td>
+            <td>Sea View</td>
+            <td>550 m²</td>
+            <td>LKR 13 500</td>
+          </tr>
+          <tr>
+            <td>Secluded Mountain Cabins</td>
+            <td>2 person</td>
+            <td>Mountain View</td>
+            <td>18 m²</td>
+            <td>LKR 5500</td>
+          </tr>
+          <tr>
+            <td>Seaside Haven Hotel & Resort</td>
+            <td>4 person</td>
+            <td>Sea View</td>
+            <td>45 m²</td>
+            <td>LKR 9500</td>
+          </tr>
+          <tr>
+            <td>Sunset Cove Retreat</td>
+            <td>2 person</td>
+            <td>Sunset/Sea View</td>
+            <td>60 m²</td>
+            <td>LKR 13 500</td>
+          </tr>
+          <tr>
+            <td>Royal Bay Hotel</td>
+            <td>Unlimited</td>
+            <td>Bay View</td>
+            <td>800 m²</td>
+            <td>LKR 15 000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="alert alert-warning d-flex align-items-center gap-2 mt-3" role="alert">
+      <i class="bi bi-info-circle-fill"></i>
+      <div>Rates shown are per room, per night, and do not include taxes or seasonal offers.</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+    <footer class="footer py-4">
+  <div class="container">
+    <div class="row align-items-center g-3">
+      <div class="col-md-6">
+        <h4>VELORA</h4>
+        <p class="mb-0">Where Every Stay Becomes a Story</p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <p class="mb-2">© 2026 Velora. All Rights Reserved.</p>
+        
+        <div class="footer-socials mt-2">
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- ROOM DETAIL MODALS -->
+
+  <!-- Modal 1 -->
+  <div class="modal fade modal-room" id="room1Modal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Private Ocean Sanctuary</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <img src="images/stays3.jpg" class="modal-img" alt="Private Ocean Sanctuary" />
+        <div class="modal-body">
+          <p>
+            Unwind in absolute bliss where the horizon meets your private sanctuary. Wake up to breathtaking ocean views, soak in your own personal pool, and watch the sky ignite with stunning sunset hues from the comfort of our luxurious deck.<br>
+            <br>
+            Experience romance and serenity like never before. Nestled amidst lush palm trees, this tropical getaway offers a private overwater pavilion, a secluded plunge pool, and the softest sunset glow for unforgettable intimate evenings.<br>
+            <br>
+            Elevate your escape in our signature ocean-view villa. From personalized service to the finest amenities, including a dramatic infinity edge pool and expansive sun deck, this is where unmatched luxury meets paradise.
+          </p>
+          <div class="row g-2 mb-3">
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-wifi"></i> Free WiFi</span></div>
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-water"></i> Sea View</span></div>
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-cup-hot"></i> Breakfast Included</span></div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="modal-price">LKR 7500 <small class="fs-6 text-muted">/ day / night</small></span>
+            <a href="account.html" class="btn btn-book-now">Book Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2 -->
+  <div class="modal fade modal-room" id="room2Modal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Emerald Garden Family Room</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <img src="images/stays4.jpg" class="modal-img" alt="Emerald Garden Family Room" />
+        <div class="modal-body">
+          <p>
+            Escape to a world of unparalleled serenity in our Private Pool Villa. Indulge in the luxury of your own secluded plunge pool, relax on the elegant sun loungers, and enjoy the tropical breeze in the beautifully crafted overwater pavilion. Your perfect getaway for privacy and comfort.<br>
+            <br>
+            Immerse yourself in nature in this private paradise. This villa seamlessly blends elegant indoor comfort with stunning outdoor beauty. The vibrant infinity-edge pool is surrounded by lush green palm trees, creating the ultimate backdrop for your relaxing vacation. Pure tranquility awaits you here.<br>
+            <br>
+            Step into a dream. Featuring a crystal-clear private pool, a gorgeous gazebo, and elegant living space, our Private Pool Villa offers the classic island-style holiday you've always wanted. Book now for unforgettable memories.<br>
+            <br>
+            Perfectly designed for an exclusive experience, this Private Pool Villa features a spacious wooden deck, inviting sun beds, a romantic private gazebo over the water, and modern, open-plan living. Every detail is crafted for your perfect stay.
+          </p>
+          <div class="row g-2 mb-3">
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-wifi"></i> Free WiFi</span></div>
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-tree"></i> Garden View</span></div>
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-cup-straw"></i> Mini Bar</span></div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="modal-price">LKR 6500 <small class="fs-6 text-muted">/ day / night</small></span>
+            <a href="account.html" class="btn btn-book-now">Book Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3 -->
+  <div class="modal fade modal-room" id="room3Modal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">The Horizon Executive Suite</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <img src="images/stays17.jpg" class="modal-img" alt="The Horizon Executive Suite" />
+        <div class="modal-body">
+          <p>
+            Experience the enchantment of our resort as day turns into night. Unwind by our crystal-clear pool, surrounded by gently lit palm trees and warm architectural lighting. Whether you desire a tranquil evening swim or a relaxing stroll under the stars, our resort offers the ideal ambiance for unforgettable memories.<br>
+            <br>
+            Immerse yourself in sophistication at our tropical retreat. Featuring an expansive swimming pool, illuminated gardens, and sleek modern design, our resort creates an atmosphere of pure luxury and comfort. Relax and recharge in an extraordinary coastal setting.<br>
+            <br>
+            Take a refreshing dip in our beautifully lit resort pool under the deep blue twilight sky. Designed for ultimate relaxation, this vibrant outdoor lounge area is the perfect place to unwind with a drink and enjoy the tropical evening breeze.
+          </p>
+          <div class="row g-2 mb-3">
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-wifi"></i> Free WiFi</span></div>
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-door-open"></i> Private Balcony</span></div>
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-cup-straw"></i> Mini Bar</span></div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="modal-price">LKR 15 000 <small class="fs-6 text-muted">/ day / night</small></span>
+            <a href="account.html" class="btn btn-book-now">Book Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 4 -->
+  <div class="modal fade modal-room" id="room4Modal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Beachfront Luxury & Relaxation</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <img src="images/stays7.jpg" class="modal-img" alt="Beachfront Luxury & Relaxation" />
+        <div class="modal-body">
+          <p>
+            Step out onto soft golden sands and immerse yourself in pure coastal paradise. Our open-air beachfront lounge offers the perfect blend of rustic elegance and ultimate comfort. Relax on cozy sofas, feel the ocean breeze, and enjoy breathtaking views of the turquoise sea right at your doorstep.<br>
+            <br>
+            Unwind under the shaded wooden pavilion, surrounded by lush palm trees and sparkling waters. Designed for total relaxation, this beachfront lounge is your ideal sanctuary to sip a cool beverage, read a book, or simply watch the waves roll in.<br>
+            <br>
+            Sun, sand, and effortless luxury. Indulge in an unforgettable seaside escape in our open-air lounge, offering uninterrupted ocean views and warm tropical hospitality.
+          </p>
+          <div class="row g-2 mb-3">
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-wifi"></i> Free WiFi</span></div>
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-water"></i> Sea View</span></div>
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-cup-straw"></i> Mini Bar</span></div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="modal-price">LKR 9500 <small class="fs-6 text-muted">/ day / night</small></span>
+            <a href="account.html" class="btn btn-book-now">Book Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 5 -->
+  <div class="modal fade modal-room" id="room5Modal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Paradise Under the Palms</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <img src="images/stays1.jpg" class="modal-img" alt="Paradise Under the Palms" />
+        <div class="modal-body">
+          <p>
+            Welcome to your dream tropical retreat. Nestled along pristine white sands and shaded by towering palm trees, our beachfront resort offers the ultimate luxury stay. Relax in our comfortable outdoor loungers, soak up the sun, and experience coastal living at its finest.<br>
+            <br>
+            Escape the ordinary and unwind in a stunning tropical setting. Featuring elegant oceanfront suites, crisp white beaches, and private sunbeds, our resort is designed for total relaxation. Step out of your room directly onto the sand and let the ocean breeze refresh your soul.<br>
+            <br>
+            Pristine white sands, swaying palm trees, and elegant resort suites. Indulge in an unforgettable beach holiday crafted for ultimate comfort and peace of mind.
+          </p>
+          <div class="row g-2 mb-3">
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-wifi"></i> Free WiFi</span></div>
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-water"></i> Sea View</span></div>
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-person-badge"></i> Butler Service</span></div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="modal-price">LKR 13 500 <small class="fs-6 text-muted">/ day / night</small></span>
+            <a href="account.html" class="btn btn-book-now">Book Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 6 -->
+  <div class="modal fade modal-room" id="room6Modal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Secluded Mountain Cabins</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <img src="images/stays20.jpg" class="modal-img" alt="Secluded Mountain Cabins" />
+        <div class="modal-body">
+          <p>
+            Escape to serenity. Nestled amidst lush, vibrant greenery and rolling hills, our private wooden cabins offer the perfect blend of rustic charm and comfort. Relax and unwind as you take in stunning views of the surrounding mountains, all while enjoying the peace and tranquility of a true nature retreat. This is your idyllic home away from home.<br>
+            <br>
+            Discover the ultimate getaway in our cozy, secluded wooden cabins. Each stay promises breathtaking panoramic views of majestic mountains, surrounded by abundant nature. Disconnect from the daily grind and immerse yourself in pure relaxation. We offer the perfect combination of rustic elegance, stunning landscapes, and unforgettable comfort. Book your stay today.<br>
+            <br>
+            Find your perfect escape in our charming wooden cabins. Tucked away in a beautiful, secluded setting with incredible mountain views, we provide a comfortable yet rustic nature experience. Recharge, reconnect with the outdoors, and enjoy unforgettable moments in a tranquil atmosphere.
+          </p>
+          <div class="row g-2 mb-3">
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-wifi"></i> Free WiFi</span></div>
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-tree"></i> Nature View</span></div>
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-snow"></i> Air Conditioning</span></div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="modal-price">LKR 5500 <small class="fs-6 text-muted">/ day / night</small></span>
+            <a href="account.html" class="btn btn-book-now">Book Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 7 -->
+  <div class="modal fade modal-room" id="room7Modal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Seaside Haven Hotel & Resort</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <img src="images/hotel5.jpg" class="modal-img" alt="Seaside Haven Hotel & Resort" />
+        <div class="modal-body">
+          <p>
+            Escape to a beachfront paradise where the golden shores of Bentota meet endless turquoise waters. Relax by our serene infinity pool as gentle ocean breezes drift through swaying palms, setting the perfect scene for a calm and rejuvenating stay.<br>
+            <br>
+             Discover comfort woven with tropical charm. Each room opens to soothing views of the coastline, while our thoughtfully designed spaces bring together warmth, elegance, and a true sense of island relaxation.<br>
+            <br>
+             Indulge in a seamless blend of luxury and nature. From sunrise walks along the beach to quiet evenings by the pool, Seaside Haven offers an experience crafted for travelers seeking peace, comfort, and unforgettable coastal beauty.
+          </p>
+          <div class="row g-2 mb-3">
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-wifi"></i> Free WiFi</span></div>
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-water"></i> Sea View</span></div>
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-cup-hot"></i> Breakfast Included</span></div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="modal-price">LKR 9500 <small class="fs-6 text-muted">/ day / night</small></span>
+            <a href="account.html" class="btn btn-book-now">Book Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 8 -->
+  <div class="modal fade modal-room" id="room8Modal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Sunset Cove Retreat</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <img src="images/hotel6.jpg" class="modal-img" alt="Sunset Cove Retreat" />
+        <div class="modal-body">
+          <p>
+            Perched along the dramatic cliffs of Dickwella, Sunset Cove Retreat offers uninterrupted views where the sky and sea blend into a breathtaking display of color. Sink into our infinity pool as the sun dips below the horizon, painting the evening in warm golden hues.<br>
+            <br>
+            Let the rhythmic sound of waves guide you into complete relaxation. Wrapped in tropical greenery and cool sea breezes, this retreat is designed for those who crave tranquility paired with awe-inspiring natural beauty.<br>
+            <br>
+             Every evening here becomes a memory — from candlelit dinners under the stars to quiet mornings watching fishing boats drift along the shoreline. Sunset Cove Retreat is your gateway to Mirissa's most magical moments.
+          </p>
+          <div class="row g-2 mb-3">
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-wifi"></i> Free WiFi</span></div>
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-water"></i> Sea View</span></div>
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-sunset"></i> sunset view</span></div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="modal-price">LKR 13 500 <small class="fs-6 text-muted">/ day / night</small></span>
+            <a href="account.html" class="btn btn-book-now">Book Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 9 -->
+  <div class="modal fade modal-room" id="room9Modal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Royal Bay Hotel</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <img src="images/hotel4.jpg" class="modal-img" alt="Royal Bay Hotel" />
+        <div class="modal-body">
+          <p>
+            Set along the graceful curve of Galle's coastline, Royal Bay Hotel welcomes you with sweeping views of the bay and swaying palm trees framing every corner. Our grand pool and elegant architecture create an atmosphere of refined coastal luxury.<br>
+            <br>
+            Step into spacious interiors designed with timeless sophistication, where every detail reflects comfort and class. Whether lounging poolside or strolling the illuminated gardens, Royal Bay offers a retreat that feels both grand and inviting.<br>
+            <br>
+             Experience the perfect balance of heritage charm and modern indulgence. With attentive service and breathtaking bay views at every turn, Royal Bay Hotel promises an unforgettable stay in one of Sri Lanka's most iconic coastal cities.
+          </p>
+          <div class="row g-2 mb-3">
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-wifi"></i> Free WiFi</span></div>
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-water"></i> Sea View</span></div>
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-door-open"></i> Private Balcony</span></div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="modal-price">LKR 15 000 <small class="fs-6 text-muted">/ day / night</small></span>
+            <a href="account.html" class="btn btn-book-now">Book Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Bootstrap 5 JS bundle (includes Popper) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+
+<!-- jQuery Library -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- Existing Custom JavaScript -->
+<script src="script.js"></script>
+
+<script>
+$(document).ready(function () {
+
+
+<!-- Hotels & Rooms Page (jQuery)-->
+
+  <!-- 1) DOM TRAVERSAL -->
+  $(".search-btn").on("click", function () {
+
+    const $searchForm = $(this).closest("form"); //Find the form containing the search button
+    const destination = $searchForm
+        .find('input[type="text"]') //Find the text input within that form
+        .first() //Take the value typed into the input
+        .val();
+
+    console.log("Searched Destination: " + destination);
+
+  });
+
+
+  <!-- 2) DOM MODIFICATION --> 
+  $(".btn-view-details").on("click", function () {
+
+    const $card = $(this).closest(".room-card"); //Finds the room card associated with the clicked button
+
+    $card.find(".viewed-badge").remove(); // Remove old badge if it already exists
+
+    $card.find(".card-body").prepend( // Add view details badge to the room card
+        '<span class="badge bg-success viewed-badge mb-2">✓ Details Viewed</span>'
+    );
+
+});
+
+
+  <!-- 3) DOM ATTRIBUTE MODIFICATION -->
+  $(".room-card img").on("mouseenter", function () {
+
+    const roomName = $(this)
+      .closest(".room-card") //Finds the relevant room card
+      .find(".card-title") //Obtain the room name
+      .first() 
+      .text()
+      .trim(); // Remove unnecessary spaces begin and end of the text
+
+    $(this).attr({ ////Adds room name  to the image
+      "title": "View " + roomName,
+      "data-jquery": "attribute-modified"
+    });
+
+  });
+
+
+  <!-- 4) CSS MANIPULATION -->
+  $(".room-filters button").on("click", function () {
+
+    $(".room-filters button").css({
+      "box-shadow": "none",
+      "font-weight": "normal"
+    });
+
+    $(this).css({
+      "box-shadow": "0 0 0 3px rgba(13,110,253,.25)",
+      "font-weight": "700"
+    });
+
+  });
+
+
+  <!-- 5) JAVASCRIPT EFFECTS -->
+  $("#roomsSection .section-heading").on("click", function () {
+
+    $(this)
+      .stop(true, true)
+      .fadeOut(250)
+      .fadeIn(250);
+
+  });
+
+
+  <!-- 6) HTML EVENTS -->
+  $(".room-card").on("mouseenter", function () {
+
+    $(this)
+      .find(".btn-view-details")
+      .text("View Details →");
+
+  });
+
+  $(".room-card").on("mouseleave", function () {
+
+    $(this)
+      .find(".btn-view-details")
+      .text("View Details");
+
+  });
+
+});
+</script>
+
+<!-- JSON + AJACX -->
+<script>
+$(document).ready(function () {
+
+  // Display status messages
+  function showAjaxStatus(message, type) {
+
+    $("#ajaxStatus")
+      .removeClass(
+        "alert-success alert-danger alert-warning alert-info"
+      )
+      .addClass("alert-" + type)
+      .text(message)
+      .fadeIn();
+
+    setTimeout(function () {
+
+      $("#ajaxStatus").fadeOut();
+
+    }, 3000);
+
+  }
+
+
+  // Display hotel records
+  function displayHotels(hotels) {
+
+    $("#hotelAjaxResults").empty();
+
+
+    if (!hotels || hotels.length === 0) {
+
+      $("#hotelAjaxResults").html(
+        '<p class="text-center text-muted mb-0">No hotel records found.</p>'
+      );
+
+      return;
+    }
+
+
+    $.each(hotels, function (index, hotel) {
+
+      const hotelHTML = `
+
+        <div class="ajax-hotel-item">
+
+          <img
+            src="${hotel.image}"
+            alt="${hotel.name}"
+            class="ajax-hotel-image">
+
+          <h5 class="mb-1">
+            ${hotel.name}
+          </h5>
+
+          <p class="mb-1">
+            <strong>ID:</strong>
+            ${hotel.id}
+          </p>
+
+          <p class="mb-1">
+            <strong>Destination:</strong>
+            ${hotel.destination}
+          </p>
+
+          <p class="mb-1">
+            <strong>Room Type:</strong>
+            ${hotel.type}
+          </p>
+
+          <p class="mb-0">
+            <strong>Price:</strong>
+            LKR ${hotel.price}
+          </p>
+
+        </div>
+
+      `;
+
+
+      $("#hotelAjaxResults").append(hotelHTML);
+
+    });
+
+  }
+
+
+  // Clear Add Hotel form
+  function clearHotelForm() {
+
+    $("#newHotelName").val("");
+
+    $("#newHotelDestination").val("");
+
+    $("#newHotelType").val("");
+
+    $("#newHotelPrice").val("");
+
+    $("#newHotelImage").val("");
+
+  }
+
+
+  // (Button-1) LOAD ALL HOTELS 
+
+  $("#loadAllHotels").on("click", function () {
+
+    $.ajax({
+
+      url: "hotels_api.php",
+
+      type: "GET",
+
+      dataType: "json",
+
+
+      success: function (response) {
+
+        if (response.success) {
+
+          displayHotels(
+            response.data
+          );
+
+          showAjaxStatus(
+            "All hotel records loaded successfully.",
+            "success"
+          );
+
+        } else {
+
+          showAjaxStatus(
+            response.message,
+            "warning"
+          );
+
+        }
+
+      },
+
+
+      error: function () {
+
+        showAjaxStatus(
+          "Unable to load hotel records.",
+          "danger"
+        );
+
+      }
+
+    });
+
+  });
+
+
+  // (Button-2) FIND ONE HOTEL
+
+  $("#findHotel").on("click", function () {
+
+    const hotelId =
+      $("#searchHotelId").val().trim();
+
+
+    if (hotelId === "") {
+
+      showAjaxStatus(
+        "Please enter a hotel ID.",
+        "warning"
+      );
+
+      return;
+    }
+
+
+    $.ajax({
+
+      url: "hotels_api.php",
+
+      type: "GET",
+
+      data: {
+        id: hotelId
+      },
+
+      dataType: "json",
+
+
+      success: function (response) {
+
+        if (response.success) {
+
+          displayHotels([
+            response.data
+          ]);
+
+          showAjaxStatus(
+            "Hotel record found successfully.",
+            "success"
+          );
+
+        } else {
+
+          $("#hotelAjaxResults").html(
+            '<p class="text-center text-danger mb-0">Hotel not found.</p>'
+          );
+
+          showAjaxStatus(
+            response.message,
+            "warning"
+          );
+
+        }
+
+      },
+
+
+      error: function () {
+
+        showAjaxStatus(
+          "Unable to retrieve the hotel record.",
+          "danger"
+        );
+
+      }
+
+    });
+
+  });
+
+
+  // (Button-3) ADD NEW HOTEL
+
+  $("#addHotel").on("click", function () {
+
+    const hotelName =
+      $("#newHotelName").val().trim();
+
+    const destination =
+      $("#newHotelDestination").val().trim();
+
+    const roomType =
+      $("#newHotelType").val();
+
+    const price =
+      $("#newHotelPrice").val().trim();
+
+    const image =
+      $("#newHotelImage").val().trim();
+
+
+    if (
+      hotelName === "" ||
+      destination === "" ||
+      roomType === "" ||
+      price === "" ||
+      image === ""
+    ) {
+
+      showAjaxStatus(
+        "Please complete all hotel details.",
+        "warning"
+      );
+
+      return;
+    }
+
+
+    const newHotel = {
+
+      name: hotelName,
+
+      destination: destination,
+
+      type: roomType,
+
+      price: price,
+
+      image: image
+
+    };
+
+
+    $.ajax({
+
+      url: "hotels_api.php",
+
+      type: "POST",
+
+      data: newHotel,
+
+      dataType: "json",
+
+
+      success: function (response) {
+
+        if (response.success) {
+
+          clearHotelForm();
+
+          displayHotels([
+            response.data
+          ]);
+
+          showAjaxStatus(
+            "New hotel record added successfully.",
+            "success"
+          );
+
+        } else {
+
+          showAjaxStatus(
+            response.message,
+            "danger"
+          );
+
+        }
+
+      },
+
+
+      error: function () {
+
+        showAjaxStatus(
+          "Unable to add the hotel record.",
+          "danger"
+        );
+
+      }
+
+    });
+
+  });
+
+});
+</script>
+
+</body>
+</html>

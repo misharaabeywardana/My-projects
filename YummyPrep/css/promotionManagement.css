@@ -1,0 +1,893 @@
+/* =========================================
+   YUMMYPREP - PROMOTION MANAGEMENT
+   ========================================= */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #f5f5f0;
+    color: #242424;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+
+
+/* LAYOUT */
+
+.admin-layout {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+}
+
+
+
+/* SIDEBAR */
+
+.admin-sidebar {
+    height: 100vh;
+    position: sticky;
+    top: 0;
+
+    padding: 35px 25px;
+
+    background: #20281c;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+.sidebar-logo {
+    padding: 0 10px 32px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.10);
+}
+
+
+.sidebar-logo a {
+    color: white;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+
+.sidebar-logo a span {
+    color: #a9c184;
+}
+
+
+.sidebar-logo p {
+    margin-top: 5px;
+
+    color: #7f8878;
+
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+}
+
+
+
+/* NAV */
+
+.admin-nav {
+    margin-top: 30px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+.admin-nav-link {
+    padding: 13px 14px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    border-radius: 11px;
+
+    color: #aeb5a9;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    transition: 0.3s;
+}
+
+
+.admin-nav-link:hover {
+    color: white;
+    background: rgba(255,255,255,0.06);
+}
+
+
+.admin-nav-link.active {
+    color: white;
+    background: #647b48;
+}
+
+
+.admin-nav-link span {
+    width: 21px;
+    text-align: center;
+}
+
+
+
+/* SIDEBAR BOTTOM */
+
+.sidebar-bottom {
+    margin-top: auto;
+
+    padding-top: 25px;
+
+    border-top:
+        1px solid rgba(255,255,255,0.10);
+}
+
+
+.view-site-link {
+    display: block;
+
+    margin-bottom: 14px;
+
+    padding: 11px;
+
+    text-align: center;
+
+    border-radius: 9px;
+
+    color: #bbc9ab;
+
+    border:
+        1px solid rgba(188,211,151,0.20);
+
+    font-size: 11px;
+}
+
+
+.logout-btn {
+    width: 100%;
+
+    padding: 11px;
+
+    border: none;
+    border-radius: 9px;
+
+    background:
+        rgba(255,255,255,0.07);
+
+    color: #c8cdc4;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 11px;
+
+    cursor: pointer;
+}
+
+
+
+/* MAIN */
+
+.admin-main {
+    min-width: 0;
+    padding: 40px 45px 70px;
+}
+
+
+
+/* HEADER */
+
+.page-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 25px;
+
+    margin-bottom: 30px;
+}
+
+
+.page-header p {
+    color: #7c955c;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 2.5px;
+
+    margin-bottom: 6px;
+}
+
+
+.page-header h1 {
+    font-size: 30px;
+
+    color: #252525;
+
+    margin-bottom: 6px;
+}
+
+
+.page-header span {
+    color: #999;
+    font-size: 11px;
+}
+
+
+.add-promotion-btn {
+    padding: 12px 20px;
+
+    border: none;
+
+    border-radius: 25px;
+
+    background: #647b48;
+
+    color: white;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.add-promotion-btn:hover {
+    background: #52663c;
+    transform: translateY(-2px);
+}
+
+
+
+/* STATS */
+
+.promotion-stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 25px;
+}
+
+
+.promotion-stat-card {
+    padding: 23px;
+
+    background: white;
+
+    border-radius: 16px;
+
+    border: 1px solid #ecece7;
+
+    box-shadow:
+        0 6px 20px rgba(0,0,0,0.035);
+}
+
+
+.promotion-stat-card span {
+    display: block;
+
+    color: #999;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 15px;
+}
+
+
+.promotion-stat-card strong {
+    display: block;
+
+    color: #2d2d2d;
+
+    font-size: 27px;
+
+    margin-bottom: 4px;
+}
+
+
+.promotion-stat-card p {
+    color: #999;
+    font-size: 10px;
+}
+
+
+
+/* CONTROLS */
+
+.promotion-controls {
+    display: grid;
+
+    grid-template-columns:
+        1fr 200px;
+
+    gap: 12px;
+
+    margin-bottom: 22px;
+}
+
+
+.promotion-controls input,
+.promotion-controls select {
+    height: 43px;
+
+    padding: 0 14px;
+
+    border:
+        1px solid #dcdcd5;
+
+    border-radius: 10px;
+
+    background: white;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 11px;
+
+    outline: none;
+}
+
+
+.promotion-controls input:focus,
+.promotion-controls select:focus {
+    border-color: #7c955c;
+
+    box-shadow:
+        0 0 0 3px rgba(124,149,92,0.10);
+}
+
+
+
+/* MAIN CARD */
+
+.promotions-card {
+    padding: 28px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    border: 1px solid #ecece7;
+
+    box-shadow:
+        0 7px 25px rgba(0,0,0,0.035);
+}
+
+
+.promotions-heading {
+    margin-bottom: 25px;
+}
+
+
+.promotions-heading p {
+    color: #7c955c;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 5px;
+}
+
+
+.promotions-heading h2 {
+    font-size: 20px;
+}
+
+
+
+/* GRID */
+
+.promotion-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+
+
+/* PROMOTION CARD */
+
+.promotion-card {
+    position: relative;
+
+    padding: 24px;
+
+    border-radius: 16px;
+
+    border: 1px solid #ecece7;
+
+    background: #fafaf7;
+
+    transition: 0.3s;
+}
+
+
+.promotion-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.06);
+}
+
+
+.promotion-card-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 16px;
+}
+
+
+.promotion-code {
+    color: #638044;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+
+.promotion-status {
+    padding: 5px 9px;
+
+    border-radius: 14px;
+
+    font-size: 8px;
+
+    font-weight: 600;
+}
+
+
+.promotion-status.active {
+    background: #e5f1dc;
+    color: #577c3e;
+}
+
+
+.promotion-status.inactive {
+    background: #f5e3e0;
+    color: #9a5b53;
+}
+
+
+.promotion-card h3 {
+    font-size: 17px;
+
+    margin-bottom: 8px;
+}
+
+
+.promotion-description {
+    min-height: 45px;
+
+    color: #888;
+
+    font-size: 10px;
+
+    line-height: 1.7;
+
+    margin-bottom: 18px;
+}
+
+
+
+/* OFFER */
+
+.promotion-offer {
+    margin-bottom: 16px;
+
+    padding: 14px;
+
+    border-radius: 12px;
+
+    background: #edf2e7;
+}
+
+
+.promotion-offer strong {
+    display: block;
+
+    color: #638044;
+
+    font-size: 22px;
+
+    margin-bottom: 2px;
+}
+
+
+.promotion-offer span {
+    color: #777;
+
+    font-size: 9px;
+}
+
+
+
+/* EXPIRY */
+
+.promotion-expiry {
+    color: #888;
+
+    font-size: 9px;
+
+    margin-bottom: 17px;
+}
+
+
+
+/* ACTIONS */
+
+.promotion-actions {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 7px;
+}
+
+
+.promotion-action-btn {
+    padding: 8px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 8px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.edit-btn {
+    background: #edf2e7;
+    color: #638044;
+}
+
+
+.status-btn {
+    background: #f3f1e6;
+    color: #7e733f;
+}
+
+
+.delete-btn {
+    background: #fff0ee;
+    color: #a34e45;
+}
+
+
+
+/* EMPTY */
+
+.empty-promotions {
+    grid-column: 1 / -1;
+
+    padding: 55px 20px;
+
+    text-align: center;
+
+    color: #999;
+
+    font-size: 11px;
+}
+
+
+
+/* MODAL */
+
+.promotion-modal {
+    position: fixed;
+
+    inset: 0;
+
+    padding: 30px;
+
+    background:
+        rgba(20,25,18,0.60);
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 100;
+}
+
+
+.promotion-modal.show {
+    display: flex;
+}
+
+
+.modal-box {
+    width: 100%;
+
+    max-width: 650px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 32px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.18);
+}
+
+
+.modal-heading {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    margin-bottom: 25px;
+}
+
+
+.modal-heading p {
+    color: #7c955c;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 5px;
+}
+
+
+.modal-heading h2 {
+    font-size: 23px;
+}
+
+
+.close-modal-btn {
+    border: none;
+
+    background: transparent;
+
+    color: #777;
+
+    font-size: 26px;
+
+    cursor: pointer;
+}
+
+
+
+/* FORM */
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 16px;
+}
+
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+
+.form-group label {
+    display: block;
+
+    color: #444;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    margin-bottom: 7px;
+}
+
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    padding: 11px 13px;
+
+    border:
+        1px solid #deded8;
+
+    border-radius: 9px;
+
+    background: #fafaf7;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 11px;
+
+    outline: none;
+}
+
+
+.form-group textarea {
+    resize: vertical;
+}
+
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #7c955c;
+}
+
+
+
+/* MODAL ACTIONS */
+
+.modal-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 10px;
+}
+
+
+.cancel-btn,
+.save-promotion-btn {
+    padding: 11px 20px;
+
+    border-radius: 24px;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.cancel-btn {
+    background: white;
+
+    color: #666;
+
+    border: 1px solid #ddd;
+}
+
+
+.save-promotion-btn {
+    border: none;
+
+    background: #647b48;
+
+    color: white;
+}
+
+
+
+/* RESPONSIVE */
+
+@media (max-width: 950px) {
+
+    .promotion-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .promotion-stats {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    .admin-layout {
+        grid-template-columns: 1fr;
+    }
+
+
+    .admin-sidebar {
+        height: auto;
+        position: static;
+    }
+
+
+    .admin-main {
+        padding: 30px 24px 60px;
+    }
+
+
+    .promotion-controls {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .promotion-modal {
+        padding: 15px;
+    }
+
+
+    .modal-box {
+        padding: 24px;
+    }
+
+}

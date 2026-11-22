@@ -1,0 +1,32 @@
+[
+    {
+        "account_id": "001",
+        "full_name": "Senuji Bisakya",
+        "email": "senuji@gmail.com",
+        "password": "$2y$10$LUnf5YGGSAdyb\/R0OI1tbuCQ6oAEijpAD8pOpVwfH8n4vyRWB0orG",
+        "phone": "0712345678",
+        "address": "Matara",
+        "account_type": "Customer",
+        "membership_status": "Active"
+    },
+    {
+        "account_id": "002",
+        "full_name": "rdrfgvhbn",
+        "email": "ercfghb@gmail.com",
+        "password": "$2y$10$wj4bb\/aBuyF74jJKzroN8erchXxXNiGXmaUNfCCqvYBPMI0AuA34a",
+        "phone": "",
+        "address": "",
+        "account_type": "Customer",
+        "membership_status": "Active"
+    },
+    {
+        "account_id": "003",
+        "full_name": "dfgvbn",
+        "email": "rghnm@gmail.com",
+        "password": "$2y$10$4y\/aGJfX6BY6IP3hRF3L7emsxlaxqRas8fr7rDkZV86nzCmNZH\/Xa",
+        "phone": "",
+        "address": "",
+        "account_type": "Customer",
+        "membership_status": "Active"
+    }
+]

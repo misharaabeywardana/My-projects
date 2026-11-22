@@ -1,0 +1,603 @@
+/* =========================================
+   YUMMYPREP - MEALS PAGE
+   ========================================= */
+
+
+/* =========================================
+   PAGE HEADER
+   ========================================= */
+
+.menu-header {
+    padding: 90px 7% 60px;
+
+    text-align: center;
+
+    background: #f8f7f2;
+}
+
+
+.menu-header > p:first-child {
+    color: #7c955c;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
+}
+
+
+.menu-header h1 {
+    font-size: 52px;
+
+    color: #242424;
+
+    margin-bottom: 18px;
+}
+
+
+.menu-header h1 span {
+    color: #7c955c;
+}
+
+
+.menu-description {
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    color: #777;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   CATEGORY NAVIGATION
+   ========================================= */
+
+.menu-navigation {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    padding: 25px 7%;
+
+    background: white;
+
+    border-top: 1px solid #e8e7df;
+
+    border-bottom: 1px solid #e8e7df;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 10;
+}
+
+
+.menu-navigation a {
+    padding: 10px 20px;
+
+    border-radius: 25px;
+
+    color: #555;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    transition: 0.3s;
+}
+
+
+.menu-navigation a:hover {
+    background: #738c52;
+
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   MEAL SECTIONS
+   ========================================= */
+
+.menu-section {
+    padding: 90px 7%;
+
+    background: #f8f7f2;
+}
+
+
+.alternate-section {
+    background: #efeee7;
+}
+
+
+/* =========================================
+   SECTION HEADINGS
+   ========================================= */
+
+.menu-section-heading {
+    text-align: center;
+
+    margin-bottom: 45px;
+}
+
+
+.menu-section-heading p {
+    color: #7c955c;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 12px;
+}
+
+
+.menu-section-heading h2 {
+    font-size: 42px;
+
+    color: #242424;
+}
+
+
+.menu-section-heading h2 span {
+    color: #7c955c;
+}
+
+
+/* =========================================
+   MEAL GRID
+   ========================================= */
+
+.menu-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 30px;
+
+    max-width: 1250px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   MEAL CARD
+   ========================================= */
+
+.menu-card {
+    background: white;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.07);
+
+    transition: 0.3s;
+
+    display: flex;
+
+    flex-direction: column;
+
+    height: 500px;
+}
+
+
+.menu-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,0.12);
+}
+
+
+/* =========================================
+   CARD IMAGE
+   ========================================= */
+
+.menu-card-image {
+    width: 100%;
+
+    height: 280px;
+
+    flex-shrink: 0;
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    transition: 0.4s;
+}
+
+
+.menu-card:hover .menu-card-image {
+    transform: scale(1.03);
+}
+
+
+/* =========================================
+   RICE BOWL IMAGES
+   ========================================= */
+
+.rice-one {
+    background-image:
+        url("../images/chickenBowl1.jpeg");
+}
+
+
+.rice-two {
+    background-image:
+        url("../images/riceBowl2.jpeg");
+}
+
+
+.rice-three {
+    background-image:
+        url("../images/riceBowl4.jpeg");
+}
+
+
+
+/* =========================================
+   SALAD IMAGES
+   ========================================= */
+
+.salad-one {
+    background-image:
+        url("../images/salad1.jpeg");
+}
+
+
+.salad-two {
+    background-image:
+        url("../images/salad3.jpeg");
+}
+
+
+.salad-three {
+    background-image:
+        url("../images/salad2.jpeg");
+}
+
+
+/* =========================================
+   GRAIN BOWL IMAGES
+   ========================================= */
+
+.grain-one {
+    background-image:
+        url("../images/grainBowl.jpeg");
+}
+
+
+.grain-two {
+    background-image:
+        url("../images/grainBowl2.jpeg");
+}
+
+
+/* =========================================
+   BREAD / SANDWICH IMAGES
+   ========================================= */
+
+.bread-one {
+    background-image:
+        url("../images/sandwich2.jpeg");
+}
+
+
+.bread-two {
+    background-image:
+        url("../images/sandwich1.jpeg");
+}
+
+
+/* =========================================
+   BEVERAGE IMAGES
+   ========================================= */
+
+.beverage-one {
+    background-image:
+        url("../images/juice2.jpeg");
+}
+
+
+.beverage-two {
+    background-image:
+        url("../images/juice1.jpeg");
+}
+
+
+.beverage-three {
+    background-image:
+        url("../images/juice5.jpeg");
+}
+
+
+.beverage-four {
+    background-image:
+        url("../images/citrus.jpeg");
+}
+
+
+/* =========================================
+   CARD INFORMATION
+   ========================================= */
+
+.menu-card-content {
+    padding: 25px;
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.menu-card-content h3 {
+    font-size: 20px;
+
+    margin-bottom: 9px;
+
+    color: #242424;
+}
+
+
+.menu-card-content p {
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   PRICE + BUTTON
+   ========================================= */
+
+.menu-card-bottom {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: auto;
+}
+
+
+.menu-card-bottom strong {
+    color: #638044;
+
+    font-size: 18px;
+}
+
+
+.menu-card-bottom a {
+    color: #333;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+
+.menu-card-bottom a:hover {
+    color: #738c52;
+}
+
+
+/* =========================================
+   CUSTOMIZE SECTION
+   ========================================= */
+
+.menu-customize {
+    min-height: 430px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 70px 7%;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            rgba(50,65,38,0.86),
+            rgba(50,65,38,0.86)
+        ),
+        url("../images/customizeFood2.jpeg");
+
+    background-size: cover;
+
+    background-position: center;
+}
+
+
+.menu-customize > div {
+    max-width: 700px;
+}
+
+
+.menu-customize > div > p:first-child {
+    color: #bdd399;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
+}
+
+
+.menu-customize h2 {
+    font-size: 44px;
+
+    margin-bottom: 20px;
+}
+
+
+.menu-customize h2 + p {
+    color: #e5e5e5;
+
+    line-height: 1.7;
+
+    margin-bottom: 30px;
+}
+
+
+.menu-customize a {
+    display: inline-block;
+
+    padding: 14px 27px;
+
+    background: white;
+
+    color: #526b3b;
+
+    border-radius: 30px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+
+.menu-customize a:hover {
+    background: #b8cf91;
+
+    color: #263326;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN - TABLET
+   ========================================= */
+
+@media (max-width: 1000px) {
+
+    .menu-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .menu-header h1 {
+        font-size: 45px;
+    }
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN - MOBILE
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .menu-header {
+        padding: 70px 6% 50px;
+    }
+
+
+    .menu-header h1 {
+        font-size: 38px;
+    }
+
+
+    .menu-navigation {
+        position: static;
+    }
+
+
+    .menu-section {
+        padding: 70px 6%;
+    }
+
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .menu-card {
+        height: auto;
+    }
+
+
+    .menu-section-heading h2 {
+        font-size: 34px;
+    }
+
+
+    .menu-customize {
+        padding: 60px 7%;
+    }
+
+
+    .menu-customize h2 {
+        font-size: 34px;
+    }
+}
+
+/* =========================================
+   EMPTY MEAL CATEGORY
+   ========================================= */
+
+.empty-category {
+
+    grid-column: 1 / -1;
+
+    padding: 45px 25px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    color: #888;
+
+    font-size: 13px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.04);
+}

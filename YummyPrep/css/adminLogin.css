@@ -1,0 +1,722 @@
+/* =========================================
+   YUMMYPREP - ADMIN LOGIN
+   ========================================= */
+
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+
+body {
+
+    font-family: "Poppins", sans-serif;
+
+    background: #f4f4ef;
+
+    color: #242424;
+}
+
+
+
+/* =========================================
+   PAGE
+   ========================================= */
+
+.admin-login-page {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 45px;
+}
+
+
+
+/* =========================================
+   CONTAINER
+   ========================================= */
+
+.admin-login-container {
+
+    width: 100%;
+
+    max-width: 1180px;
+
+    min-height: 690px;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 0.95fr;
+
+    background: white;
+
+    border-radius: 28px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.10);
+}
+
+
+
+/* =========================================
+   LEFT SIDE
+   ========================================= */
+
+.admin-brand-section {
+
+    position: relative;
+
+    padding: 55px 65px;
+
+    color: white;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    background:
+        linear-gradient(
+            rgba(35,49,28,0.91),
+            rgba(35,49,28,0.91)
+        ),
+        url("../images/customizeFood.jpeg");
+
+    background-size: cover;
+
+    background-position: center;
+}
+
+
+
+/* =========================================
+   LOGO
+   ========================================= */
+
+.admin-logo {
+
+    color: white;
+
+    font-size: 27px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    letter-spacing: -0.5px;
+}
+
+
+.admin-logo span {
+
+    color: #bcd397;
+}
+
+
+
+/* =========================================
+   BRAND CONTENT
+   ========================================= */
+
+.brand-content {
+
+    max-width: 500px;
+}
+
+
+.admin-label {
+
+    color: #bdd399;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 18px;
+}
+
+
+.brand-content h1 {
+
+    font-size: 50px;
+
+    line-height: 1.12;
+
+    margin-bottom: 25px;
+}
+
+
+.brand-content h1 span {
+
+    display: block;
+
+    color: #bdd399;
+}
+
+
+.brand-description {
+
+    color: #e2e6de;
+
+    font-size: 14px;
+
+    line-height: 1.85;
+
+    margin-bottom: 35px;
+}
+
+
+
+/* =========================================
+   FEATURES
+   ========================================= */
+
+.admin-features {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 17px;
+}
+
+
+.feature-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+}
+
+
+.feature-item > span {
+
+    width: 29px;
+
+    height: 29px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background: rgba(189,211,153,0.18);
+
+    border: 1px solid rgba(189,211,153,0.45);
+
+    color: #bdd399;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+.feature-item p {
+
+    color: #f0f0ec;
+
+    font-size: 13px;
+}
+
+
+
+/* =========================================
+   PORTAL NOTE
+   ========================================= */
+
+.portal-note {
+
+    color: rgba(255,255,255,0.55);
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+
+/* =========================================
+   RIGHT SIDE
+   ========================================= */
+
+.admin-form-section {
+
+    padding: 70px 65px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: white;
+}
+
+
+.admin-form-wrapper {
+
+    width: 100%;
+
+    max-width: 420px;
+}
+
+
+
+/* =========================================
+   HEADING
+   ========================================= */
+
+.form-heading {
+
+    margin-bottom: 32px;
+}
+
+
+.form-heading > p {
+
+    color: #7c955c;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 2.5px;
+
+    margin-bottom: 10px;
+}
+
+
+.form-heading h2 {
+
+    color: #242424;
+
+    font-size: 33px;
+
+    margin-bottom: 8px;
+}
+
+
+.form-heading span {
+
+    color: #888;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+
+/* =========================================
+   FORM
+   ========================================= */
+
+.form-group {
+
+    margin-bottom: 21px;
+}
+
+
+.form-group label {
+
+    display: block;
+
+    color: #444;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    margin-bottom: 8px;
+}
+
+
+.form-group input {
+
+    width: 100%;
+
+    height: 48px;
+
+    padding: 0 14px;
+
+    border: 1px solid #dbdbd4;
+
+    border-radius: 10px;
+
+    background: #fafaf7;
+
+    color: #333;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 12px;
+
+    outline: none;
+
+    transition: 0.3s;
+}
+
+
+.form-group input:focus {
+
+    border-color: #7c955c;
+
+    background: white;
+
+    box-shadow:
+        0 0 0 3px rgba(124,149,92,0.12);
+}
+
+
+
+/* =========================================
+   PASSWORD
+   ========================================= */
+
+.password-field {
+
+    position: relative;
+}
+
+
+.password-field input {
+
+    padding-right: 65px;
+}
+
+
+.password-toggle {
+
+    position: absolute;
+
+    top: 50%;
+
+    right: 12px;
+
+    transform: translateY(-50%);
+
+    border: none;
+
+    background: transparent;
+
+    color: #638044;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+
+/* =========================================
+   OPTIONS
+   ========================================= */
+
+.admin-options {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin:
+        2px 0 26px;
+}
+
+
+.remember-admin {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #777;
+
+    font-size: 11px;
+
+    cursor: pointer;
+}
+
+
+.remember-admin input {
+
+    accent-color: #738c52;
+}
+
+
+.admin-options > a {
+
+    color: #638044;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+
+.admin-options > a:hover {
+
+    text-decoration: underline;
+}
+
+
+
+/* =========================================
+   LOGIN BUTTON
+   ========================================= */
+
+.admin-login-btn {
+
+    width: 100%;
+
+    padding: 14px 20px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: #657e48;
+
+    color: white;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.admin-login-btn:hover {
+
+    background: #52683b;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(82,104,59,0.22);
+}
+
+
+
+/* =========================================
+   MESSAGE
+   ========================================= */
+
+.login-message {
+
+    display: none;
+
+    margin-bottom: 20px;
+
+    padding: 11px 14px;
+
+    border-radius: 9px;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+
+.login-message.error {
+
+    display: block;
+
+    background: #fff0ee;
+
+    color: #a34e45;
+
+    border: 1px solid #f0cdc8;
+}
+
+
+.login-message.success {
+
+    display: block;
+
+    background: #edf4e7;
+
+    color: #57733e;
+
+    border: 1px solid #d7e5ca;
+}
+
+
+
+/* =========================================
+   CUSTOMER LINK
+   ========================================= */
+
+.customer-site-link {
+
+    margin-top: 27px;
+
+    padding-top: 25px;
+
+    text-align: center;
+
+    border-top: 1px solid #eeeeea;
+}
+
+
+.customer-site-link span {
+
+    color: #999;
+
+    font-size: 11px;
+}
+
+
+.customer-site-link a {
+
+    margin-left: 4px;
+
+    color: #638044;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+
+.customer-site-link a:hover {
+
+    text-decoration: underline;
+}
+
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .admin-login-page {
+
+        padding: 30px;
+    }
+
+
+    .admin-login-container {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .admin-brand-section {
+
+        min-height: 500px;
+
+        padding: 50px;
+    }
+
+
+    .admin-form-section {
+
+        padding: 60px 50px;
+    }
+
+}
+
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .admin-login-page {
+
+        padding: 0;
+
+        align-items: stretch;
+    }
+
+
+    .admin-login-container {
+
+        border-radius: 0;
+
+        box-shadow: none;
+    }
+
+
+    .admin-brand-section {
+
+        min-height: 460px;
+
+        padding: 40px 28px;
+    }
+
+
+    .brand-content h1 {
+
+        font-size: 39px;
+    }
+
+
+    .admin-form-section {
+
+        padding: 55px 28px;
+    }
+
+
+    .form-heading h2 {
+
+        font-size: 29px;
+    }
+
+
+    .admin-options {
+
+        align-items: flex-start;
+    }
+
+}

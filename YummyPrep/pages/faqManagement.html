@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>YummyPrep | FAQ Management</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/faqManagement.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="admin-layout">
+
+
+    <!-- SIDEBAR -->
+
+    <aside class="admin-sidebar">
+
+        <div class="sidebar-logo">
+
+            <a href="adminDashboard.html">
+                Yummy<span>Prep</span>
+            </a>
+
+            <p>
+                ADMIN PANEL
+            </p>
+
+        </div>
+
+
+        <nav class="admin-nav">
+
+            <a
+                href="adminDashboard.html"
+                class="admin-nav-link"
+            >
+                <span>▦</span>
+                Dashboard
+            </a>
+
+
+            <a
+                href="userManagement.html"
+                class="admin-nav-link"
+            >
+                <span>♙</span>
+                Users
+            </a>
+
+
+            <a
+                href="mealManagement.html"
+                class="admin-nav-link"
+            >
+                <span>◉</span>
+                Meals
+            </a>
+
+
+            <a
+                href="orderManagement.html"
+                class="admin-nav-link"
+            >
+                <span>□</span>
+                Orders
+            </a>
+
+
+            <a
+                href="promotionManagement.html"
+                class="admin-nav-link"
+            >
+                <span>%</span>
+                Promotions
+            </a>
+
+
+            <a
+                href="faqManagement.html"
+                class="admin-nav-link active"
+            >
+                <span>?</span>
+                FAQs
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a
+                href="../index.html"
+                class="view-site-link"
+            >
+                View Website →
+            </a>
+
+
+            <button
+                type="button"
+                id="logoutBtn"
+                class="logout-btn"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- MAIN -->
+
+    <main class="admin-main">
+
+
+        <!-- HEADER -->
+
+        <header class="page-header">
+
+            <div>
+
+                <p>
+                    SUPPORT CONTENT
+                </p>
+
+                <h1>
+                    FAQ Management
+                </h1>
+
+                <span>
+                    Create and manage frequently asked questions for YummyPrep customers.
+                </span>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="addFaqBtn"
+                class="add-faq-btn"
+            >
+                + Add FAQ
+            </button>
+
+        </header>
+
+
+
+        <!-- STATS -->
+
+        <section class="faq-stats">
+
+
+            <div class="faq-stat-card">
+
+                <span>
+                    TOTAL FAQs
+                </span>
+
+                <strong id="totalFaqs">
+                    0
+                </strong>
+
+                <p>
+                    Created questions
+                </p>
+
+            </div>
+
+
+            <div class="faq-stat-card">
+
+                <span>
+                    ACTIVE
+                </span>
+
+                <strong id="activeFaqs">
+                    0
+                </strong>
+
+                <p>
+                    Visible to customers
+                </p>
+
+            </div>
+
+
+            <div class="faq-stat-card">
+
+                <span>
+                    INACTIVE
+                </span>
+
+                <strong id="inactiveFaqs">
+                    0
+                </strong>
+
+                <p>
+                    Hidden questions
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- CONTROLS -->
+
+        <section class="faq-controls">
+
+            <input
+                type="text"
+                id="faqSearch"
+                placeholder="Search FAQ questions..."
+            >
+
+
+            <select id="faqCategoryFilter">
+
+                <option value="all">
+                    All Categories
+                </option>
+
+                <option value="Orders">
+                    Orders
+                </option>
+
+                <option value="Delivery">
+                    Delivery
+                </option>
+
+                <option value="Customization">
+                    Customization
+                </option>
+
+                <option value="Account">
+                    Account
+                </option>
+
+                <option value="General">
+                    General
+                </option>
+
+            </select>
+
+
+            <select id="faqStatusFilter">
+
+                <option value="all">
+                    All Statuses
+                </option>
+
+                <option value="Active">
+                    Active
+                </option>
+
+                <option value="Inactive">
+                    Inactive
+                </option>
+
+            </select>
+
+        </section>
+
+
+
+        <!-- FAQ LIST -->
+
+        <section class="faq-card">
+
+            <div class="faq-card-heading">
+
+                <div>
+
+                    <p>
+                        CUSTOMER SUPPORT
+                    </p>
+
+                    <h2>
+                        Frequently Asked Questions
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="faqList"
+                class="faq-list"
+            >
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+
+<!-- FAQ MODAL -->
+
+<div
+    class="faq-modal"
+    id="faqModal"
+>
+
+
+    <div class="modal-box">
+
+
+        <div class="modal-heading">
+
+            <div>
+
+                <p>
+                    FAQ ITEM
+                </p>
+
+                <h2 id="modalTitle">
+                    Add FAQ
+                </h2>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="closeModalBtn"
+                class="close-modal-btn"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+
+        <form id="faqForm">
+
+
+            <input
+                type="hidden"
+                id="faqId"
+            >
+
+
+
+            <div class="form-group">
+
+                <label for="faqQuestion">
+                    Question
+                </label>
+
+                <input
+                    type="text"
+                    id="faqQuestion"
+                    placeholder="Enter FAQ question"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label for="faqAnswer">
+                    Answer
+                </label>
+
+                <textarea
+                    id="faqAnswer"
+                    rows="5"
+                    placeholder="Enter FAQ answer"
+                    required
+                ></textarea>
+
+            </div>
+
+
+
+            <div class="form-grid">
+
+
+                <div class="form-group">
+
+                    <label for="faqCategory">
+                        Category
+                    </label>
+
+                    <select
+                        id="faqCategory"
+                        required
+                    >
+
+                        <option value="Orders">
+                            Orders
+                        </option>
+
+                        <option value="Delivery">
+                            Delivery
+                        </option>
+
+                        <option value="Customization">
+                            Customization
+                        </option>
+
+                        <option value="Account">
+                            Account
+                        </option>
+
+                        <option value="General">
+                            General
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="faqStatus">
+                        Status
+                    </label>
+
+                    <select id="faqStatus">
+
+                        <option value="Active">
+                            Active
+                        </option>
+
+                        <option value="Inactive">
+                            Inactive
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    id="cancelFaqBtn"
+                    class="cancel-btn"
+                >
+                    Cancel
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="save-faq-btn"
+                >
+                    Save FAQ
+                </button>
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
+
+
+<script src="../js/faqManagement.js"></script>
+
+
+</body>
+
+</html>

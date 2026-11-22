@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>YummyPrep | Order Management</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/orderManagement.css">
+
+</head>
+
+
+<body>
+
+
+<div class="admin-layout">
+
+
+    <!-- SIDEBAR -->
+
+    <aside class="admin-sidebar">
+
+        <div class="sidebar-logo">
+
+            <a href="adminDashboard.html">
+                Yummy<span>Prep</span>
+            </a>
+
+            <p>
+                ADMIN PANEL
+            </p>
+
+        </div>
+
+
+        <nav class="admin-nav">
+
+            <a href="adminDashboard.html" class="admin-nav-link">
+                <span>▦</span>
+                Dashboard
+            </a>
+
+            <a href="userManagement.html" class="admin-nav-link">
+                <span>♙</span>
+                Users
+            </a>
+
+            <a href="mealManagement.html" class="admin-nav-link">
+                <span>◉</span>
+                Meals
+            </a>
+
+            <a href="orderManagement.html" class="admin-nav-link active">
+                <span>□</span>
+                Orders
+            </a>
+
+            <a href="promotionManagement.html" class="admin-nav-link">
+                <span>%</span>
+                Promotions
+            </a>
+
+            <a href="faqManagement.html" class="admin-nav-link">
+                <span>?</span>
+                FAQs
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a
+                href="../index.html"
+                class="view-site-link"
+            >
+                View Website →
+            </a>
+
+
+            <button
+                type="button"
+                id="logoutBtn"
+                class="logout-btn"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- MAIN -->
+
+    <main class="admin-main">
+
+
+        <!-- HEADER -->
+
+        <header class="page-header">
+
+            <div>
+
+                <p>
+                    ORDER OPERATIONS
+                </p>
+
+                <h1>
+                    Order Management
+                </h1>
+
+                <span>
+                    View customer orders and update their delivery status.
+                </span>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- STATS -->
+
+        <section class="order-stats">
+
+            <div class="order-stat-card">
+
+                <span>
+                    TOTAL ORDERS
+                </span>
+
+                <strong id="totalOrders">
+                    0
+                </strong>
+
+                <p>
+                    Customer orders
+                </p>
+
+            </div>
+
+
+            <div class="order-stat-card">
+
+                <span>
+                    PREPARING
+                </span>
+
+                <strong id="preparingOrders">
+                    0
+                </strong>
+
+                <p>
+                    Currently in preparation
+                </p>
+
+            </div>
+
+
+            <div class="order-stat-card">
+
+                <span>
+                    OUT FOR DELIVERY
+                </span>
+
+                <strong id="deliveryOrders">
+                    0
+                </strong>
+
+                <p>
+                    Orders on the way
+                </p>
+
+            </div>
+
+
+            <div class="order-stat-card">
+
+                <span>
+                    DELIVERED
+                </span>
+
+                <strong id="deliveredOrders">
+                    0
+                </strong>
+
+                <p>
+                    Completed orders
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- CONTROLS -->
+
+        <section class="order-controls">
+
+            <input
+                type="text"
+                id="orderSearch"
+                placeholder="Search by order ID..."
+            >
+
+
+            <select id="statusFilter">
+
+                <option value="all">
+                    All Statuses
+                </option>
+
+                <option value="Preparing">
+                    Preparing
+                </option>
+
+                <option value="Packed">
+                    Packed
+                </option>
+
+                <option value="Out for Delivery">
+                    Out for Delivery
+                </option>
+
+                <option value="Delivered">
+                    Delivered
+                </option>
+
+            </select>
+
+        </section>
+
+
+
+        <!-- ORDERS -->
+
+        <section class="orders-card">
+
+            <div class="orders-card-heading">
+
+                <div>
+
+                    <p>
+                        CUSTOMER ORDERS
+                    </p>
+
+                    <h2>
+                        All Orders
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="ordersContainer"
+                class="orders-container"
+            >
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+
+<script src="../js/orderManagement.js"></script>
+
+
+</body>
+
+</html>

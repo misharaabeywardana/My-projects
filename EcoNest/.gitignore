@@ -1,0 +1,10 @@
+# IntelliJ / build output
+.idea/
+*.iml
+out/
+target/
+
+# Local settings with passwords - never commit these
+config/db.properties
+config/email.properties
+.DS_Store

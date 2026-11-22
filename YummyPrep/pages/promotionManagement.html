@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>YummyPrep | Promotion Management</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/promotionManagement.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="admin-layout">
+
+
+    <!-- SIDEBAR -->
+
+    <aside class="admin-sidebar">
+
+
+        <div class="sidebar-logo">
+
+            <a href="adminDashboard.html">
+                Yummy<span>Prep</span>
+            </a>
+
+            <p>
+                ADMIN PANEL
+            </p>
+
+        </div>
+
+
+        <nav class="admin-nav">
+
+
+            <a
+                href="adminDashboard.html"
+                class="admin-nav-link"
+            >
+                <span>▦</span>
+                Dashboard
+            </a>
+
+
+            <a
+                href="userManagement.html"
+                class="admin-nav-link"
+            >
+                <span>♙</span>
+                Users
+            </a>
+
+
+            <a
+                href="mealManagement.html"
+                class="admin-nav-link"
+            >
+                <span>◉</span>
+                Meals
+            </a>
+
+
+            <a
+                href="orderManagement.html"
+                class="admin-nav-link"
+            >
+                <span>□</span>
+                Orders
+            </a>
+
+
+            <a
+                href="promotionManagement.html"
+                class="admin-nav-link active"
+            >
+                <span>%</span>
+                Promotions
+            </a>
+
+
+            <a
+                href="faqManagement.html"
+                class="admin-nav-link"
+            >
+                <span>?</span>
+                FAQs
+            </a>
+
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a
+                href="../index.html"
+                class="view-site-link"
+            >
+                View Website →
+            </a>
+
+
+            <button
+                type="button"
+                id="logoutBtn"
+                class="logout-btn"
+            >
+                Logout
+            </button>
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- MAIN -->
+
+    <main class="admin-main">
+
+
+        <!-- HEADER -->
+
+        <header class="page-header">
+
+            <div>
+
+                <p>
+                    MARKETING MANAGEMENT
+                </p>
+
+                <h1>
+                    Promotion Management
+                </h1>
+
+                <span>
+                    Create and manage YummyPrep discounts and promotional offers.
+                </span>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="addPromotionBtn"
+                class="add-promotion-btn"
+            >
+                + Add Promotion
+            </button>
+
+        </header>
+
+
+
+        <!-- STATS -->
+
+        <section class="promotion-stats">
+
+
+            <div class="promotion-stat-card">
+
+                <span>
+                    TOTAL PROMOTIONS
+                </span>
+
+                <strong id="totalPromotions">
+                    0
+                </strong>
+
+                <p>
+                    Created offers
+                </p>
+
+            </div>
+
+
+            <div class="promotion-stat-card">
+
+                <span>
+                    ACTIVE
+                </span>
+
+                <strong id="activePromotions">
+                    0
+                </strong>
+
+                <p>
+                    Currently available
+                </p>
+
+            </div>
+
+
+            <div class="promotion-stat-card">
+
+                <span>
+                    INACTIVE
+                </span>
+
+                <strong id="inactivePromotions">
+                    0
+                </strong>
+
+                <p>
+                    Disabled promotions
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- CONTROLS -->
+
+        <section class="promotion-controls">
+
+            <input
+                type="text"
+                id="promotionSearch"
+                placeholder="Search by title or promo code..."
+            >
+
+
+            <select id="promotionStatusFilter">
+
+                <option value="all">
+                    All Promotions
+                </option>
+
+                <option value="Active">
+                    Active
+                </option>
+
+                <option value="Inactive">
+                    Inactive
+                </option>
+
+            </select>
+
+        </section>
+
+
+
+        <!-- PROMOTIONS -->
+
+        <section class="promotions-card">
+
+
+            <div class="promotions-heading">
+
+                <div>
+
+                    <p>
+                        DISCOUNTS & OFFERS
+                    </p>
+
+                    <h2>
+                        Current Promotions
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="promotionGrid"
+                class="promotion-grid"
+            >
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+
+<!-- 
+     ADD / EDIT PROMOTION MODAL
+========================================= -->
+
+<div
+    class="promotion-modal"
+    id="promotionModal"
+>
+
+
+    <div class="modal-box">
+
+
+        <div class="modal-heading">
+
+            <div>
+
+                <p>
+                    PROMOTION
+                </p>
+
+                <h2 id="modalTitle">
+                    Add Promotion
+                </h2>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="closeModalBtn"
+                class="close-modal-btn"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+
+        <form id="promotionForm">
+
+
+            <input
+                type="hidden"
+                id="promotionId"
+            >
+
+
+
+            <div class="form-grid">
+
+
+                <div class="form-group">
+
+                    <label for="promotionTitle">
+                        Promotion Title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="promotionTitle"
+                        placeholder="Example: Weekend Special"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="promotionCode">
+                        Promo Code
+                    </label>
+
+                    <input
+                        type="text"
+                        id="promotionCode"
+                        placeholder="Example: YUMMY10"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="discountType">
+                        Discount Type
+                    </label>
+
+                    <select
+                        id="discountType"
+                        required
+                    >
+
+                        <option value="Percentage">
+                            Percentage
+                        </option>
+
+                        <option value="Fixed">
+                            Fixed Amount
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="discountValue">
+                        Discount Value
+                    </label>
+
+                    <input
+                        type="number"
+                        id="discountValue"
+                        min="1"
+                        placeholder="10"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="promotionExpiry">
+                        Expiry Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="promotionExpiry"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="promotionStatus">
+                        Status
+                    </label>
+
+                    <select id="promotionStatus">
+
+                        <option value="Active">
+                            Active
+                        </option>
+
+                        <option value="Inactive">
+                            Inactive
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label for="promotionDescription">
+                    Description
+                </label>
+
+                <textarea
+                    id="promotionDescription"
+                    rows="4"
+                    placeholder="Describe the promotional offer..."
+                    required
+                ></textarea>
+
+            </div>
+
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    id="cancelPromotionBtn"
+                    class="cancel-btn"
+                >
+                    Cancel
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="save-promotion-btn"
+                >
+                    Save Promotion
+                </button>
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
+
+
+<script src="../js/promotionManagement.js"></script>
+
+
+</body>
+
+</html>

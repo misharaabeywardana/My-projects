@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>YummyPrep | User Management</title>
+
+    <!-- Poppins Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/userManagement.css">
+
+</head>
+
+
+<body>
+
+
+    <div class="admin-layout">
+
+
+        <!-- =========================
+             SIDEBAR
+        ========================== -->
+
+        <aside class="admin-sidebar">
+
+            <div class="sidebar-logo">
+
+                <a href="adminDashboard.html">
+                    Yummy<span>Prep</span>
+                </a>
+
+                <p>
+                    ADMIN PANEL
+                </p>
+
+            </div>
+
+
+            <nav class="admin-nav">
+
+                <a
+                    href="adminDashboard.html"
+                    class="admin-nav-link"
+                >
+                    <span>▦</span>
+                    Dashboard
+                </a>
+
+
+                <a
+                    href="userManagement.html"
+                    class="admin-nav-link active"
+                >
+                    <span>♙</span>
+                    Users
+                </a>
+
+
+                <a
+                    href="mealManagement.html"
+                    class="admin-nav-link"
+                >
+                    <span>◉</span>
+                    Meals
+                </a>
+
+
+                <a
+                    href="orderManagement.html"
+                    class="admin-nav-link"
+                >
+                    <span>□</span>
+                    Orders
+                </a>
+
+
+                <a
+                    href="promotionManagement.html"
+                    class="admin-nav-link"
+                >
+                    <span>%</span>
+                    Promotions
+                </a>
+
+
+                <a
+                    href="faqManagement.html"
+                    class="admin-nav-link"
+                >
+                    <span>?</span>
+                    FAQs
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <a
+                    href="../index.html"
+                    class="view-site-link"
+                >
+                    View Website →
+                </a>
+
+
+                <button
+                    type="button"
+                    id="logoutBtn"
+                    class="logout-btn"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- =========================
+             MAIN CONTENT
+        ========================== -->
+
+        <main class="admin-main">
+
+
+            <!-- TOP -->
+
+            <header class="page-header">
+
+                <div>
+
+                    <p>
+                        CUSTOMER MANAGEMENT
+                    </p>
+
+                    <h1>
+                        User Management
+                    </h1>
+
+                    <span>
+                        View and manage YummyPrep customer accounts.
+                    </span>
+
+                </div>
+
+            </header>
+
+
+
+            <!-- =========================
+                 USER SUMMARY
+            ========================== -->
+
+            <section class="user-stats">
+
+                <div class="user-stat-card">
+
+                    <span>
+                        TOTAL USERS
+                    </span>
+
+                    <strong id="totalUsers">
+                        0
+                    </strong>
+
+                    <p>
+                        Registered customers
+                    </p>
+
+                </div>
+
+
+                <div class="user-stat-card">
+
+                    <span>
+                        ACTIVE USERS
+                    </span>
+
+                    <strong id="activeUsers">
+                        0
+                    </strong>
+
+                    <p>
+                        Active customer accounts
+                    </p>
+
+                </div>
+
+
+                <div class="user-stat-card">
+
+                    <span>
+                        DISABLED USERS
+                    </span>
+
+                    <strong id="disabledUsers">
+                        0
+                    </strong>
+
+                    <p>
+                        Restricted customer accounts
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =========================
+                 CONTROLS
+            ========================== -->
+
+            <section class="user-controls">
+
+                <div class="search-box">
+
+                    <input
+                        type="text"
+                        id="userSearch"
+                        placeholder="Search by name or email..."
+                    >
+
+                </div>
+
+
+                <select id="statusFilter">
+
+                    <option value="all">
+                        All Users
+                    </option>
+
+                    <option value="Active">
+                        Active
+                    </option>
+
+                    <option value="Disabled">
+                        Disabled
+                    </option>
+
+                </select>
+
+            </section>
+
+
+
+            <!-- =========================
+                 USER TABLE
+            ========================== -->
+
+            <section class="users-card">
+
+                <div class="users-card-heading">
+
+                    <div>
+
+                        <p>
+                            CUSTOMER ACCOUNTS
+                        </p>
+
+                        <h2>
+                            Registered Users
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table class="users-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Customer
+                                </th>
+
+                                <th>
+                                    Contact
+                                </th>
+
+                                <th>
+                                    Joined
+                                </th>
+
+                                <th>
+                                    Orders
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Actions
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="userTableBody">
+
+                            <!-- JS INSERTS USERS -->
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+
+    </div>
+
+
+
+    <script src="../js/userManagement.js"></script>
+
+
+</body>
+
+</html>

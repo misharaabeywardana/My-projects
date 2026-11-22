@@ -1,0 +1,33 @@
+[
+    {
+        "id": 1,
+        "name": "Kasun Perera",
+        "email": "kasun@example.com",
+        "subject": "Booking Inquiry",
+        "message": "I would like to know about available rooms.",
+        "phone": "+94 71 234 5678",
+        "city": "Colombo",
+        "status": "New"
+    },
+    {
+        "id": 2,
+        "name": "Nethmi Silva",
+        "email": "nethmi@example.com",
+        "subject": "Hotel Information",
+        "message": "Please send me more information about your hotel partners.",
+        "phone": "+94 77 345 6789",
+        "city": "Kandy",
+        "status": "New"
+    },
+    {
+        "id": 3,
+        "name": "dxfg vbn",
+        "email": "tgvhjn@gmail.com",
+        "subject": "rtvghj m",
+        "message": "dfgnh bm",
+        "phone": "03457654398",
+        "city": "fgvhbjmnm",
+        "status": "New",
+        "created_at": "2026-10-01 16:10:03"
+    }
+]

@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Offers & Deals | Velora</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+      <!-- Offers Page jQuery Styles -->
+       
+       <style>
+    .jquery-offer-tools {
+        background: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 14px;
+        padding: 18px;
+    }
+
+    .jquery-deal-details {
+        background: #eef5fb;
+        border-left: 4px solid #173b63;
+        border-radius: 8px;
+        padding: 12px;
+        margin-bottom: 12px;
+        font-size: 0.9rem;
+    }
+
+    .jquery-match {
+        transition: 0.3s ease;
+    }
+    </style>
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-white shadow-sm">
+        <div class="container">
+
+            <a class="navbar-brand fw-bold" href="index.html">
+                VELORA
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="hotels.html">
+                            Hotels &amp; Rooms
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="offers.html">
+                            Offers &amp; Deals
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="my_bookings.html">
+                            My Bookings
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">
+                            About &amp; Contact
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="account.html">
+                            Account / Login
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+
+<section class="hero-section">
+
+    <img src="images/stays14.jpg"
+         class="hero-image"
+         alt="Offers and Deals">
+
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+
+        <div class="hero-text">
+
+            <span class="badge text-bg-warning mb-3">
+                LIMITED-TIME DEALS
+            </span>
+
+            <h1>
+                Offers &amp; Deals
+            </h1>
+
+            <p class="hero-description">
+                Discover special hotel packages, seasonal discounts and
+                value-added stays designed to make your next trip more
+                memorable.
+            </p>
+
+            <div class="mt-4">
+
+                <a href="#offers" class="btn btn-light btn-lg">
+                    Explore Offers
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<main>
+  <section id="offers" class="py-5">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="fw-bold">Featured Hotel Deals</h2>
+        <p class="text-muted">Choose the package that suits your stay.</p>
+      </div>
+
+      <div class="alert alert-success d-flex align-items-center justify-content-between flex-wrap gap-2" role="alert">
+        <div><strong>Special offer:</strong> Save up to 30% when you book selected packages early.</div>
+        <span class="badge text-bg-success">Book Now</span>
+      </div>
+
+
+      <!-- jQuery Search Area -->
+<div class="jquery-offer-tools mb-4">
+    <label for="dealSearch" class="form-label fw-semibold">
+        Search a Deal
+    </label>
+
+    <div class="input-group">
+        <input type="text"
+               id="dealSearch"
+               class="form-control"
+               placeholder="Search Weekend, Family or Business">
+
+        <button type="button"
+                id="clearDealSearch"
+                class="btn btn-outline-secondary">
+            Clear
+        </button>
+    </div>
+
+    <div id="jqueryStatus"
+         class="small mt-2"
+         style="display:none;">
+    </div>
+</div>
+
+
+      <div class="row g-4 mt-1">
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card h-100 shadow-sm offer-card"
+         data-deal="Weekend Escape">
+            <img src="images/stays7.jpg" class="card-img-top img-fluid" alt="Weekend getaway">
+            <div class="card-body d-flex flex-column">
+              <span class="badge text-bg-primary align-self-start mb-2">20% OFF</span>
+              <h3 class="card-title h4">Weekend Escape</h3>
+              <p class="card-text">Enjoy two nights in a comfortable room with complimentary breakfast and late checkout.</p>
+              <div class="mt-auto">
+                <p class="fw-bold fs-5 mb-3">LKR 9500 <small class="text-muted fw-normal">/ day / night</small></p>
+                <button type="button"class="btn btn-outline-dark w-100 mb-2 jquery-view-details"aria-expanded="false">View Details</button>
+                <button type="button"class="btn btn-primary w-100"onclick="showDealMessage('Weekend Escape', '$120 / night')">Book This Deal</button>
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card h-100 shadow-sm offer-card"
+         data-deal="Family Holiday">
+            <img src="images/hotel12.jpg" class="card-img-top img-fluid" alt="Family holiday">
+            <div class="card-body d-flex flex-column">
+              <span class="badge text-bg-warning align-self-start mb-2">25% OFF</span>
+              <h3 class="card-title h4">Family Holiday</h3>
+              <p class="card-text">A family-friendly package with breakfast, Wi-Fi and a complimentary child activity session.</p>
+              <div class="mt-auto">
+                <p class="fw-bold fs-5 mb-3">LKR 18 500 <small class="text-muted fw-normal">/ day / night</small></p>
+                <button type="button"class="btn btn-outline-dark w-100 mb-2 jquery-view-details"aria-expanded="false">View Details</button>
+                <button type="button"class="btn btn-success w-100"onclick="showDealMessage('Family Holiday', '$150 / night')">Book This Deal</button>
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card h-100 shadow-sm offer-card"
+         data-deal="Business Saver">
+            <img src="images/hotel10.jpg" class="card-img-top img-fluid" alt="Business stay">
+            <div class="card-body d-flex flex-column">
+              <span class="badge text-bg-danger align-self-start mb-2">30% OFF</span>
+              <h3 class="card-title h4">Business Saver</h3>
+              <p class="card-text">Stay productive with high-speed Wi-Fi, breakfast and flexible workspace access.</p>
+              <div class="mt-auto">
+                <p class="fw-bold fs-5 mb-3">LKR 35 000 <small class="text-muted fw-normal">/ day / night</small></p>
+                <button type="button"class="btn btn-outline-dark w-100 mb-2 jquery-view-details"aria-expanded="false">View Details</button>
+                <button type="button"class="btn btn-danger w-100"onclick="showDealMessage('Business Saver', '$135 / night')">Book This Deal</button>
+                
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-light py-5">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6">
+          <h2 class="fw-bold">Compare Our Packages</h2>
+          <p class="text-muted">A responsive Bootstrap table makes the benefits easy to compare on any screen.</p>
+          <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover align-middle">
+              <thead class="table-dark">
+                <tr>
+                  <th>Package</th>
+                  <th>Discount</th>
+                  <th>Breakfast</th>
+                  <th>Wi-Fi</th>
+                  <th>Late Checkout</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Weekend Escape</td><td>20%</td><td>✓</td><td>✓</td><td>✓</td></tr>
+                <tr><td>Family Holiday</td><td>25%</td><td>✓</td><td>✓</td><td>—</td></tr>
+                <tr><td>Business Saver</td><td>30%</td><td>✓</td><td>✓</td><td>✓</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="bg-white rounded-4 shadow-sm p-4">
+            <h2 class="h3 fw-bold">Find Your Deal</h2>
+            <p class="text-muted">Use the form to request an offer. This is a front-end interface for the class task.</p>
+            <form id="dealForm">
+              <div class="mb-3">
+                <label for="guestName" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="guestName" required>
+              </div>
+              <div class="mb-3">
+                <label for="guestEmail" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="guestEmail" required>
+              </div>
+              <div class="mb-3">
+                <label for="package" class="form-label">Preferred Package</label>
+                <select class="form-select" id="package" required>
+                  <option value="">Select an offer</option>
+                  <option>Weekend Escape</option>
+                  <option>Family Holiday</option>
+                  <option>Business Saver</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label class="form-label d-block">Room Type</label>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="room" id="standard" value="Standard" checked>
+                  <label class="form-check-label" for="standard">Standard</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="room" id="deluxe" value="Deluxe">
+                  <label class="form-check-label" for="deluxe">Deluxe</label>
+                </div>
+              </div>
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" id="updates">
+                <label class="form-check-label" for="updates">Send me future hotel offers</label>
+              </div>
+              <button type="submit" class="btn btn-primary">Request Offer</button>
+              <button type="reset" class="btn btn-outline-secondary ms-2">Clear</button>
+            </form>
+            <div id="formMessage" class="mt-3"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer py-4">
+  <div class="container">
+    <div class="row align-items-center g-3">
+      <div class="col-md-6">
+        <h4>VELORA</h4>
+        <p class="mb-0">Where Every Stay Becomes a Story</p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <p class="mb-2">© 2026 Velora. All Rights Reserved.</p>
+        <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#termsModal">Offer Terms</button>
+        <div class="footer-socials mt-2">
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title h5" id="termsModalLabel">Offer Terms &amp; Conditions</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="text-muted">
+          Please review the following terms before booking any of our
+          featured deals. Offers are subject to availability and may
+          change without prior notice.
+        </p>
+
+        <h6 class="fw-bold mt-4">Weekend Escape — 20% OFF</h6>
+        <ul>
+          <li>Valid for two-night stays booked at least 3 days in advance.</li>
+          <li>Includes complimentary breakfast for two guests and late checkout (subject to availability).</li>
+          <li>Discount applies to the room rate only; taxes and service charges are not included.</li>
+        </ul>
+
+        <h6 class="fw-bold mt-4">Family Holiday — 25% OFF</h6>
+        <ul>
+          <li>Valid for bookings of two or more nights with at least one child guest.</li>
+          <li>Includes daily breakfast, Wi-Fi and one complimentary child activity session per stay.</li>
+          <li>Extra beds or additional guests may incur a separate charge.</li>
+        </ul>
+
+        <h6 class="fw-bold mt-4">Business Saver — 30% OFF</h6>
+        <ul>
+          <li>Valid Monday to Friday for single or multi-night business stays.</li>
+          <li>Includes high-speed Wi-Fi, breakfast and flexible workspace access.</li>
+          <li>Cannot be combined with other promotional discounts.</li>
+        </ul>
+
+        <h6 class="fw-bold mt-4">General Conditions</h6>
+        <ul class="mb-0">
+          <li>All discounts are calculated on the standard published room rate.</li>
+          <li>Bookings are non-transferable and subject to hotel availability at the time of check-in.</li>
+          <li>This interface is a front-end demonstration and does not process real payments or bookings.</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DEAL BOOKING POPUP -->
+
+<div class="modal fade" id="dealMessageModal" tabindex="-1" aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content border-0 shadow">
+
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold">
+                    VELORA
+                </h5>
+
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal">
+                </button>
+            </div>
+
+            <div class="modal-body text-center p-4">
+
+                <div style="font-size: 45px;">
+                    ✓
+                </div>
+
+                <h4 class="mt-3">
+                    Deal Selected!
+                </h4>
+
+                <p class="text-muted">
+                    You selected:
+                </p>
+
+                <h5 id="selectedDeal" class="fw-bold">
+                    Weekend Escape
+                </h5>
+
+                <p class="mt-3">
+                    Please login to your account to continue
+                    with your booking.
+                </p>
+
+            </div>
+
+            <div class="modal-footer justify-content-center">
+
+                <button type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+                    Close
+                </button>
+
+                <a href="account.html"
+                   class="btn btn-dark">
+                    Login Now
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- REQUEST OFFER POPUP -->
+
+<div class="modal fade" id="offerRequestModal"
+     tabindex="-1"
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content border-0 shadow">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title fw-bold">
+                    VELORA
+                </h5>
+
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <div class="modal-body text-center p-4">
+
+                <div style="font-size: 45px;">
+                    ✓
+                </div>
+
+                <h4 class="mt-3">
+                    Request Received!
+                </h4>
+
+                <p class="text-muted">
+                    Thank you, <strong id="requestName"></strong>!
+                </p>
+
+                <p>
+                    Your request for
+                    <strong id="requestPackage"></strong>
+                    has been received successfully.
+                </p>
+
+                <p class="text-muted small">
+                    We will contact you using the email address
+                    you provided.
+                </p>
+
+            </div>
+
+            <div class="modal-footer justify-content-center">
+
+                <button type="button"
+                        class="btn btn-dark px-4"
+                        data-bs-dismiss="modal">
+                    Done
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+
+<!-- jQuery Library -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script>
+$(document).ready(function () {
+
+  <!-- Offers & Deals Page (jQuery)-->
+
+    const dealDetails = {
+        "Weekend Escape":
+            "Enjoy 2 nights with breakfast and late checkout included.",
+
+        "Family Holiday":
+            "Includes breakfast, Wi-Fi and a special child activity session.",
+
+        "Business Saver":
+            "Includes high-speed Wi-Fi, breakfast and workspace access."
+    };
+
+    $("#dealSearch").on("keyup", function () {
+
+        const searchText =
+            $(this).val().toLowerCase().trim();
+
+        let matches = 0;
+
+        $(".offer-card").each(function () {
+
+            const $card = $(this);
+
+            // DOM TRAVERSAL 
+            const dealName =
+                $card.find(".card-title").first().text().trim();
+
+            const $column =
+                $card.closest(".col-12");
+
+            const isMatch =
+                dealName.toLowerCase().includes(searchText);
+
+
+            if (isMatch) {
+
+                matches++;
+
+                // JavaScript Effect
+                $column.stop(true, true).fadeIn(250);
+
+                // CSS Manipulation
+                $card.addClass("jquery-match").css({
+                    "border-color": "#0d6efd",
+                    "background-color": "#f8fbff"
+                });
+
+            } else {
+
+                // JavaScript Effect
+                $column.stop(true, true).fadeOut(250);
+            }
+        });
+
+
+        // DOM Modification
+        $("#jqueryStatus")
+            .text(matches + " deal(s) found")
+            .stop(true, true)
+            .fadeIn(200);
+    });
+
+
+    $("#clearDealSearch").on("click", function () {
+
+        $("#dealSearch").val("");
+
+        $(".offer-card").css({
+            "border-color": "",
+            "background-color": ""
+        });
+
+        $(".offer-card")
+            .closest(".col-12")
+            .fadeIn(200);
+
+        $("#jqueryStatus").fadeOut(200);
+    });
+
+        <!-- 1) HTML EVENTS -->
+    $(".jquery-view-details").on("click", function () {
+
+        const $button = $(this);
+
+
+        <!-- 2) DOM TRAVERSAL -->
+        const $card =
+            $button.closest(".offer-card");
+
+        const dealName =
+            $card.find(".card-title").first().text().trim();
+
+        const $image =
+            $card.find("img").first();
+
+
+        <!-- 3) DOM MODIFICATION -->
+        let $details =
+            $card.find(".jquery-deal-details");
+
+        if ($details.length === 0) {
+
+            $details = $("<div>", {
+                class: "jquery-deal-details",
+                text: dealDetails[dealName]
+            }).hide();
+
+            $button.before($details);
+        }
+
+
+        <!-- 4) DOM ATTRIBUTE MODIFICATION -->
+        const opening =
+            !$details.is(":visible");
+
+        $button.attr(
+            "aria-expanded",
+            opening
+        );
+
+        $button.attr(
+            "title",
+            "View details for " + dealName
+        );
+
+        $image.attr(
+            "alt",
+            dealName + " hotel deal"
+        );
+
+        $image.attr(
+            "title",
+            dealName + " offer image"
+        );
+
+
+        <!-- 5) CSS MANIPULATION -->
+        $(".offer-card").css({
+            "border-color": "",
+            "background-color": ""
+        });
+
+        $card.css({
+            "border-color": "#173b63",
+            "background-color": "#f5f9fd"
+        });
+
+
+        <!-- 6) JAVASCRIPT EFFECTS -->
+
+        $details
+            .stop(true, true)
+            .slideToggle(300);
+
+        $card
+            .stop(true, true)
+            .animate(
+                { opacity: 0.75 },
+                120
+            )
+            .animate(
+                { opacity: 1 },
+                220
+            );
+
+    });
+
+    $("#package").on("change", function () {
+
+        const selectedPackage =
+            $(this).val();
+
+        if (selectedPackage) {
+
+            $("#jqueryStatus")
+                .text(
+                    "Preferred package: " +
+                    selectedPackage
+                )
+                .stop(true, true)
+                .fadeIn(200);
+        }
+    });
+
+});
+</script>
+
+
+
+<!-- JSON + AJAX -->
+<script>
+$(document).ready(function () {
+
+    // offers.html content remains unchanged.
+    const task5UI = `
+        <section id="jsonAjaxOffers" class="py-5 bg-white">
+            <div class="container">
+                <div class="p-4 rounded-4 shadow-sm border">
+                    <div class="mb-4">
+                        <span class="badge text-bg-primary mb-2">VELORA</span>
+                        <p class="text-muted mb-0">
+                            Read all deals, view one deal, or add a new deal.
+                        </p>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-lg-5">
+                            <h3 class="h5 fw-bold">Add New Deal</h3>
+                            <form id="ajaxDealForm">
+                                <div class="mb-2">
+                                    <label class="form-label" for="ajaxDealName">Deal Name</label>
+                                    <input type="text" id="ajaxDealName" class="form-control" required>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="form-label" for="ajaxDealDiscount">Discount</label>
+                                    <input type="text" id="ajaxDealDiscount" class="form-control" placeholder="e.g. 15% OFF" required>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="form-label" for="ajaxDealPrice">Price</label>
+                                    <input type="number" id="ajaxDealPrice" class="form-control" min="0" step="0.01" required>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="form-label" for="ajaxDealDuration">Duration</label>
+                                    <input type="text" id="ajaxDealDuration" class="form-control" placeholder="e.g. 2 nights" required>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="form-label" for="ajaxDealBreakfast">Breakfast</label>
+                                    <input type="text" id="ajaxDealBreakfast" class="form-control" placeholder="Included / Not included" required>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="form-label" for="ajaxDealWifi">Wi-Fi</label>
+                                    <input type="text" id="ajaxDealWifi" class="form-control" placeholder="Included / Not included" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="ajaxDealCheckout">Late Checkout</label>
+                                    <input type="text" id="ajaxDealCheckout" class="form-control" placeholder="Included / Subject to availability" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Add Deal</button>
+                                <button type="reset" class="btn btn-outline-secondary ms-2">Clear</button>
+                            </form>
+                            <div id="ajaxDealMessage" class="mt-3"></div>
+                        </div>
+
+                        <div class="col-lg-7">
+                            <div class="d-flex flex-wrap gap-2 mb-3">
+                                <button type="button" id="loadAllDeals" class="btn btn-dark">Read All Records</button>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <input type="number" min="1" id="dealRecordId" class="form-control" placeholder="Enter record ID to read one deal">
+                                <button type="button" id="loadOneDeal" class="btn btn-outline-primary">Read One Record</button>
+                            </div>
+
+                            <div id="ajaxDealResults" class="row g-3">
+                                <div class="col-12">
+                                    <div class="alert alert-light border mb-0">
+                                        Click <strong>Read All Records</strong> to load the JSON records.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    `;
+
+    $("footer").first().before(task5UI);
+
+    function showAjaxMessage(type, message) {
+        $("#ajaxDealMessage").html(
+            '<div class="alert alert-' + type + ' py-2 mb-0">' + message + '</div>'
+        );
+    }
+
+    function renderDeals(records) {
+        const $results = $("#ajaxDealResults");
+        $results.empty();
+
+        if (!Array.isArray(records) || records.length === 0) {
+            $results.html('<div class="col-12"><div class="alert alert-warning">No records found.</div></div>');
+            return;
+        }
+
+        $.each(records, function (_, deal) {
+            const card = `
+                <div class="col-12 col-md-6">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start gap-2 mb-2">
+                                <h3 class="h5 mb-0">${escapeHtml(deal.name)}</h3>
+                                <span class="badge text-bg-primary">ID ${escapeHtml(deal.id)}</span>
+                            </div>
+                            <p class="mb-1"><strong>Discount:</strong> ${escapeHtml(deal.discount)}</p>
+                            <p class="mb-1"><strong>Price:</strong> LKR ${escapeHtml(deal.price)}</p>
+                            <p class="mb-1"><strong>Duration:</strong> ${escapeHtml(deal.duration)}</p>
+                            <p class="mb-1"><strong>Breakfast:</strong> ${escapeHtml(deal.breakfast)}</p>
+                            <p class="mb-1"><strong>Wi-Fi:</strong> ${escapeHtml(deal.wifi)}</p>
+                            <p class="mb-0"><strong>Late Checkout:</strong> ${escapeHtml(deal.late_checkout)}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            $results.append(card);
+        });
+    }
+
+    function escapeHtml(value) {
+        return $("<div>").text(value == null ? "" : String(value)).html();
+    }
+
+    // GET: return all records from the JSON file.
+    $("#loadAllDeals").on("click", function () {
+        $.ajax({
+            url: "offers_api.php",
+            method: "GET",
+            dataType: "json",
+            success: function (response) {
+                if (response.success) {
+                    renderDeals(response.records);
+                    showAjaxMessage("success", response.message);
+                } else {
+                    showAjaxMessage("danger", response.message || "Unable to load records.");
+                }
+            },
+            error: function (xhr) {
+                showAjaxMessage("danger", getAjaxError(xhr));
+            }
+        });
+    });
+
+    // GET: return one specific record by ID.
+    $("#loadOneDeal").on("click", function () {
+        const id = $("#dealRecordId").val().trim();
+
+        if (!id) {
+            showAjaxMessage("warning", "Please enter a record ID.");
+            return;
+        }
+
+        $.ajax({
+            url: "offers_api.php",
+            method: "GET",
+            data: { id: id },
+            dataType: "json",
+            success: function (response) {
+                if (response.success) {
+                    renderDeals([response.record]);
+                    showAjaxMessage("success", response.message);
+                } else {
+                    showAjaxMessage("danger", response.message || "Record not found.");
+                }
+            },
+            error: function (xhr) {
+                showAjaxMessage("danger", getAjaxError(xhr));
+            }
+        });
+    });
+
+    // POST: add a new record and update offers.json through PHP.
+    $("#ajaxDealForm").on("submit", function (event) {
+        event.preventDefault();
+
+        const newDeal = {
+            name: $("#ajaxDealName").val().trim(),
+            discount: $("#ajaxDealDiscount").val().trim(),
+            price: $("#ajaxDealPrice").val().trim(),
+            duration: $("#ajaxDealDuration").val().trim(),
+            breakfast: $("#ajaxDealBreakfast").val().trim(),
+            wifi: $("#ajaxDealWifi").val().trim(),
+            late_checkout: $("#ajaxDealCheckout").val().trim()
+        };
+
+        $.ajax({
+            url: "offers_api.php",
+            method: "POST",
+            data: newDeal,
+            dataType: "json",
+            success: function (response) {
+                if (response.success) {
+                    showAjaxMessage("success", response.message);
+                    $("#ajaxDealForm")[0].reset();
+                    renderDeals([response.record]);
+                } else {
+                    showAjaxMessage("danger", response.message || "Unable to add record.");
+                }
+            },
+            error: function (xhr) {
+                showAjaxMessage("danger", getAjaxError(xhr));
+            }
+        });
+    });
+
+    function getAjaxError(xhr) {
+        if (xhr.responseJSON && xhr.responseJSON.message) {
+            return xhr.responseJSON.message;
+        }
+        return "Server error. Make sure offers_api.php is running through a PHP-enabled server.";
+    }
+});
+</script>
+
+</body>
+</html>

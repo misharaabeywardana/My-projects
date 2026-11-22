@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Velora | Account</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+    .profile-photo-box {
+        position: relative;
+        width: 90px;
+        height: 90px;
+        margin: auto;
+    }
+
+    .verify-badge {
+        position: absolute;
+        right: -2px;
+        bottom: -2px;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background-color: #198754;
+        color: white;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        border: 3px solid white;
+    }
+
+    #loginPassword,
+    #registerPassword,
+    #confirmPassword,
+    .pwd-field {
+        padding-right: 45px;
+    }
+
+    #passwordMatchMessage {
+        min-height: 20px;
+        font-size: 13px;
+    }
+
+    #newPasswordMatchMessage {
+        min-height: 20px;
+        font-size: 13px;
+    }
+
+    .password-eye {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        color: #0b3c5d;
+    }
+
+    .photo-buttons {
+        margin-top: 15px;
+    }
+
+    #profilePhoto {
+        display: none;
+    }
+
+    /* Profile Photo Circle */
+    .profile-avatar {
+        width: 90px;
+        height: 90px;
+
+        /* Make profile photo round */
+        border-radius: 50%;
+
+        background-color: #0b3c5d;
+        color: white;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 36px;
+        font-weight: bold;
+
+        /* Keep uploaded image inside circle */
+        overflow: hidden;
+
+        /* Smooth hover animation */
+        transition: transform 0.3s ease;
+
+        cursor: pointer;
+    }
+
+
+    /* Jump / Zoom effect when mouse is over the circle */
+    .profile-avatar:hover {
+        transform: scale(1.05);
+    }
+
+
+    /* Uploaded image inside the circle */
+    .profile-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    </style>
+
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+    <nav class="navbar navbar-expand-lg bg-white shadow-sm">
+        <div class="container">
+
+            <a class="navbar-brand fw-bold" href="index.html">
+                VELORA
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="hotels.html">
+                            Hotels &amp; Rooms
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="offers.html">
+                            Offers &amp; Deals
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="my_bookings.html">
+                            My Bookings
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">
+                            About &amp; Contact
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="account.html">
+                            Account / Login
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+
+
+
+<!-- SUCCESS / ERROR MESSAGE -->
+
+<div class="container mt-4">
+
+    <div id="messageBox"
+        class="alert d-none"
+        role="alert">
+
+        <span id="messageText"></span>
+
+        <button type="button"
+            class="btn-close float-end"
+            onclick="hideMessage()">
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- ACCOUNT SECTION -->
+
+<section class="account-section py-5">
+
+    <div class="container">
+
+
+        <!-- PAGE HEADING -->
+
+        <div class="text-center mb-5">
+
+            <span class="badge text-bg-info mb-3" id="pageBadge">
+                Your Travel Account
+            </span>
+
+            <h1 class="display-5 fw-bold" id="pageHeading">
+                Welcome to Velora
+            </h1>
+
+            <p class="text-muted" id="pageSubtext">
+                Your perfect stay is just a sign in away.
+            </p>
+
+        </div>
+
+
+
+        <!-- SIGN IN VIEW -->
+
+        <div id="loginView">
+
+            <div class="row justify-content-center align-items-stretch">
+
+
+                <!-- SIGN IN IMAGE -->
+
+                <div class="col-lg-5 d-none d-lg-block">
+
+                    <div class="account-image">
+
+                        <img src="images/Img1.jpg"
+                            alt="Velora Hotel">
+
+
+                        <div class="image-overlay">
+
+                            <span class="badge bg-info mb-3">
+                                VELORA
+                            </span>
+
+                            <h2>
+                                Your Journey Starts Here
+                            </h2>
+
+                            <p>
+                                Discover beautiful stays and unforgettable moments.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SIGN IN FORM -->
+
+                <div class="col-lg-5 col-md-7">
+
+                    <div class="card account-card shadow border-0">
+
+                        <div class="card-body p-4 p-md-5">
+
+                            <h3 class="fw-bold mb-2">
+                                Sign In
+                            </h3>
+
+                            <p class="text-muted mb-4">
+                                Welcome back! Sign in to continue your journey.
+                            </p>
+
+
+                            <!-- Email -->
+
+                            <div class="mb-3">
+
+                                <label class="form-label fw-semibold">
+                                    Email Address
+                                </label>
+
+                                <input type="email"
+                                    id="loginEmail"
+                                    class="form-control"
+                                    list="knownEmails"
+                                    autocomplete="off"
+                                    placeholder="Enter your email">
+
+                                <datalist id="knownEmails"></datalist>
+
+                            </div>
+
+
+                            <!-- Password -->
+
+                            <div class="mb-3">
+
+                                <label class="form-label fw-semibold">
+                                    Password
+                                </label>
+
+                                <input type="password"
+                                    id="loginPassword"
+                                    class="form-control"
+                                    placeholder="Enter your password">
+
+                            </div>
+
+
+                            <!-- Remember Me -->
+
+                            <div class="form-check mb-3">
+
+                                <input class="form-check-input"
+                                    type="checkbox"
+                                    id="rememberMe">
+
+                                <label class="form-check-label"
+                                    for="rememberMe">
+
+                                    Remember Me
+
+                                </label>
+
+                            </div>
+
+
+                            <!-- Sign In -->
+
+                            <button type="button"
+                                class="btn btn-primary w-100"
+                                onclick="signIn()">
+
+                                Sign In
+
+                            </button>
+
+
+                            <!-- Forgot Password -->
+
+                            <div class="text-center mt-3">
+
+                                <a href="#"
+                                    onclick="forgotPassword(); return false;">
+
+                                    Forgot Password?
+
+                                </a>
+
+                            </div>
+
+
+                            <hr class="my-4">
+
+
+                            <!-- Create Account -->
+
+                            <p class="text-center mb-0">
+
+                                Don't have an account?
+
+                                <a href="#"
+                                    onclick="showRegister(); return false;">
+
+                                    Create an Account
+
+                                </a>
+
+                            </p>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- CREATE ACCOUNT VIEW -->
+
+        <div id="registerView" class="d-none">
+
+            <div class="row justify-content-center align-items-stretch">
+
+
+                <!-- CREATE ACCOUNT IMAGE -->
+
+                <div class="col-lg-5 d-none d-lg-block">
+
+                    <div class="account-image">
+
+                        <img src="images/Img2.jpg"
+                            alt="Velora Travel">
+
+
+                        <div class="image-overlay">
+
+                            <span class="badge bg-info mb-3">
+                                VELORA
+                            </span>
+
+                            <h2>
+                                Begin Your Next Adventure
+                            </h2>
+
+                            <p>
+                                Create your account and discover your perfect stay.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- CREATE ACCOUNT FORM -->
+
+                <div class="col-lg-5 col-md-7">
+
+                    <div class="card account-card shadow border-0">
+
+                        <div class="card-body p-4 p-md-5">
+
+                            <!-- Registration Progress Bar -->
+
+                            <div class="progress mb-4" style="height: 10px;">
+
+                                <div id="regProgress"
+                                    class="progress-bar bg-success"
+                                    style="width: 0%;">
+
+                                </div>
+
+                            </div>
+
+
+                            <h3 class="fw-bold mb-2">
+                                Create an Account
+                            </h3>
+
+                            <p class="text-muted mb-4">
+                                Join Velora and start planning your perfect stay.
+                            </p>
+
+
+                            <!-- Full Name -->
+
+                            <div class="mb-3">
+
+                                <label class="form-label fw-semibold">
+                                    Full Name
+                                </label>
+
+                                <input type="text"
+                                    id="fullName"
+                                    class="form-control"
+                                    placeholder="Enter your full name">
+
+                            </div>
+
+
+                            <!-- Email -->
+
+                            <div class="mb-3">
+
+                                <label class="form-label fw-semibold">
+                                    Email Address
+                                </label>
+
+                                <input type="email"
+                                    id="registerEmail"
+                                    class="form-control"
+                                    placeholder="Enter your email">
+
+                            </div>
+
+
+                            <!-- Password -->
+
+                            <div class="mb-3">
+
+                                <label class="form-label fw-semibold">
+                                    Password
+                                </label>
+
+                                <input type="password"
+                                    id="registerPassword"
+                                    class="form-control"
+                                    placeholder="Create a password">
+
+                            </div>
+
+
+                            <!-- Confirm Password -->
+
+                            <div class="mb-3">
+
+                                <label class="form-label fw-semibold">
+                                    Confirm Password
+                                </label>
+
+                                <input type="password"
+                                    id="confirmPassword"
+                                    class="form-control"
+                                    placeholder="Confirm your password">
+
+                                <small id="passwordMatchMessage"></small>
+
+                            </div>
+
+
+                            <!-- Create Account -->
+
+                            <button type="button"
+                                class="btn btn-outline-primary w-100"
+                                onclick="createAccountViaAjax()">
+
+                                Create Account
+
+                            </button>
+
+
+                            <hr class="my-4">
+
+
+                            <!-- Back To Sign In -->
+
+                            <p class="text-center mb-0">
+
+                                Already have an account?
+
+                                <a href="#"
+                                    onclick="showLogin(); return false;">
+
+                                    Sign In
+
+                                </a>
+
+                            </p>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- MY PROFILE VIEW -->
+
+        <div id="profileView" class="d-none">
+
+            <div class="row justify-content-center">
+
+                <div class="col-lg-8">
+
+                    <div class="card account-card shadow border-0">
+
+                        <div class="card-body p-4 p-md-5">
+
+
+                            <!-- PROFILE HEADER -->
+
+                            <div class="text-center mb-4">
+
+                                <div class="profile-photo-box">
+
+                                    <div class="profile-avatar" id="profileAvatar">
+                                        S
+                                    </div>
+
+                                    <span class="verify-badge" id="verifyBadge">
+                                        <i class="bi bi-check-lg"></i>
+                                    </span>
+
+                                </div>
+
+                                <div class="photo-buttons">
+
+                                    <input type="file"
+                                           id="profilePhoto"
+                                           accept="image/*">
+
+                                    <button type="button"
+                                            class="btn btn-sm btn-outline-primary"
+                                            onclick="$('#profilePhoto').click()">
+
+                                        <i class="bi bi-camera"></i>
+                                        Change Photo
+
+                                    </button>
+
+                                    <button type="button"
+                                            id="removePhoto"
+                                            class="btn btn-sm btn-outline-secondary">
+
+                                        Remove Photo
+
+                                    </button>
+
+                                </div>
+
+                                <h3 class="fw-bold mt-3 mb-1" id="profileNameHeading">
+                                    Senuji
+                                </h3>
+
+                                <p class="text-muted mb-2" id="profileTypeText">
+                                    Velora Customer
+                                </p>
+
+                                <span class="badge bg-success">
+                                    Active Account
+                                </span>
+
+                            </div>
+
+                            <hr>
+
+                            <!-- PROFILE INFORMATION -->
+
+                            <div class="row g-4 mt-2">
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">
+                                        Full Name
+                                    </label>
+                                    <input type="text"
+                                        id="profileFullName"
+                                        class="form-control"
+                                        value="Senuji">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">
+                                        Email Address
+                                    </label>
+                                    <input type="email"
+                                        id="profileEmailAddress"
+                                        class="form-control"
+                                        value="senuji@example.com"
+                                        readonly>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">
+                                        Contact Number
+                                    </label>
+                                    <input type="text"
+                                        id="profilePhone"
+                                        class="form-control"
+                                        placeholder="Enter your contact number">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">
+                                        Address
+                                    </label>
+                                    <input type="text"
+                                        id="profileAddress"
+                                        class="form-control"
+                                        placeholder="Enter your address">
+                                </div>
+
+                            </div>
+
+
+                            <!-- CHANGE PASSWORD -->
+
+                            <div class="profile-info mt-5 p-4" id="changePasswordSection">
+
+                                <h5 class="fw-bold mb-3">
+                                    <i class="bi bi-key me-2"></i> Change Password
+                                </h5>
+
+                                <div class="row g-3">
+
+                                    <div class="col-12">
+                                        <label class="form-label fw-semibold">
+                                            Current Password
+                                        </label>
+                                        <input type="password"
+                                            id="currentPassword"
+                                            class="form-control pwd-field"
+                                            placeholder="Enter your current password">
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">
+                                            New Password
+                                        </label>
+                                        <input type="password"
+                                            id="newPassword"
+                                            class="form-control pwd-field"
+                                            placeholder="Enter a new password">
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">
+                                            Confirm New Password
+                                        </label>
+                                        <input type="password"
+                                            id="confirmNewPassword"
+                                            class="form-control pwd-field"
+                                            placeholder="Confirm new password">
+                                    </div>
+
+                                </div>
+
+                                <small id="newPasswordMatchMessage" class="d-block mt-2"></small>
+
+                                <button type="button"
+                                    class="btn btn-primary mt-3"
+                                    onclick="changePassword()">
+                                    Update Password
+                                </button>
+
+                            </div>
+
+
+                            <!-- ACCOUNT INFORMATION -->
+
+                            <div class="profile-info mt-4 p-4">
+
+                                <h5 class="fw-bold mb-3">
+                                    Account Information
+                                </h5>
+
+                                <div class="row">
+
+                                    <div class="col-md-6 mb-3 mb-md-0">
+                                        <small class="text-muted">
+                                            Account Type
+                                        </small>
+                                        <p class="fw-semibold mb-0">
+                                            Customer
+                                        </p>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <small class="text-muted">
+                                            Membership Status
+                                        </small>
+                                        <p class="fw-semibold mb-0">
+                                            Active
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- PAYMENT ACCESS -->
+
+                            <div class="payment-access mt-4" id="paymentAccess">
+                                <button type="button" class="payment-access-bar" onclick="goToPayment()">
+                                    <span><i class="bi bi-credit-card-2-front me-2"></i> For Payment</span>
+                                    <i class="bi bi-chevron-right"></i>
+                                </button>
+                                <p class="small text-muted mt-2 mb-0">Continue to secure checkout to complete your hotel reservation.</p>
+                            </div>
+
+
+                            <!-- BUTTONS -->
+
+                            <div class="text-center mt-4">
+
+                                <button type="button"
+                                    class="btn btn-primary px-4"
+                                    onclick="updateProfileViaAjax()">
+                                    Edit Profile
+                                </button>
+
+                                <button type="button"
+                                     id="btnVerifyProfile"
+                                     class="btn btn-warning px-4 ms-2 fw-bold">
+                                     <i class="bi bi-shield-check"></i>
+                                     Verify Profile
+                                </button>
+
+                                <button type="button"
+                                    class="btn btn-outline-danger px-4 ms-2"
+                                    onclick="logoutUser()">
+                                    Logout
+                                </button>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer class="footer py-4">
+  <div class="container">
+    <div class="row align-items-center g-3">
+      <div class="col-md-6">
+        <h4>VELORA</h4>
+        <p class="mb-0">Where Every Stay Becomes a Story</p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <p class="mb-2">© 2026 Velora. All Rights Reserved.</p>
+
+        <div class="footer-socials mt-2">
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+<!-- JAVASCRIPT -->
+
+<!-- jQuery Library -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- Shared VELORA JavaScript -->
+<script src="script.js"></script>
+
+<script>
+$(document).ready(function () {
+
+
+    // VERIFY PROFILE
+
+    $('#btnVerifyProfile').click(function () {
+
+        // 1) DOM TRAVERSAL
+        let button = $(this);
+
+        let card =
+            button.closest('.account-card');
+
+        // password fields are excluded so they don't get locked / greyed out
+        let inputs =
+            card.find('input').not('.pwd-field');
+
+        let avatar =
+            card.find('.profile-avatar');
+
+
+        // 2) DOM MODIFICATION
+        button.html(
+            '<i class="bi bi-hourglass-split"></i> Verifying...'
+        );
+
+        $('#profileNameHeading')
+            .text($('#profileFullName').val());
+
+
+        // 3) DOM ATTRIBUTE MODIFICATION
+        inputs.attr(
+            'readonly',
+            true
+        );
+
+        button.prop(
+            'disabled',
+            true
+        );
+
+
+        // 4) CSS MANIPULATION
+        inputs.css(
+            'background-color',
+            '#e9ecef'
+        );
+
+        card.css({
+            'border': '3px solid #198754',
+            'background-color': '#f8fff9'
+        });
+
+
+        // 5) JAVASCRIPT EFFECTS
+        avatar.fadeOut(
+            300,
+            function () {
+
+                $(this).fadeIn(300);
+
+                $('#verifyBadge')
+                    .css('display', 'flex')
+                    .hide()
+                    .fadeIn(300);
+            }
+        );
+
+
+        // 6) HTML EVENTS
+        setTimeout(function () {
+
+            button
+                .removeClass('btn-warning')
+                .addClass('btn-success')
+                .html(
+                    '<i class="bi bi-check-circle-fill"></i> Verified'
+                )
+                .prop(
+                    'disabled',
+                    false
+                );
+
+        }, 800);
+
+    });
+
+
+
+    // PASSWORD SHOW / HIDE
+
+    $('#loginPassword, #registerPassword, #confirmPassword, .pwd-field')
+        .wrap(
+            '<div class="position-relative"></div>'
+        );
+
+
+    $('#loginPassword, #registerPassword, #confirmPassword, .pwd-field')
+        .each(function () {
+
+            $('<i class="bi bi-eye-fill password-eye"></i>')
+                .insertAfter(this);
+
+        });
+
+
+    $('.password-eye').click(function () {
+
+        let input =
+            $(this).prev('input');
+
+        if (input.attr('type') === 'password') {
+
+            input.attr(
+                'type',
+                'text'
+            );
+
+            $(this)
+                .removeClass('bi-eye-fill')
+                .addClass('bi-eye-slash-fill');
+
+        } else {
+
+            input.attr(
+                'type',
+                'password'
+            );
+
+            $(this)
+                .removeClass('bi-eye-slash-fill')
+                .addClass('bi-eye-fill');
+
+        }
+
+    });
+
+
+
+    // PASSWORD MATCH (REGISTER)
+
+    $('#registerPassword, #confirmPassword')
+        .on('input', function () {
+
+            let password =
+                $('#registerPassword').val();
+
+            let confirmPassword =
+                $('#confirmPassword').val();
+
+            if (confirmPassword === "") {
+
+                $('#passwordMatchMessage')
+                    .text('');
+
+                $('#confirmPassword')
+                    .css(
+                        'border-color',
+                        ''
+                    );
+
+                return;
+            }
+
+            if (password === confirmPassword) {
+
+                $('#passwordMatchMessage')
+                    .html('✓ Passwords match')
+                    .removeClass('text-danger')
+                    .addClass('text-success');
+
+                $('#confirmPassword')
+                    .css(
+                        'border-color',
+                        '#198754'
+                    );
+
+            } else {
+
+                $('#passwordMatchMessage')
+                    .html('✕ Passwords do not match')
+                    .removeClass('text-success')
+                    .addClass('text-danger');
+
+                $('#confirmPassword')
+                    .css(
+                        'border-color',
+                        '#dc3545'
+                    );
+            }
+
+        });
+
+
+    // PASSWORD MATCH (CHANGE PASSWORD)
+
+    $('#newPassword, #confirmNewPassword')
+        .on('input', function () {
+
+            let np = $('#newPassword').val();
+            let cp = $('#confirmNewPassword').val();
+            let msg = $('#newPasswordMatchMessage');
+
+            if (cp === "") {
+                msg.text('');
+                return;
+            }
+
+            if (np === cp) {
+                msg.text('✓ Passwords match')
+                    .removeClass('text-danger')
+                    .addClass('text-success');
+            } else {
+                msg.text('✕ Passwords do not match')
+                    .removeClass('text-success')
+                    .addClass('text-danger');
+            }
+
+        });
+
+
+
+    // REGISTRATION PROGRESS
+
+    $('#registerView input')
+        .on('input change', function () {
+
+            let total =
+                $('#registerView input').length;
+
+            let filled = 0;
+
+            $('#registerView input')
+                .each(function () {
+
+                    if ($(this).val().trim() !== "") {
+                        filled++;
+                    }
+
+                });
+
+            let progress =
+                (filled / total) * 100;
+
+            $('#regProgress').css(
+                'width',
+                progress + '%'
+            );
+
+        });
+
+
+
+    // PROFILE PHOTO
+
+    $('#profilePhoto').on('change', function () {
+
+        let file = this.files[0];
+
+        if (!file) {
+            return;
+        }
+
+        if (!file.type.startsWith('image/')) {
+
+            showMessage(
+                "Please select an image file.",
+                "danger"
+            );
+
+            return;
+        }
+
+        if (file.size > 2 * 1024 * 1024) {
+
+            showMessage(
+                "Image size must be less than 2MB.",
+                "danger"
+            );
+
+            return;
+        }
+
+        let reader = new FileReader();
+
+        reader.onload = function (event) {
+
+            let photo =
+                event.target.result;
+
+            let account = JSON.parse(
+                sessionStorage.getItem("veloraAccount")
+            );
+
+            if (account) {
+
+                account.photo = photo;
+
+                sessionStorage.setItem(
+                    "veloraAccount",
+                    JSON.stringify(account)
+                );
+            }
+
+            $('#profileAvatar').html(
+                '<img src="' + photo + '" alt="Profile Photo" style="width:100%;height:100%;object-fit:cover;">'
+            );
+
+            showMessage(
+                "Profile photo updated successfully!",
+                "success"
+            );
+        };
+
+        reader.readAsDataURL(file);
+
+    });
+
+
+    // REMOVE PROFILE PHOTO
+
+    $('#removePhoto').click(function () {
+
+        let account = JSON.parse(
+            sessionStorage.getItem("veloraAccount")
+        );
+
+        if (account) {
+
+            account.photo = "";
+
+            sessionStorage.setItem(
+                "veloraAccount",
+                JSON.stringify(account)
+            );
+        }
+
+        let name =
+            $('#profileFullName').val().trim();
+
+        let letter =
+            name.charAt(0).toUpperCase();
+
+        $('#profileAvatar').html(letter);
+
+        $('#profilePhoto').val('');
+
+        showMessage(
+            "Profile photo removed.",
+            "success"
+        );
+
+    });
+
+});
+</script>
+
+
+
+<!---- PHP & AJAX INTEGRATION ---->
+
+<script>
+
+    /* Show the server's error message if there is one */
+    function ajaxError(xhr, fallback) {
+        let msg = (xhr.responseJSON && xhr.responseJSON.message) || fallback;
+        showMessage(msg, "danger");
+    }
+
+
+    /* Fill the profile view from an account object */
+    function fillProfile(acc) {
+        $('#profileFullName').val(acc.full_name || "");
+        $('#profileEmailAddress').val(acc.email || "");
+        $('#profilePhone').val(acc.phone || "");
+        $('#profileAddress').val(acc.address || "");
+        $('#profileNameHeading').text(acc.full_name || "User");
+
+        if (acc.photo) {
+            $('#profileAvatar').html('<img src="' + acc.photo + '" alt="Profile Photo" style="width:100%;height:100%;object-fit:cover;">');
+        } else {
+            $('#profileAvatar').text((acc.full_name || "U").charAt(0).toUpperCase());
+        }
+    }
+
+
+    /* Save session (the server never sends the password back) */
+    function saveSession(acc) {
+        localStorage.setItem("veloraLoggedIn", JSON.stringify(acc));
+        sessionStorage.setItem("veloraAccount", JSON.stringify(acc));
+    }
+
+
+    /* ---------- CREATE ACCOUNT ---------- */
+
+    function createAccountViaAjax() {
+        let name = $('#fullName').val().trim();
+        let email = $('#registerEmail').val().trim();
+        let password = $('#registerPassword').val().trim();
+        let confirm = $('#confirmPassword').val().trim();
+
+        if (!name || !email || !password) {
+            showMessage("Please fill all fields!", "danger");
+            return;
+        }
+
+        if (password !== confirm) {
+            showMessage("Passwords do not match.", "danger");
+            return;
+        }
+
+        $.ajax({
+            url: 'account_api.php',
+            type: 'POST',
+            contentType: 'application/json',
+            dataType: 'json',
+            data: JSON.stringify({
+                action: "register",
+                full_name: name,
+                email: email,
+                password: password
+            }),
+            success: function (response) {
+
+                showMessage("Account created successfully! Welcome to Velora.", "success");
+
+                // Log the user in automatically
+                saveSession(response.account);
+                fillProfile(response.account);
+
+                // Clear register form
+                $('#fullName, #registerEmail, #registerPassword, #confirmPassword').val('');
+                $('#passwordMatchMessage').text('');
+                $('#regProgress').css('width', '0%');
+
+                // Wait 1.2 seconds, then open the profile view
+                setTimeout(function () {
+                    if (typeof showProfile === 'function') {
+                        showProfile();
+                    } else {
+                        $('#registerView').addClass('d-none');
+                        $('#profileView').removeClass('d-none');
+                    }
+                }, 1200);
+            },
+            error: function (xhr) {
+                ajaxError(xhr, "Failed to create account. Server error.");
+            }
+        });
+    }
+
+
+    /* ---------- SIGN IN ---------- */
+
+    function signIn() {
+        let email = $('#loginEmail').val().trim();
+        let password = $('#loginPassword').val().trim();
+
+        if (email === "" || password === "") {
+            showMessage("Please enter email and password.", "danger");
+            return;
+        }
+
+        $.ajax({
+            url: 'account_api.php',
+            type: 'POST',
+            contentType: 'application/json',
+            dataType: 'json',
+            data: JSON.stringify({
+                action: "login",
+                email: email,
+                password: password
+            }),
+            success: function (response) {
+
+                saveSession(response.account);
+                fillProfile(response.account);
+
+                $('#loginPassword').val('');
+
+                if (typeof showProfile === 'function') {
+                    showProfile();
+                } else {
+                    $('#loginView').addClass('d-none');
+                    $('#profileView').removeClass('d-none');
+                }
+
+                showMessage("Sign in successful!", "success");
+            },
+            error: function (xhr) {
+                ajaxError(xhr, "Server connection failed.");
+            }
+        });
+    }
+
+
+    /* ---------- UPDATE PROFILE ---------- */
+
+    function updateProfileViaAjax() {
+        let account = JSON.parse(sessionStorage.getItem("veloraAccount"));
+
+        if (!account) {
+            showMessage("Please sign in first.", "danger");
+            return;
+        }
+
+        $.ajax({
+            url: 'account_api.php',
+            type: 'POST',
+            contentType: 'application/json',
+            dataType: 'json',
+            data: JSON.stringify({
+                action: "update_profile",
+                email: account.email,   // identifies the account
+                full_name: $('#profileFullName').val().trim(),
+                phone: $('#profilePhone').val().trim(),
+                address: $('#profileAddress').val().trim()
+            }),
+            success: function (response) {
+                // keep the saved photo, refresh the rest
+                let updated = Object.assign({}, account, response.account);
+                saveSession(updated);
+                $('#profileNameHeading').text(updated.full_name);
+                showMessage("Profile updated and saved to server!", "success");
+            },
+            error: function (xhr) {
+                ajaxError(xhr, "Failed to update profile.");
+            }
+        });
+    }
+
+
+    /* ---------- CHANGE PASSWORD ---------- */
+
+    function changePassword() {
+        let account = JSON.parse(sessionStorage.getItem("veloraAccount"));
+
+        if (!account) {
+            showMessage("Please sign in first.", "danger");
+            return;
+        }
+
+        let current = $('#currentPassword').val().trim();
+        let newPass = $('#newPassword').val().trim();
+        let confirmPass = $('#confirmNewPassword').val().trim();
+
+        // Quick checks for fast feedback (the server checks everything again)
+        if (!current || !newPass || !confirmPass) {
+            showMessage("Please fill in all password fields.", "danger");
+            return;
+        }
+
+        if (newPass.length < 6) {
+            showMessage("New password must be at least 6 characters.", "danger");
+            return;
+        }
+
+        if (newPass === current) {
+            showMessage("New password must be different from the current one.", "danger");
+            return;
+        }
+
+        if (newPass !== confirmPass) {
+            showMessage("New passwords do not match.", "danger");
+            return;
+        }
+
+        $.ajax({
+            url: 'account_api.php',
+            type: 'POST',
+            contentType: 'application/json',
+            dataType: 'json',
+            data: JSON.stringify({
+                action: "change_password",
+                email: account.email,
+                current_password: current,
+                new_password: newPass
+            }),
+            success: function () {
+                $('#currentPassword, #newPassword, #confirmNewPassword').val('');
+                $('#newPasswordMatchMessage').text('');
+                showMessage("Password updated successfully!", "success");
+            },
+            error: function (xhr) {
+                ajaxError(xhr, "Failed to update password. Server error.");
+            }
+        });
+    }
+
+</script>
+
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+</body>
+
+</html>

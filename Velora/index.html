@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Velora - Travel & Hotel Booking</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+        <nav class="navbar navbar-expand-lg bg-white shadow-sm">
+        <div class="container">
+
+            <a class="navbar-brand fw-bold" href="index.html">
+                VELORA
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="hotels.html">
+                            Hotels &amp; Rooms
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="offers.html">
+                            Offers &amp; Deals
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="my_bookings.html">
+                            My Bookings
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">
+                            About &amp; Contact
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="account.html">
+                            Account / Login
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+
+
+
+    <!-- HERO SECTION -->
+
+<section class="hero-section">
+
+    <div id="veloraHero" class="carousel slide carousel-fade"
+         data-bs-ride="carousel"
+         data-bs-interval="3000">
+
+        <!-- Hero Images -->
+        <div class="carousel-inner">
+
+            <!-- Image 1 -->
+            <div class="carousel-item active">
+
+                <img src="images/hero1.jpg"
+                     class="hero-image"
+                     alt="Luxury Hotel">
+
+                <div class="hero-overlay"></div>
+
+                <div class="container hero-content">
+
+                    <div class="hero-text">
+
+                        <div class="velora-badge">
+                            VELORA
+                        </div>
+
+                        <p class="hero-small-text">
+                            DISCOVER • STAY • EXPERIENCE
+                        </p>
+
+                        <h1>
+                            Where Every Stay
+                            <br>
+                            Becomes a Story
+                        </h1>
+
+                        <p class="hero-description">
+                            Discover beautiful hotels, comfortable rooms
+                            and unforgettable travel experiences.
+                        </p>
+
+                        <div class="mt-4">
+
+                            <a href="hotels.html" class="btn btn-light btn-lg me-2">
+                                Explore Hotels
+                            </a>
+
+                            <a href="account.html" class="btn btn-outline-light btn-lg">
+                                Book Now
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Image 2 -->
+            <div class="carousel-item">
+
+                <img src="images/hero2.jpg"
+                     class="hero-image"
+                     alt="Beautiful Hotel">
+
+                <div class="hero-overlay"></div>
+
+                <div class="container hero-content">
+
+                    <div class="hero-text">
+
+                        <div class="velora-badge">
+                            VELORA
+                        </div>
+
+                        <p class="hero-small-text">
+                            RELAX • ESCAPE • ENJOY
+                        </p>
+
+                        <h1>
+                            Your Perfect
+                            <br>
+                            Escape Awaits
+                        </h1>
+
+                        <p class="hero-description">
+                            Experience peaceful stays and discover
+                            unforgettable destinations with Velora.
+                        </p>
+
+                        <div class="mt-4">
+
+                            <a href="hotels.html" class="btn btn-light btn-lg me-2">
+                                Explore Hotels
+                            </a>
+
+                            <a href="my_bookings.html" class="btn btn-outline-light btn-lg">
+                                Book Now
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Image 3 -->
+            <div class="carousel-item">
+
+                <img src="images/hero3.jpg"
+                     class="hero-image"
+                     alt="Luxury Resort">
+
+                <div class="hero-overlay"></div>
+
+                <div class="container hero-content">
+
+                    <div class="hero-text">
+
+                        <div class="velora-badge">
+                            VELORA
+                        </div>
+
+                        <p class="hero-small-text">
+                            TRAVEL • DISCOVER • REMEMBER
+                        </p>
+
+                        <h1>
+                            Stay Somewhere
+                            <br>
+                            Extraordinary
+                        </h1>
+
+                        <p class="hero-description">
+                            Find exceptional places to stay and make
+                            every journey a memorable experience.
+                        </p>
+
+                        <div class="mt-4">
+
+                            <a href="hotels.html" class="btn btn-light btn-lg me-2">
+                                Explore Hotels
+                            </a>
+
+                            <a href="my_bookings.html" class="btn btn-outline-light btn-lg">
+                                Book Now
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Previous Button -->
+        <button class="carousel-control-prev"
+                type="button"
+                data-bs-target="#veloraHero"
+                data-bs-slide="prev">
+
+            <span class="carousel-control-prev-icon"></span>
+
+        </button>
+
+
+        <!-- Next Button -->
+        <button class="carousel-control-next"
+                type="button"
+                data-bs-target="#veloraHero"
+                data-bs-slide="next">
+
+            <span class="carousel-control-next-icon"></span>
+
+        </button>
+
+
+        <!-- Slide Indicators -->
+        <div class="carousel-indicators">
+
+            <button type="button"
+                    data-bs-target="#veloraHero"
+                    data-bs-slide-to="0"
+                    class="active">
+            </button>
+
+            <button type="button"
+                    data-bs-target="#veloraHero"
+                    data-bs-slide-to="1">
+            </button>
+
+            <button type="button"
+                    data-bs-target="#veloraHero"
+                    data-bs-slide-to="2">
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+    <!-- SEARCH SECTION -->
+
+    <section class="search-section">
+
+        <div class="container">
+
+            <div class="search-box shadow">
+
+                <form id="homeSearchForm">
+
+                <div class="row g-3 align-items-end">
+
+                    <div class="col-md-3">
+
+                        <label class="form-label">
+                            Destination
+                        </label>
+
+                        <input type="text"
+                               class="form-control"
+                               id="homeDestination"
+                               list="destinationSuggestions"
+                               placeholder="Where are you going?">
+
+                        <datalist id="destinationSuggestions">
+                            <option value="Galle">
+                            <option value="Bentota">
+                            <option value="Dickwella">
+                            <option value="Nuwara Eliya">
+                            <option value="Colombo">
+                            <option value="Trincomalee">
+                            <option value="Pasikuda">
+                            <option value="Ella">
+                        </datalist>
+
+                    </div>
+
+
+                    <div class="col-md-2">
+
+                        <label class="form-label">
+                            Check-in
+                        </label>
+
+                        <input type="date"
+                               class="form-control"
+                               id="homeCheckIn">
+
+                    </div>
+
+
+                    <div class="col-md-2">
+
+                        <label class="form-label">
+                            Check-out
+                        </label>
+
+                        <input type="date"
+                               class="form-control"
+                               id="homeCheckOut">
+
+                    </div>
+
+
+                    <div class="col-md-2">
+
+                        <label class="form-label">
+                            Guests
+                        </label>
+
+                        <input type="number" class="form-control" id="homeGuests"
+                               min="1" max="20" value="2"
+                               placeholder="Number of guests"
+                               list="guestSuggestions">
+
+                        <datalist id="guestSuggestions">
+                            <option value="1">
+                            <option value="2">
+                            <option value="3">
+                            <option value="4">
+                            <option value="5">
+                            <option value="6">
+                            <option value="8">
+                        </datalist>
+
+                    </div>
+
+
+                    <div class="col-md-3">
+
+                        <button type="submit" class="btn btn-dark w-100">
+                            Search Hotels
+                        </button>
+
+                    </div>
+
+                </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- WHY CHOOSE US -->
+
+    <section class="py-5">
+
+        <div class="container">
+
+            <div class="text-center mb-5">
+
+                <p class="section-label">
+                    WHY VELORA
+                </p>
+
+                <h2>
+                    Everything You Need for a Perfect Stay
+                </h2>
+
+            </div>
+
+
+            <div class="row g-4">
+
+                <div class="col-md-4">
+
+                    <div class="feature-card text-center p-4">
+
+                        <div class="feature-icon">
+                            🏨
+                        </div>
+
+                        <h4>
+                            Comfortable Stays
+                        </h4>
+
+                        <p>
+                            Choose from carefully selected hotels
+                            and comfortable rooms.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <div class="feature-card text-center p-4">
+
+                        <div class="feature-icon">
+                            💰
+                        </div>
+
+                        <h4>
+                            Best Prices
+                        </h4>
+
+                        <p>
+                            Find great accommodation options
+                            at competitive prices.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <div class="feature-card text-center p-4">
+
+                        <div class="feature-icon">
+                            🔒
+                        </div>
+
+                        <h4>
+                            Secure Booking
+                        </h4>
+
+                        <p>
+                            Enjoy a simple and secure hotel
+                            booking experience.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURED HOTELS -->
+
+    <section class="py-5 bg-light">
+
+        <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center mb-4">
+
+                <div>
+
+                    <p class="section-label">
+                        EXPLORE
+                    </p>
+
+                    <h2>
+                        Featured Hotels
+                    </h2>
+
+                </div>
+
+                <a href="hotels.html" class="btn btn-outline-dark">
+                    View All
+                </a>
+
+            </div>
+
+
+            <div class="row g-4">
+
+                <!-- Hotel 1 -->
+
+                <div class="col-md-4">
+
+                    <div class="card hotel-card h-100">
+
+                        <img src="images/hotel5.jpg"
+                             class="card-img-top"
+                             alt="Luxury Hotel">
+
+                        <div class="card-body">
+
+                            <h5 class="card-title">
+                                Seaside Haven Hotel & Resort
+                            </h5>
+
+                            <p class="text-muted">
+                                Bentota, Sri Lanka
+                            </p>
+                            <p class="card-text small">Elegant beachfront resort with a serene infinity pool overlooking the golden sands. Unwind in tropical luxury where the ocean meets endless relaxation.</p>
+
+                            <div class="featured-amenities mb-3">
+              <span class="featured-amenity"><i class="bi bi-wifi"></i> Free WiFi</span>
+              <span class="featured-amenity"><i class="bi bi-water"></i> Sea View</span>
+              <span class="featured-amenity"><i class="bi bi-cup-hot"></i> Breakfast Included</span>
+            </div>
+
+                            <button type="button" class="btn btn-view-details w-100" data-bs-toggle="modal" data-bs-target="#room1Modal">
+              View Details
+            </button>
+
+                            
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                
+
+
+
+                <!-- Hotel 2 -->
+
+                <div class="col-md-4">
+
+                    <div class="card hotel-card h-100">
+
+                        <img src="images/hotel6.jpg"
+                             class="card-img-top"
+                             alt="Hotel">
+
+                        <div class="card-body">
+
+                            <h5 class="card-title">
+                                Sunset Cove Retreat
+                            </h5>
+
+                            <p class="text-muted">
+                                Dickwella, Sri Lanka
+                            </p>
+
+                            <p class="card-text small">Cliffside infinity pool with breathtaking sunset views over the ocean. A peaceful escape wrapped in warm tropical evenings and gentle sea breezes.</p>
+
+                            <div class="featured-amenities mb-3">
+              <span class="featured-amenity"><i class="bi bi-wifi"></i> Free WiFi</span>
+              <span class="featured-amenity"><i class="bi bi-water"></i> Sea View</span>
+              <span class="featured-amenity"><i class="bi bi-sunset"></i> Sunset View</span>
+            </div>
+
+                            <button type="button" class="btn btn-view-details w-100" data-bs-toggle="modal" data-bs-target="#room2Modal">
+              View Details
+            </button>
+
+
+
+                            
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+               
+
+
+
+                <!-- Hotel 3 -->
+
+                <div class="col-md-4">
+
+                    <div class="card hotel-card h-100">
+
+                        <img src="images/hotel4.jpg"
+                             class="card-img-top"
+                             alt="Luxury Hotel">
+
+                        <div class="card-body">
+
+                            <h5 class="card-title">
+                                Royal Bay Hotel
+                            </h5>
+
+                            <p class="text-muted">
+                                Galle, Sri Lanka
+                            </p>
+
+                            <p class="card-text small">Grand luxury resort curved along the bay, framed by swaying palms and shimmering pools. Indulge in refined comfort with sweeping coastal views.</p>
+
+                            <div class="featured-amenities mb-3">
+              <span class="featured-amenity"><i class="bi bi-wifi"></i> Free WiFi</span>
+              <span class="featured-amenity"><i class="bi bi-water"></i> Sea View</span>
+              <span class="featured-amenity"><i class="bi bi-door-open"></i> Private Balcony</span>
+            </div>
+
+                            
+            <button type="button" class="btn btn-view-details w-100" data-bs-toggle="modal" data-bs-target="#room3Modal">
+              View Details
+            </button>
+
+
+                            
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SPECIAL OFFER -->
+
+    <section class="offer-section py-5">
+
+        <div class="container">
+
+            <div class="row align-items-center">
+
+                <div class="col-lg-8">
+
+                    <p class="section-label">
+                        SPECIAL OFFER
+                    </p>
+
+                    <h2 id="specialEscapeTitle">
+                        Make Your Next Escape More Special
+                    </h2>
+
+                    <p>
+                        Enjoy exclusive deals and special offers
+                        when you book your stay with Velora.
+                    </p>
+
+                </div>
+
+
+                <div class="col-lg-4 text-lg-end">
+
+                    <a href="offers.html" class="btn btn-dark btn-lg">
+                        Explore Offers
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- JSON + AJAX SECTION -->
+
+<section class="py-5 bg-white">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <h2>
+                Velora Hotel Data
+            </h2>
+
+            <p class="text-muted">
+                Load hotel information from VELORA.
+            </p>
+
+        </div>
+
+
+        <!-- Buttons -->
+
+        <div class="text-center mb-4">
+
+            <button
+                type="button"
+                id="loadAllHotels"
+                class="btn btn-primary me-2">
+
+                Show Featured Hotels
+
+            </button>
+
+
+            <button
+                type="button"
+                id="loadOneHotel"
+                class="btn btn-outline-primary">
+
+                View Featured Hotel by ID
+
+            </button>
+
+        </div>
+
+
+        <!-- Search One Hotel -->
+
+        <div class="row justify-content-center mb-4">
+
+            <div class="col-md-6">
+
+                <div class="input-group">
+
+                    <input
+                        type="number"
+                        id="hotelIdInput"
+                        class="form-control"
+                        placeholder="Enter Hotel ID">
+
+                    <button
+                        type="button"
+                        id="searchHotelBtn"
+                        class="btn btn-dark">
+
+                        Search
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Hotel Results -->
+
+        <div id="hotelResults" class="row g-4">
+
+            <div class="col-12 text-center text-muted">
+
+                Click "Show Featured Hotels" to view hotel data.
+
+            </div>
+
+        </div>
+
+
+        <hr class="my-5">
+
+
+        <!-- ADD NEW HOTEL -->
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+
+                <div class="card shadow-sm border-0">
+
+                    <div class="card-body p-4">
+
+                        <h4 class="mb-4">
+                            Create Featured Hotel Entry
+                        </h4>
+
+
+                        <form id="addHotelForm">
+
+                            <div class="row g-3">
+
+                                <div class="col-md-6">
+
+                                    <label class="form-label">
+                                        Hotel Name
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="newHotelName"
+                                        class="form-control"
+                                        required>
+
+                                </div>
+
+
+                                <div class="col-md-6">
+
+                                    <label class="form-label">
+                                        Destination
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="newHotelDestination"
+                                        class="form-control"
+                                        required>
+
+                                </div>
+
+
+                                <div class="col-md-6">
+
+                                    <label class="form-label">
+                                        Room Type
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="newHotelRoom"
+                                        class="form-control"
+                                        required>
+
+                                </div>
+
+
+                                <div class="col-md-6">
+
+                                    <label class="form-label">
+                                        Price
+                                    </label>
+
+                                    <input
+                                        type="number"
+                                        id="newHotelPrice"
+                                        class="form-control"
+                                        required>
+
+                                </div>
+
+
+                                <div class="col-md-6">
+
+                                    <label class="form-label">
+                                        Maximum Guests
+                                    </label>
+
+                                    <input
+                                        type="number"
+                                        id="newHotelGuests"
+                                        class="form-control"
+                                        min="1"
+                                        required>
+
+                                </div>
+
+
+                                <div class="col-md-6">
+
+                                    <label class="form-label">
+                                        Rating
+                                    </label>
+
+                                    <input
+                                        type="number"
+                                        id="newHotelRating"
+                                        class="form-control"
+                                        min="1"
+                                        max="5"
+                                        step="0.1"
+                                        required>
+
+                                </div>
+
+
+                                <div class="col-12">
+
+                                    <label class="form-label">
+                                        Amenities
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="newHotelAmenities"
+                                        class="form-control"
+                                        placeholder="Free WiFi, Pool, Breakfast"
+                                        required>
+
+                                </div>
+
+
+                                <div class="col-12">
+
+                                    <button
+                                        type="submit"
+                                        class="btn btn-success">
+
+                                        Save Featured Hotel
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </form>
+
+
+                        <div
+                            id="ajaxMessage"
+                            class="mt-3">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer py-4">
+  <div class="container">
+    <div class="row align-items-center g-3">
+      <div class="col-md-6">
+        <h4>VELORA</h4>
+        <p class="mb-0">Where Every Stay Becomes a Story</p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <p class="mb-2">© 2026 Velora. All Rights Reserved.</p>
+        
+        <div class="footer-socials mt-2">
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ROOM DETAIL MODALS -->
+
+  <!-- Modal 1 -->
+  <div class="modal fade modal-room" id="room1Modal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Seaside Haven Hotel & Resort</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <img src="images/hotel5.jpg" class="modal-img" alt="Seaside Haven Hotel & Resort" />
+        <div class="modal-body">
+          <p>
+            Escape to a beachfront paradise where the golden shores of Bentota meet endless turquoise waters. Relax by our serene infinity pool as gentle ocean breezes drift through swaying palms, setting the perfect scene for a calm and rejuvenating stay.<br>
+            <br>
+             Discover comfort woven with tropical charm. Each room opens to soothing views of the coastline, while our thoughtfully designed spaces bring together warmth, elegance, and a true sense of island relaxation.<br>
+            <br>
+             Indulge in a seamless blend of luxury and nature. From sunrise walks along the beach to quiet evenings by the pool, Seaside Haven offers an experience crafted for travelers seeking peace, comfort, and unforgettable coastal beauty.
+          </p>
+          <div class="row g-2 mb-3">
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-wifi"></i> Free WiFi</span></div>
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-water"></i> Sea View</span></div>
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-cup-hot"></i> Breakfast Included</span></div>
+          </div>
+          
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="modal-price">LKR 9500 <small class="fs-6 text-muted">/ day / night</small></span>
+            <a href="account.html" class="btn btn-book-now">Book Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   
+  <!-- Modal 2 -->
+  <div class="modal fade modal-room" id="room2Modal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Sunset Cove Retreat</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <img src="images/hotel6.jpg" class="modal-img" alt="Sunset Cove Retreat" />
+        <div class="modal-body">
+          <p>
+            Perched along the dramatic cliffs of Dickwella, Sunset Cove Retreat offers uninterrupted views where the sky and sea blend into a breathtaking display of color. Sink into our infinity pool as the sun dips below the horizon, painting the evening in warm golden hues.<br>
+            <br>
+            Let the rhythmic sound of waves guide you into complete relaxation. Wrapped in tropical greenery and cool sea breezes, this retreat is designed for those who crave tranquility paired with awe-inspiring natural beauty.<br>
+            <br>
+             Every evening here becomes a memory — from candlelit dinners under the stars to quiet mornings watching fishing boats drift along the shoreline. Sunset Cove Retreat is your gateway to Mirissa's most magical moments.
+          </p>
+          <div class="row g-2 mb-3">
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-wifi"></i> Free WiFi</span></div>
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-water"></i> Sea View</span></div>
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-sunset"></i> sunset view</span></div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="modal-price">LKR 13 500 <small class="fs-6 text-muted">/ day / night</small></span>
+            <a href="account.html" class="btn btn-book-now">Book Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   
+  <!-- Modal 3 -->
+  <div class="modal fade modal-room" id="room3Modal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Royal Bay Hotel</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <img src="images/hotel4.jpg" class="modal-img" alt="Royal Bay Hotel" />
+        <div class="modal-body">
+          <p>
+            Set along the graceful curve of Galle's coastline, Royal Bay Hotel welcomes you with sweeping views of the bay and swaying palm trees framing every corner. Our grand pool and elegant architecture create an atmosphere of refined coastal luxury.<br>
+            <br>
+            Step into spacious interiors designed with timeless sophistication, where every detail reflects comfort and class. Whether lounging poolside or strolling the illuminated gardens, Royal Bay offers a retreat that feels both grand and inviting.<br>
+            <br>
+             Experience the perfect balance of heritage charm and modern indulgence. With attentive service and breathtaking bay views at every turn, Royal Bay Hotel promises an unforgettable stay in one of Sri Lanka's most iconic coastal cities.
+          </p>
+          <div class="row g-2 mb-3">
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-wifi"></i> Free WiFi</span></div>
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-water"></i> Sea View</span></div>
+            <div class="col-6 col-sm-3"><span class="amenity-chip w-100 text-center"><i class="bi bi-door-open"></i> Private Balcony</span></div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="modal-price">LKR 15 000 <small class="fs-6 text-muted">/ day / night</small></span>
+            <a href="account.html" class="btn btn-book-now">Book Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+    <!-- Bootstrap 5 JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+
+
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script>
+$(document).ready(function () {
+
+    
+    <!-- 1. DOM TRAVERSAL -->
+    $(".btn-view-details").on("click", function () {
+
+        let hotelCard = $(this).closest(".hotel-card"); 
+        let hotelName = hotelCard.find(".card-title").text();
+
+        console.log("Selected Hotel: " + hotelName);
+
+    });
+
+
+    <!-- 2. DOM MODIFICATION -->
+    $(".btn-view-details").on("click", function () {
+
+        let hotelCard = $(this).closest(".hotel-card");
+        let hotelTitle = hotelCard.find(".card-title");
+
+        $(".recommended-stay-badge").remove();//remove the previous badge
+
+        hotelTitle.append( //Add Recommended Stay badge to the room card
+            ' <span class="recommended-stay-badge badge bg-success ms-2">' +
+            '✓ Recommended Stay' +
+            '</span>'
+        );
+
+    });
+
+
+    <!-- 3. DOM ATTRIBUTE MODIFICATION -->
+    $("#homeDestination").on("focus", function () {
+
+    $(this).attr( //Display examples eg-colombo,galle
+        "placeholder",
+        "e.g. Colombo, Kandy, Galle"
+    );
+
+});
+
+$("#homeDestination").on("blur", function () {
+
+    $(this).attr(
+        "placeholder",
+        "Where are you going?"
+    );
+
+});
+
+
+    <!-- 4. CSS MANIPULATION -->
+    $(".hotel-card").on("mouseenter", function () {
+
+    $(this).css({ //moves room card upward, add shadow, and change background colour
+        "transform": "translateY(-8px)",
+        "box-shadow": "0 10px 25px rgba(0, 0, 0, 0.20)",
+        "background-color": "#fff8f0"
+    });
+
+});
+
+$(".hotel-card").on("mouseleave", function () {
+
+    $(this).css({
+        "transform": "translateY(0)",
+        "box-shadow": "",
+        "background-color": ""
+    });
+
+});
+
+
+    <!-- 5. JAVASCRIPT EFFECTS -->
+    $("#specialEscapeTitle").on("click", function () {
+
+        $(this)
+            .stop(true, true) //stop the current animation
+            .fadeOut(600) //smoothly hide
+            .fadeIn(800); // smoothly shows
+
+    });
+
+
+    <!-- 6. HTML EVENTS -->
+    $(".hotel-card").on("mouseenter", function () { //when the mouse enter a room card hotel tittle underline
+
+        $(this).find(".card-title")
+            .css("text-decoration", "underline");
+
+    });
+
+    $(".hotel-card").on("mouseleave", function () { //remove underline
+
+        $(this).find(".card-title")
+            .css("text-decoration", "none");
+
+    });
+
+});
+
+
+// 1. AJAX GET - LOAD ALL HOTELS
+
+$("#loadAllHotels").on("click", function () {
+
+    $.ajax({
+
+        url: "api.php",
+
+        method: "GET",
+
+        dataType: "json",
+
+        success: function (response) {
+
+            if (response.success) {
+
+                displayHotels(response.data);
+
+            } else {
+
+                $("#hotelResults").html(
+                    '<div class="col-12 text-center text-danger">' +
+                    response.message +
+                    '</div>'
+                );
+
+            }
+
+        },
+
+        error: function () {
+
+            $("#hotelResults").html(
+                '<div class="col-12 text-center text-danger">' +
+                'Unable to load hotel data.' +
+                '</div>'
+            );
+
+        }
+
+    });
+
+});
+
+// DISPLAY HOTELS
+
+function displayHotels(hotels) {
+
+    let output = "";
+
+
+    hotels.forEach(function (hotel) {
+
+        output += `
+
+            <div class="col-md-4">
+
+                <div class="card h-100 shadow-sm">
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">
+                            ${hotel.name}
+                        </h5>
+
+                        <p class="text-muted">
+                            ${hotel.destination}
+                        </p>
+
+                        <p>
+                            <strong>Room:</strong>
+                            ${hotel.roomType}
+                        </p>
+
+                        <p>
+                            <strong>Price:</strong>
+                            LKR ${hotel.price}
+                        </p>
+
+                        <p>
+                            <strong>Guests:</strong>
+                            ${hotel.guests}
+                        </p>
+
+                        <p>
+                            <strong>Amenities:</strong>
+                            ${hotel.amenities}
+                        </p>
+
+                        <p>
+                            <strong>Rating:</strong>
+                            ⭐ ${hotel.rating}
+                        </p>
+
+                        <span class="badge bg-primary">
+                            ID: ${hotel.id}
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+
+    $("#hotelResults").html(output);
+
+}
+
+
+// 2. AJAX GET - LOAD ONE HOTEL
+
+$("#searchHotelBtn").on("click", function () {
+
+    let hotelId = $("#hotelIdInput").val();
+
+
+    if (hotelId === "") {
+
+        alert("Please enter a hotel ID.");
+
+        return;
+
+    }
+
+
+    $.ajax({
+
+        url: "api.php?id=" + hotelId,
+
+        method: "GET",
+
+        dataType: "json",
+
+        success: function (response) {
+
+            if (response.success) {
+
+                displayHotels([response.data]);
+
+            } else {
+
+                $("#hotelResults").html(
+
+                    '<div class="col-12 text-center text-danger">' +
+                    response.message +
+                    '</div>'
+
+                );
+
+            }
+
+        },
+
+        error: function () {
+
+            $("#hotelResults").html(
+
+                '<div class="col-12 text-center text-danger">' +
+                'Error while searching hotel.' +
+                '</div>'
+
+            );
+
+        }
+
+    });
+
+});
+
+
+// 3. AJAX POST - ADD NEW HOTEL
+
+$("#addHotelForm").on("submit", function (event) {
+
+    event.preventDefault();
+
+
+    let newHotel = {
+
+        name: $("#newHotelName").val(),
+
+        destination: $("#newHotelDestination").val(),
+
+        roomType: $("#newHotelRoom").val(),
+
+        price: Number($("#newHotelPrice").val()),
+
+        guests: Number($("#newHotelGuests").val()),
+
+        amenities: $("#newHotelAmenities").val(),
+
+        rating: Number($("#newHotelRating").val())
+
+    };
+
+
+    $.ajax({
+
+        url: "api.php",
+
+        method: "POST",
+
+        contentType: "application/json",
+
+        data: JSON.stringify(newHotel),
+
+        dataType: "json",
+
+        success: function (response) {
+
+            if (response.success) {
+
+                $("#ajaxMessage").html(
+
+                    '<div class="alert alert-success">' +
+                    response.message +
+                    '</div>'
+
+                );
+
+
+                $("#addHotelForm")[0].reset();
+
+
+                // Refresh hotel list
+
+                $("#loadAllHotels").click();
+
+            } else {
+
+                $("#ajaxMessage").html(
+
+                    '<div class="alert alert-danger">' +
+                    response.message +
+                    '</div>'
+
+                );
+
+            }
+
+        },
+
+        error: function () {
+
+            $("#ajaxMessage").html(
+
+                '<div class="alert alert-danger">' +
+                'Unable to add hotel.' +
+                '</div>'
+
+            );
+
+        }
+
+    });
+
+});
+
+</script>
+
+</body>
+
+</html>

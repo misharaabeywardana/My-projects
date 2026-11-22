@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Bookings | Velora</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+        <nav class="navbar navbar-expand-lg bg-white shadow-sm">
+        <div class="container">
+
+            <a class="navbar-brand fw-bold" href="index.html">
+                VELORA
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="hotels.html">
+                            Hotels &amp; Rooms
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="offers.html">
+                            Offers &amp; Deals
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="my_bookings.html">
+                            My Bookings
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">
+                            About &amp; Contact
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="account.html">
+                            Account / Login
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!-- PAGE HEADER -->
+    <section class="hero-section" style="height: 380px;">
+
+        <img src="images/hero4.jpg"
+             class="hero-image"
+             style="height: 380px;"
+             alt="My Bookings">
+
+        <div class="hero-overlay"></div>
+
+        <div class="container hero-content" style="height: 380px;">
+
+            <div class="hero-text">
+
+                <p class="hero-small-text">
+                    YOUR RESERVATIONS
+                </p>
+
+                <h1 style="font-size: 44px;">
+                    My Bookings
+                </h1>
+
+                <p class="hero-description">
+                    View and manage your upcoming hotel stays in one place.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PAYMENT SECTION -->
+    <section id="paymentSection" class="container py-4 d-none">
+      <div class="payment-panel">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <div>
+            <p class="small-title mb-1">SECURE CHECKOUT</p>
+            <h3 class="mb-1">Complete Your Payment</h3>
+            <p class="text-muted mb-0" id="paymentBookingSummary">Your selected stay is ready for payment.</p>
+          </div>
+          <i class="bi bi-shield-check payment-shield"></i>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-5">
+            <div class="payment-summary" id="paymentSummary"></div>
+          </div>
+          <div class="col-lg-7">
+            <div class="payment-method-tabs">
+              <button type="button" class="payment-method active" data-method="card"><i class="bi bi-credit-card"></i><span>Card Payment</span></button>
+              <button type="button" class="payment-method" data-method="wallet"><i class="bi bi-wallet2"></i><span>Digital Wallet</span></button>
+            </div>
+            <form id="paymentForm" class="mt-3">
+              <div id="cardFields">
+                <label class="form-label">Cardholder Name</label>
+                <input class="form-control mb-3" id="cardName" placeholder="Name on card">
+                <label class="form-label">Card Number</label>
+                <input class="form-control mb-3" id="cardNumber" inputmode="numeric" maxlength="19" placeholder="1234 5678 9012 3456">
+                <div class="row g-3">
+                  <div class="col-6"><label class="form-label">Expiry</label><input class="form-control" id="cardExpiry" placeholder="MM/YY"></div>
+                  <div class="col-6"><label class="form-label">CVV</label><input class="form-control" id="cardCvv" maxlength="4" inputmode="numeric" placeholder="123"></div>
+                </div>
+              </div>
+              <div id="walletFields" class="d-none">
+                <label class="form-label">Wallet Email / Mobile</label>
+                <input class="form-control mb-3" id="walletContact" placeholder="Enter your wallet contact">
+                <label class="form-label">Wallet Provider</label>
+                <select class="form-select"><option>Digital Wallet</option><option>Mobile Wallet</option><option>Online Wallet</option></select>
+              </div>
+              <button type="submit" class="btn btn-primary w-100 mt-4"><i class="bi bi-lock-fill me-2"></i>Pay Securely &amp; Confirm Booking</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JSON + AJAX + PHP SECTION -->
+    <section class="container py-5" id="ajaxBookingSection">
+        <div class="booking-card p-4">
+            <div class="booking-card-header mb-4">
+                <div>
+                    <p class="modal-small-title mb-1">VELORA</p>
+                    <h2>Booking Storage Manager</h2>
+                    <p>Load all stored bookings, search one booking by ID, or add a new booking.</p>
+                </div>
+                <button type="button" class="btn btn-primary" id="loadAllBookingsBtn">
+                    <i class="bi bi-arrow-clockwise me-1"></i> Load All Bookings
+                </button>
+            </div>
+
+            <div id="ajaxMessage" class="alert d-none" role="alert"></div>
+
+            <div class="row g-4">
+                <div class="col-lg-5">
+                    <div class="border rounded-4 p-4 h-100 bg-light">
+                        <h5 class="mb-3"><i class="bi bi-search me-2"></i>Find One Booking</h5>
+                        <div class="input-group mb-4">
+                            <input type="text" class="form-control" id="searchBookingId" placeholder="Example: VLR1001">
+                            <button class="btn btn-outline-primary" type="button" id="findBookingBtn">Find</button>
+                        </div>
+                        <div id="singleBookingResult" class="small text-muted">Enter a Booking ID to read one room record.</div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="border rounded-4 p-4 h-100">
+                        <h5 class="mb-3"><i class="bi bi-plus-circle me-2"></i>Add New Booking</h5>
+                        <form id="ajaxBookingForm">
+                            <div class="row g-3">
+                                <div class="col-md-6"><input class="form-control" id="newHotel" placeholder="Hotel name" required></div>
+                                <div class="col-md-6"><input class="form-control" id="newRoom" placeholder="Room type" required></div>
+                                <div class="col-md-6"><input type="date" class="form-control" id="newCheckIn" required></div>
+                                <div class="col-md-6"><input type="date" class="form-control" id="newCheckOut" required></div>
+                                <div class="col-md-4"><input type="number" min="1" class="form-control" id="newGuests" placeholder="Guests" required></div>
+                                <div class="col-md-4"><input class="form-control" id="newDestination" placeholder="Destination" required></div>
+                                <div class="col-md-4">
+                                    <select class="form-select" id="newStatus" required>
+                                        <option value="Confirmed">Confirmed</option>
+                                        <option value="Pending">Pending</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3 w-100">Save Booking to VELORA</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-3 mt-3" id="jsonBookingCards"></div>
+        </div>
+    </section>
+
+    <!-- BOOKINGS SECTION -->
+    <main class="bookings-section">
+
+        <div class="container">
+
+            <div class="booking-card">
+
+                <!-- Booking Card Heading -->
+                <div class="booking-card-header">
+
+                    <div>
+                        <h2>Your Reservations</h2>
+
+                        <p>
+                            Review your hotel bookings, dates and current reservation status.
+                        </p>
+                    </div>
+
+                    <span class="booking-count" id="bookingCount">0 Bookings</span>
+
+                </div>
+
+
+                <!-- Bootstrap Responsive Table -->
+                <div class="table-responsive">
+
+                    <table class="table table-striped table-hover align-middle">
+
+                        <!-- Table Head -->
+                        <thead>
+
+                            <tr>
+                                <th>Booking ID</th>
+                                <th>Hotel</th>
+                                <th>Room</th>
+                                <th>Check-in</th>
+                                <th>Check-out</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+
+                        </thead>
+
+
+                        <!-- Table Body -->
+                        <tbody id="bookingsTableBody"></tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- VIEW BOOKING MODAL -->
+
+    <div class="modal fade"
+        id="bookingModal"
+        tabindex="-1">
+
+        <div class="modal-dialog modal-dialog-centered">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+
+                    <div>
+                        <p class="modal-small-title">
+                            VELORA RESERVATION
+                        </p>
+
+                        <h5 class="modal-title">
+                            Booking Details
+                        </h5>
+                    </div>
+
+                    <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal">
+                    </button>
+
+                </div>
+
+
+                <div class="modal-body" id="bookingModalBody"></div>
+                <div class="modal-footer">
+
+                    <button type="button"
+                        class="btn close-modal-btn"
+                        data-bs-dismiss="modal">
+
+                        Close
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- CANCEL MODAL -->
+
+    <div class="modal fade"
+        id="cancelModal"
+        tabindex="-1">
+
+        <div class="modal-dialog modal-dialog-centered">
+
+            <div class="modal-content text-center cancel-modal">
+
+                <div class="modal-body">
+
+                    <div class="cancel-icon">
+                        <i class="bi bi-exclamation-circle"></i>
+                    </div>
+
+                    <h4>Cancel this booking?</h4>
+
+                    <p>
+                        Are you sure you want to cancel this reservation?
+                        This is a front-end demonstration only.
+                    </p>
+
+                    <div class="cancel-modal-buttons">
+
+                        <button type="button"
+                            class="btn keep-btn"
+                            data-bs-dismiss="modal">
+
+                            Keep Booking
+                        </button>
+
+                        <button type="button"
+                            class="btn confirm-cancel-btn"
+                            onclick="confirmCancelBooking()">
+
+                            Yes, Cancel
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- BOOKING SUCCESS MODAL -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content success-booking-modal text-center">
+          <div class="modal-body p-5">
+            <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="success-icon"><i class="bi bi-check-lg"></i></div>
+            <p class="small-title mb-2">VELORA RESERVATION</p>
+            <h3 class="fw-bold">Thank you, dear!</h3>
+            <p class="text-muted">Your payment was successful and your hotel reservation has been confirmed. We look forward to welcoming you.</p>
+            <div class="success-booking-details" id="successBookingText"></div>
+            <button type="button" class="btn btn-primary px-4 mt-3" data-bs-dismiss="modal">Done</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+
+    <footer class="footer py-4">
+  <div class="container">
+    <div class="row align-items-center g-3">
+      <div class="col-md-6">
+        <h4>VELORA</h4>
+        <p class="mb-0">Where Every Stay Becomes a Story</p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <p class="mb-2">© 2026 Velora. All Rights Reserved.</p>
+        
+        <div class="footer-socials mt-2">
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+
+    <!-- jQuery CDN -->
+     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+
+     <script>
+$(document).ready(function () {
+
+    <!-- Hotels & Rooms Page (jQuery)-->
+
+    <!-- 1) DOM TRAVERSAL -->
+    $(".booking-card").on("dblclick", "tbody tr", function () {
+
+    var $row = $(this).closest("tr");
+    var $hotelCell = $row.find("td").eq(1);
+    var hotelName = $hotelCell.text().trim();
+
+    $hotelCell.css({
+        "background-color": "#d1e7dd",
+        "font-weight": "bold"
+    });
+
+    alert("Selected Hotel: " + hotelName);
+});
+
+
+    <!-- 2) DOM MODIFICATION --> 
+    $(".booking-card-header").after(
+        '<div id="jqueryMessage" class="alert alert-info mt-3" style="display:none;">' +
+        '<i class="bi bi-info-circle me-2"></i>' +
+        'jQuery is helping you manage your reservations.' +
+        '</div>'
+    );
+
+
+    <!-- 3) DOM ATTRIBUTE MODIFICATION -->
+    $(".booking-card").on("mouseenter", "button", function () {
+
+        $(this).attr(
+            "title",
+            "Click to manage this Velora booking"
+        );
+
+    });
+
+
+    <!-- 4) CSS MANIPULATION --> 
+    $(".hero-text").on("mouseenter", function () {
+
+    $(this).css({
+        "transform": "scale(1.05)",
+        "transition": "0.3s",
+        "cursor": "pointer"
+    });
+
+});
+
+$(".hero-text").on("mouseleave", function () {
+
+    $(this).css({
+        "transform": "scale(1)",
+        "transition": "0.3s"
+    });
+
+});
+
+
+    <!-- 5) JAVASCRIPT EFFECTS -->
+    $(".booking-card-header").on("click", function () {
+
+        $("#jqueryMessage")
+            .stop(true, true)
+            .slideToggle(400);
+
+    });
+
+
+    <!-- 6) HTML EVENTS -->
+    $(".booking-card").on("mouseenter", "tbody tr", function () {
+
+        $(this).css("cursor", "pointer");
+
+    });
+
+    $(".booking-card").on("mouseleave", "tbody tr", function () {
+
+        $(this).css("cursor", "default");
+
+    });
+
+});
+</script>
+
+<!-- JSON + AJAX -->
+ 
+<script>
+
+$(document).ready(function () {
+
+    function showAjaxMessage(message, type) {
+        $("#ajaxMessage")
+            .removeClass("d-none alert-success alert-danger alert-info")
+            .addClass("alert-" + type)
+            .text(message);
+    }
+
+    function bookingCard(booking) {
+        return `
+            <div class="col-md-6 col-xl-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <span class="booking-id">#${booking.id}</span>
+                            <span class="badge ${booking.status === 'Pending' ? 'pending' : 'confirmed'}">${booking.status}</span>
+                        </div>
+                        <h5 class="card-title">${booking.hotel}</h5>
+                        <p class="mb-1"><strong>Room:</strong> ${booking.room}</p>
+                        <p class="mb-1"><strong>Check-in:</strong> ${booking.checkIn}</p>
+                        <p class="mb-1"><strong>Check-out:</strong> ${booking.checkOut}</p>
+                        <p class="mb-1"><strong>Guests:</strong> ${booking.guests}</p>
+                        <p class="mb-3"><strong>Destination:</strong> ${booking.destination}</p>
+                        <button class="btn btn-sm btn-outline-primary json-view-btn" data-id="${booking.id}">
+                            View This Record
+                        </button>
+                    </div>
+                </div>
+            </div>`;
+    }
+
+    // GET: read ALL records from my_bookings.json through PHP.
+    function loadAllJsonBookings() {
+        $.ajax({
+            url: "my_bookings_api.php",
+            type: "GET",
+            dataType: "json",
+            success: function (response) {
+                if (!response.success) {
+                    showAjaxMessage(response.message || "Could not load bookings.", "danger");
+                    return;
+                }
+
+                let cards = "";
+                $.each(response.data, function (index, booking) {
+                    cards += bookingCard(booking);
+                });
+                $("#jsonBookingCards").html(cards || '<div class="col-12 text-muted">No JSON records found.</div>');
+                showAjaxMessage(response.data.length + " booking record(s) loaded from VELORA.", "success");
+            },
+            error: function () {
+                showAjaxMessage("Server request failed. Run the project through XAMPP/WAMP/MAMP so PHP can execute.", "danger");
+            }
+        });
+    }
+
+    $("#loadAllBookingsBtn").on("click", loadAllJsonBookings);
+
+    // GET: read ONE record using ?id=BOOKING_ID.
+    $("#findBookingBtn").on("click", function () {
+        const id = $("#searchBookingId").val().trim();
+        if (!id) {
+            showAjaxMessage("Please enter a Booking ID.", "info");
+            return;
+        }
+
+        $.ajax({
+            url: "my_bookings_api.php",
+            type: "GET",
+            data: { id: id },
+            dataType: "json",
+            success: function (response) {
+                if (!response.success) {
+                    $("#singleBookingResult").html('<span class="text-danger">' + response.message + '</span>');
+                    return;
+                }
+                const b = response.data;
+                $("#singleBookingResult").html(
+                    '<div class="card border-0 shadow-sm"><div class="card-body">' +
+                    '<strong>#' + b.id + ' - ' + b.hotel + '</strong><br>' +
+                    'Room: ' + b.room + '<br>' +
+                    'Dates: ' + b.checkIn + ' to ' + b.checkOut + '<br>' +
+                    'Guests: ' + b.guests + '<br>' +
+                    'Destination: ' + b.destination + '<br>' +
+                    'Status: ' + b.status +
+                    '</div></div>'
+                );
+            },
+            error: function () {
+                showAjaxMessage("Could not read the selected record.", "danger");
+            }
+        });
+    });
+
+    // Card button also demonstrates reading one record at a time.
+    $("#jsonBookingCards").on("click", ".json-view-btn", function () {
+        $("#searchBookingId").val($(this).data("id"));
+        $("#findBookingBtn").trigger("click");
+        document.getElementById("ajaxBookingSection").scrollIntoView({ behavior: "smooth" });
+    });
+
+    // POST: add a new record and let PHP update my_bookings.json.
+    $("#ajaxBookingForm").on("submit", function (event) {
+        event.preventDefault();
+
+        const newBooking = {
+            hotel: $("#newHotel").val().trim(),
+            room: $("#newRoom").val().trim(),
+            checkIn: $("#newCheckIn").val(),
+            checkOut: $("#newCheckOut").val(),
+            guests: $("#newGuests").val(),
+            destination: $("#newDestination").val().trim(),
+            status: $("#newStatus").val()
+        };
+
+        $.ajax({
+            url: "my_bookings_api.php",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(newBooking),
+            dataType: "json",
+            success: function (response) {
+                if (!response.success) {
+                    showAjaxMessage(response.message || "Booking was not saved.", "danger");
+                    return;
+                }
+                showAjaxMessage("New booking " + response.data.id + " was saved to my_bookings.json.", "success");
+                $("#ajaxBookingForm")[0].reset();
+                loadAllJsonBookings();
+            },
+            error: function () {
+                showAjaxMessage("Could not save the booking. Check PHP server permissions.", "danger");
+            }
+        });
+    });
+
+    // Load JSON records when the page opens.
+    loadAllJsonBookings();
+});
+</script>
+
+</body>
+
+</html>
